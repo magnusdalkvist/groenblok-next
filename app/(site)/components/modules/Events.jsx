@@ -20,9 +20,9 @@ export default async function Events({ module }) {
             .filter((_) => _.date >= date)
             .map((event, i) => <EventListItem key={i} event={event} />)}
         {module.show == "previous" &&
-          //filter events that are in the future
+          //filter events that are in the past
           events
-            .filter((_) => _.date > date)
+            .filter((_) => _.date < date)
             .map((event, i) => <EventListItem key={i} event={event} />)}
       </div>
     </div>
