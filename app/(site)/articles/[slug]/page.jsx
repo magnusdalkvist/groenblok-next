@@ -1,6 +1,6 @@
 import { getArticle } from "../../../../sanity/sanity-utils";
 import { notFound } from "next/navigation";
-import RenderPortableText from "../../../components/RenderPortableText";
+import RenderPortableText from "../../components/RenderPortableText";
 import Link from "next/link";
 
 export default async function Article({ params, searchParams }) {
