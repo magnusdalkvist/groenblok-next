@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta http-equiv="Cache-Control" content="public" />
+        <meta httpEquiv="Cache-Control" content="public" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
