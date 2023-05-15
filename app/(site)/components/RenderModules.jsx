@@ -1,5 +1,3 @@
-"use client";
-
 import Hero from "./modules/Hero";
 import ShopSection from "./modules/ShopSection";
 import SlidingInfoCards from "./modules/SlidingInfoCards";
