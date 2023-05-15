@@ -1,5 +1,3 @@
-"use client";
-
 import { getHome } from "../sanity/sanity-utils";
 import RenderModules from "./components/RenderModules";
 import Link from "next/link";

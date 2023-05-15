@@ -5,6 +5,8 @@ export default async function Events({ module }) {
   const events = await getEvents();
   const date = new Date().toISOString().substring(0, 10);
 
+  console.log(module);
+
   events.sort((a, b) => (a.date > b.date ? 1 : -1));
 
   return (
@@ -17,7 +19,7 @@ export default async function Events({ module }) {
           events
             .filter((_) => _.date >= date)
             .map((event, i) => <EventListItem key={i} event={event} />)}
-        {module.show == "past" &&
+        {module.show == "previous" &&
           //filter events that are in the future
           events
             .filter((_) => _.date > date)
@@ -46,6 +48,8 @@ function EventListItem({ event }) {
         alt={event.image.alt}
         width={event.image.width}
         height={event.image.height}
+        placeholder="blur"
+        blurDataURL={event.image.blurDataURL}
       />
     </div>
   );

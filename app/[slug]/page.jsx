@@ -1,5 +1,3 @@
-"use client";
-
 import { getPage } from "../../sanity/sanity-utils";
 import { notFound } from "next/navigation";
 import RenderModules from "../components/RenderModules";
