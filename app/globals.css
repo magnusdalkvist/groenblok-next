@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -18,10 +18,76 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
+} */
+
+.button-shadow {
+  background-color: black;
+  transition: 300ms;
+  border: 1px solid black;
+  color: #ff8c00;
+}
+
+.button-shadow:hover {
+  background-color: #ff8c00;
+  transition: 300ms;
+  color: black;
+  box-shadow: 4px 4px 0 0 black;
+}
+
+.button-shadow:active {
+  background-color: black;
+  color: #ff8c00;
+  box-shadow: none;
+}
+
+.button-block {
+  position: relative;
+  z-index: 2;
+  color: #12471e;
+  overflow: hidden;
+  transition: color 150ms;
+}
+
+.button-block:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: #12471e;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  transition: 500ms ease-in-out;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-block:hover:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.button-block:hover {
+  color: white;
+  transition: color 250ms 250ms;
+}
+
+.infoCardsWrapper {
+  display: flex;
+}
+
+.infoCard {
+  flex: 1;
+  display: grid;
+  transition: all;
+  transition-duration: 500ms;
+  grid-template-columns: 50% 0px;
+  overflow: hidden;
+}
+
+.infoCard:hover {
+  grid-template-columns: 50% 50%;
 }
