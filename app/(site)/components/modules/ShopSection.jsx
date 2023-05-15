@@ -16,9 +16,9 @@ export default function ShopSection({ module }) {
                 {imageButton.title}
               </h3>
               <Image
-                src={imageButton.image.url}
-                width={imageButton.image.width}
-                height={imageButton.image.height}
+                src={imageButton?.image?.url}
+                width={imageButton?.image?.width}
+                height={imageButton?.image?.height}
                 alt=""
                 className="rounded"
               />

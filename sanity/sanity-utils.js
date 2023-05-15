@@ -18,7 +18,9 @@ export async function getArticle(slug) {
 
 export async function getHome() {
   const query = HOME_QUERY_SANITY;
-  const params = {};
+  const params = {
+    cache: "no-store",
+  };
   return createClient(clientConfig).fetch(query, params);
 }
 
