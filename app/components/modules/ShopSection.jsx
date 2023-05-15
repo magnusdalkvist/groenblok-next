@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function ShopSection({ module }) {
-  // console.log(module);
   return (
     <div
       className="w-full flex flex-col justify-center relative bg-lightGreen"

@@ -7,8 +7,6 @@ export default async function Events({ module }) {
 
   events.sort((a, b) => (a.date > b.date ? 1 : -1));
 
-  console.log(module);
-
   return (
     <div className="w-full h-screen relative" datatype="hero">
       <div className="grid grid-cols-3 gap-y-4">

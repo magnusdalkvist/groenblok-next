@@ -10,8 +10,6 @@ export default async function Article({ params, searchParams }) {
     notFound();
   }
 
-  console.log(article);
-
   return (
     <div>
       <h1>{article?.title}</h1>

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function SlidingInfoCards({ module }) {
-  // console.log(module);
   const [activeCard, setActiveCard] = useState(0);
 
   return (

@@ -4,18 +4,17 @@ import SlidingInfoCards from "./modules/SlidingInfoCards";
 import NumberedInfoList from "./modules/NumberedInfoList";
 import Events from "./modules/Events";
 
-export default function RenderModules({ modules, events }) {
-  // console.log(modules);
+export default function RenderModules({ modules }) {
   return (
     <>
       {modules.map((module, i) => {
-        return <Module module={module} events={events} key={i}></Module>;
+        return <Module module={module} key={i}></Module>;
       })}
     </>
   );
 }
 
-function Module({ module, events }) {
+function Module({ module }) {
   switch (module._type) {
     case "module.hero":
       return <Hero module={module} />;
@@ -26,7 +25,7 @@ function Module({ module, events }) {
     case "module.numberedInfoList":
       return <NumberedInfoList module={module} />;
     case "module.events":
-      return <Events module={module} events={events} />;
+      return <Events module={module} />;
     default:
       return null;
   }

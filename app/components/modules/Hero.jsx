@@ -4,7 +4,6 @@ import Image from "next/image";
 import RenderBlocks from "../RenderBlocks";
 
 export default function Hero({ module }) {
-  // console.log(module.backgroundImage.url);
   //blurdataurl is like this link https://cdn.sanity.io/images/at6buhh6/production/dfe7a1e3b5cf8f1bd3f6e9406a29fa20740e509a-2880x1800.jpg but take the sizes and make them 1% of the original
   // const blurDataURL = module?.backgroundImage?.url + `?&auto=format&blur=100`;
 

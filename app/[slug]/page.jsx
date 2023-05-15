@@ -11,8 +11,6 @@ export default async function Page({ params, searchParams }) {
     notFound();
   }
 
-  console.log(page);
-
   return (
     <div>
       <h1>{page?.title}</h1>
