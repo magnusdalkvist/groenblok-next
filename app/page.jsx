@@ -1,3 +1,5 @@
+"use client";
+
 // import { createContext } from "react";
 import { getEvents, getHome } from "../sanity/sanity-utils";
 import RenderModules from "./components/RenderModules";
