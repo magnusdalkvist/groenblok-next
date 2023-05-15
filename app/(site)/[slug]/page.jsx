@@ -6,7 +6,7 @@ export default async function Page({ params, searchParams }) {
   const page = await getPage(params.slug);
 
   if (!page) {
-    notFound();
+    return <div>hej</div>;
   }
 
   return <RenderModules modules={page.modules} />;
