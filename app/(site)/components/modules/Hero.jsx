@@ -2,8 +2,6 @@ import Image from "next/image";
 import RenderBlocks from "../RenderBlocks";
 
 export default function Hero({ module }) {
-  console.log(module);
-
   return (
     <div className="w-full h-screen relative" datatype="hero">
       <Image

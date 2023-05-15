@@ -5,8 +5,6 @@ export default async function Events({ module }) {
   const events = await getEvents();
   const date = new Date().toISOString().substring(0, 10);
 
-  console.log(module);
-
   events.sort((a, b) => (a.date > b.date ? 1 : -1));
 
   return (
