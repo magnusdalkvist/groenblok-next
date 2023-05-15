@@ -1,5 +1,3 @@
-"use client";
-
 import { getEvents } from "../../../sanity/sanity-utils";
 import Image from "next/image";
 
