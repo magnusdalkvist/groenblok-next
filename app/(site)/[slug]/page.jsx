@@ -9,10 +9,5 @@ export default async function Page({ params, searchParams }) {
     notFound();
   }
 
-  return (
-    <div>
-      <h1>{page?.title}</h1>
-      <RenderModules modules={page.modules} />
-    </div>
-  );
+  return <RenderModules modules={page.modules} />;
 }
