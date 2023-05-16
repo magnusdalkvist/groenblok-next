@@ -8,7 +8,7 @@ export default async function Events({ module }) {
   events.sort((a, b) => (a.date > b.date ? 1 : -1));
 
   return (
-    <div className="w-full h-screen relative" datatype="hero">
+    <div className="" datatype="events">
       <div className="grid grid-cols-3 gap-y-4">
         {module.show == "custom" &&
           module?.events.map((event, i) => <EventListItem key={i} event={event} />)}

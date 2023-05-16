@@ -8,7 +8,7 @@ export default function SlidingInfoCards({ module }) {
   const [activeCard, setActiveCard] = useState(0);
 
   return (
-    <div className="w-full h-screen relative" datatype="slidingInfoCard">
+    <div className="" datatype="slidingInfoCard">
       <h2>{module?.title}</h2>
       <div className="infoCardsWrapper">
         {module?.cards.map((card, i) => {

@@ -9,5 +9,5 @@ export default async function Page({ params, searchParams }) {
     notFound();
   }
 
-  return <RenderModules modules={page.modules} />;
+  return <RenderModules modules={page?.modules} />;
 }

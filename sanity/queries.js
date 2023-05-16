@@ -32,3 +32,20 @@ export const EVENT_QUERY_SANITY = groq`
       ${IMAGE}
     }
 }`;
+
+export const SETTINGS_QUERY_SANITY = groq`
+*[_type == "settings"][0] {
+  ...,
+  headerTemplate->{
+    ...,
+    modules[]{
+      ...,
+      "logo": logo {
+        ${IMAGE}
+      },
+    }
+  },
+  footerTemplate->{
+    ...,
+  },
+}`;

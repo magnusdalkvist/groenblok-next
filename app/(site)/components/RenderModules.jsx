@@ -7,7 +7,7 @@ import Events from "./modules/Events";
 export default function RenderModules({ modules }) {
   return (
     <>
-      {modules.map((module, i) => {
+      {modules?.map((module, i) => {
         return <Module module={module} key={i}></Module>;
       })}
     </>

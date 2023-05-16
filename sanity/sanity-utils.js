@@ -4,8 +4,11 @@ import clientConfig from "./config/client-config";
 import {
   ARTICLE_QUERY_SANITY,
   EVENT_QUERY_SANITY,
+  FOOTER_QUERY_SANITY,
+  HEADER_QUERY_SANITY,
   HOME_QUERY_SANITY,
   PAGE_QUERY_SANITY,
+  SETTINGS_QUERY_SANITY,
 } from "./queries";
 
 export async function getArticle(slug) {
@@ -21,6 +24,18 @@ export async function getHome() {
   const params = {
     cache: "no-store",
   };
+  return createClient(clientConfig).fetch(query, params);
+}
+
+export async function getSanitySettings() {
+  const query = SETTINGS_QUERY_SANITY;
+  const params = {};
+  return createClient(clientConfig).fetch(query, params);
+}
+
+export async function getFooter() {
+  const query = FOOTER_QUERY_SANITY;
+  const params = {};
   return createClient(clientConfig).fetch(query, params);
 }
 
