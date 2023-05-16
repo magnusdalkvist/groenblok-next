@@ -1,4 +1,4 @@
-import { getPage } from "../../../sanity/sanity-utils";
+import { getPage } from "../../../sanity/fragments/sanity-utils";
 import { notFound } from "next/navigation";
 import RenderModules from "../components/RenderModules";
 

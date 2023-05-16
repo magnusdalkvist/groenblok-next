@@ -1,4 +1,4 @@
-import { getEvents } from "../../../../sanity/sanity-utils";
+import { getEvents } from "../../../../sanity/fragments/sanity-utils";
 import Image from "next/image";
 
 export default async function Events({ module }) {
