@@ -51,7 +51,7 @@ export default function Header({ module }) {
         >
           <div
             className={clsx(
-              "transition-all z-10 duration-300 absolute inset-0 bg-white flex justify-center items-center",
+              "transition-all z-10 h-10 duration-300 cursor-pointer absolute inset-0 bg-white flex justify-center items-center",
               scrollPosition > 100 && !isClicked
                 ? "opacity-1"
                 : "opacity-0 pointer-events-none delay-300"
@@ -70,7 +70,12 @@ export default function Header({ module }) {
                 >
                   {menuItem.title}
                 </Link>
-                <div className={clsx("flex flex-col", isHovered ? "" : "hidden")}>
+                <div
+                  className={clsx(
+                    "flex flex-col transition-all duration-300",
+                    isHovered ? "opacity-1 h-full delay-[50ms]" : "opacity-0 h-0"
+                  )}
+                >
                   {menuItem?.subMenu?.map((subMenuItem, index) => (
                     <Link
                       className="px-4 text-center py-2 bg-white hover:bg-black hover:text-white relative"
