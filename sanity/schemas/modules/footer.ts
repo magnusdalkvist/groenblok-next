@@ -1,28 +1,40 @@
-import {BulbOutlineIcon} from '@sanity/icons'
-import {defineField} from 'sanity'
+import { BulbOutlineIcon } from "@sanity/icons";
+import { defineField } from "sanity";
 
 export default defineField({
-  name: 'module.footer',
-  title: 'Footer',
-  type: 'object',
+  name: "module.footer",
+  title: "Footer",
+  type: "object",
   icon: BulbOutlineIcon,
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "adresse",
+      title: "Adresse",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "email",
+      title: "Email",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "cvr",
+      title: "CVR",
+      type: "string",
       validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
-      title: 'title',
+      title: "title",
     },
     prepare() {
       return {
-        title: 'Footer',
+        title: "Footer",
         media: BulbOutlineIcon,
-      }
+      };
     },
   },
-})
+});
