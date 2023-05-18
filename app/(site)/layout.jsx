@@ -15,6 +15,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const sanitySettings = await getSanitySettings();
+
   const headersList = headers();
   const referer = headersList.get("referer");
   return (
