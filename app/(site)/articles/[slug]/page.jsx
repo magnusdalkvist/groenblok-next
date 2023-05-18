@@ -1,4 +1,4 @@
-import { getArticle } from "../../../../sanity/sanity-utils";
+import { getArticle } from "../../../../sanity/fragments/sanity-utils";
 import { notFound } from "next/navigation";
 import RenderPortableText from "../../components/RenderPortableText";
 import Link from "next/link";
