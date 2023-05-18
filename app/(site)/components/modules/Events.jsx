@@ -42,12 +42,12 @@ function EventListItem({ event }) {
         </span>
       </div>
       <Image
-        src={event.image.url}
-        alt={event.image.alt}
-        width={event.image.width}
-        height={event.image.height}
-        placeholder="blur"
-        blurDataURL={event.image.blurDataURL}
+        src={event.image?.url}
+        alt={event.image?.alt}
+        width={event.image?.width}
+        height={event.image?.height}
+        placeholder={event.image?.blurDataURL && "blur"}
+        blurDataURL={event.image?.blurDataURL}
       />
     </div>
   );

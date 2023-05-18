@@ -24,10 +24,13 @@ export default function Header({ module }) {
   }, []);
 
   return (
-    <div className="fixed top-0 z-10 w-full p-5 flex justify-between items-start" datatype="header">
+    <div
+      className="fixed  text-darkGreen top-0 z-10 w-full p-5 flex justify-between items-start"
+      datatype="header"
+    >
       <div
         className={clsx(
-          "bg-white flex items-center transition-all duration-300 justify-center",
+          "flex items-center transition-all duration-300 justify-center",
           scrollPosition > 100 && !isClicked ? "w-10 h-10 delay-300" : "w-[100px] h-[100px]"
         )}
       >
@@ -36,8 +39,8 @@ export default function Header({ module }) {
           width={module.logo.width}
           height={module.logo.height}
           className="object-cover h-full w-full"
-          placeholder="blur"
-          blurDataURL={module?.logo?.blurDataURL}
+          placeholder={module.logo?.blurDataURL && "blur"}
+          blurDataURL={module.logo?.blurDataURL}
           priority={true}
         />
       </div>
@@ -51,7 +54,7 @@ export default function Header({ module }) {
         >
           <div
             className={clsx(
-              "transition-all z-10 h-10 duration-300 cursor-pointer absolute inset-0 bg-white flex justify-center items-center",
+              "transition-all z-10 h-10 duration-300 cursor-pointer absolute inset-0 bg-lightBeige flex justify-center items-center",
               scrollPosition > 100 && !isClicked
                 ? "opacity-1"
                 : "opacity-0 pointer-events-none delay-300"
@@ -65,7 +68,7 @@ export default function Header({ module }) {
               <div className="flex flex-col" key={index} ref={hoverRef}>
                 <Link
                   ref={hoverRef}
-                  className="px-4 text-center py-2 min-w-[100px] bg-white hover:bg-black hover:text-white relative"
+                  className="px-4 text-center py-2 min-w-[100px] bg-lightBeige hover:bg-darkGreen hover:text-white relative"
                   href={menuItem.link}
                 >
                   {menuItem.title}
@@ -78,7 +81,7 @@ export default function Header({ module }) {
                 >
                   {menuItem?.subMenu?.map((subMenuItem, index) => (
                     <Link
-                      className="px-4 text-center py-2 bg-white hover:bg-black hover:text-white relative"
+                      className="px-4 text-center py-2 bg-lightBeige hover:bg-darkGreen hover:text-white relative"
                       href={subMenuItem.link}
                       key={index}
                     >
@@ -93,7 +96,7 @@ export default function Header({ module }) {
       </div>
       <div
         className={clsx(
-          "md:hidden cursor-pointer bg-white flex justify-center items-center w-10 h-10"
+          "md:hidden cursor-pointer bg-lightBeige flex justify-center items-center w-10 h-10"
         )}
         onClick={() => setNavOpen(!navOpen)}
       >

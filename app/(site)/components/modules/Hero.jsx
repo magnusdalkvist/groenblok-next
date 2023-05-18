@@ -5,13 +5,13 @@ export default function Hero({ module }) {
   return (
     <div className="w-full h-screen relative" datatype="hero">
       <Image
-        src={module?.backgroundImage?.url}
-        alt={module?.backgroundImage?.alt}
+        src={module.backgroundImage?.url}
+        alt={module.backgroundImage?.alt}
         className="object-cover h-full w-full"
-        width={module?.backgroundImage?.width}
-        height={module?.backgroundImage?.height}
-        placeholder="blur"
-        blurDataURL={module?.backgroundImage?.blurDataURL}
+        width={module.backgroundImage?.width}
+        height={module.backgroundImage?.height}
+        placeholder={module.backgroundImage?.blurDataURL && "blur"}
+        blurDataURL={module.backgroundImage?.blurDataURL}
         //prevents image from stretching in weird ways
         priority={true}
       />
