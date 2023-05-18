@@ -4,6 +4,7 @@ import { MODULE_SLIDING_INFO_CARDS } from "./slidingInfoCards";
 import { MODULE_SHOP_SECTION } from "./shopSection";
 import { MODULE_NUMBERED_INFO_LIST } from "./numberedInfoList";
 import { MODULE_EVENTS } from "./events";
+import { MODULE_IMAGE_WITH_TEXT } from "./imageWithText";
 
 export const MODULES_DEFINITION = groq`
   _key,
@@ -22,6 +23,9 @@ export const MODULES_DEFINITION = groq`
   },
   (_type == "module.events") => {
     ${MODULE_EVENTS}
+  },
+  (_type == "module.imageWithText") => {
+    ${MODULE_IMAGE_WITH_TEXT}
   },
 `;
 
