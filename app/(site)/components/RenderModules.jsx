@@ -3,6 +3,8 @@ import ShopSection from "./modules/ShopSection";
 import SlidingInfoCards from "./modules/SlidingInfoCards";
 import NumberedInfoList from "./modules/NumberedInfoList";
 import Events from "./modules/Events";
+import SkewedImagesWithText from "./modules/SkewedImagesWithText";
+import ImageWithText from "./modules/ImageWithText";
 
 export default function RenderModules({ modules }) {
   return (
@@ -26,6 +28,10 @@ function Module({ module }) {
       return <NumberedInfoList module={module} />;
     case "module.events":
       return <Events module={module} />;
+    case "module.skewedImagesWithText":
+      return <SkewedImagesWithText module={module} />;
+    case "module.imageWithText":
+      return <ImageWithText module={module} />;
     default:
       return null;
   }

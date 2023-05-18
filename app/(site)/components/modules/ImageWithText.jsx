@@ -2,18 +2,15 @@ import Image from "next/image";
 
 export default function ImageWithText({ module }) {
   return (
-    <div className="w-full relative" datatype="hero">
+    <div className="w-full flex justify-between container my-24" datatype="imagesWithText">
       <Image
-        src={module?.backgroundImage?.url}
-        alt={module?.backgroundImage?.alt}
-        className="object-cover h-full w-full"
-        placeholder="blur"
-        blurDataURL={module?.backgroundImage?.blurDataURL}
-        //prevents image from stretching in weird ways
-        priority={true}
+        src={module?.leftImage.url}
+        width={module.leftImage?.width}
+        height={module.leftImage?.height}
+        className="object-cover w-[300px]"
       />
-      <div className="">
-        <h2>{module?.title}</h2>
+      <div className="max-w-2xl">
+        <h2 className="text-4xl mb-5">{module?.title}</h2>
         <p>{module?.text}</p>
       </div>
     </div>

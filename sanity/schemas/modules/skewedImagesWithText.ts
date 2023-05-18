@@ -2,8 +2,8 @@ import { BulbOutlineIcon } from "@sanity/icons";
 import { defineField } from "sanity";
 
 export default defineField({
-  name: "module.imageWithText",
-  title: "Image With Text",
+  name: "module.skewedImagesWithText",
+  title: "Skewed Images With Text",
   type: "object",
   icon: BulbOutlineIcon,
   fields: [
@@ -19,12 +19,6 @@ export default defineField({
       type: "text",
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: "leftImage",
-      title: "Left Image",
-      type: "image",
-      validation: (Rule) => Rule.required(),
-    }),
   ],
   preview: {
     select: {
@@ -33,7 +27,7 @@ export default defineField({
     prepare({ title }) {
       return {
         title,
-        subtitle: "Left image with right text",
+        subtitle: "Skewed right images with left text",
         media: BulbOutlineIcon,
       };
     },
