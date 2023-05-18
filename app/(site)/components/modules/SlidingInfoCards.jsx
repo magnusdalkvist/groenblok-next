@@ -23,11 +23,13 @@ export default function SlidingInfoCards({ module }) {
             >
               <div className="flex flex-col">
                 <Image
-                  src={card.image.url}
-                  alt=""
+                  src={card.image?.url}
+                  alt={card.image?.alt}
                   className="rounded-sm"
-                  width={card.image.width}
-                  height={card.image.height}
+                  width={card.image?.width}
+                  height={card.image?.height}
+                  placeholder={card.image?.blurDataURL && "blur"}
+                  blurDataURL={card.image?.blurDataURL}
                 />
                 <h2>{card.title}</h2>
                 <h3>{card.subtitle}</h3>

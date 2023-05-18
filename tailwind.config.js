@@ -13,14 +13,14 @@ module.exports = {
       lg: "12px",
       full: "9999px",
     },
-    colors: {
-      darkGreen: "#12471e",
-      lightBeige: "#f9f4e8",
-      lightGreen: "#84b85c",
-      yellowAccent: "#e8ff8e",
-      orangeAccent: "#ff8c00",
-    },
     extend: {
+      colors: {
+        darkGreen: "#12471e",
+        lightBeige: "#f9f4e8",
+        lightGreen: "#84b85c",
+        yellowAccent: "#e8ff8e",
+        orangeAccent: "#ff8c00",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
