@@ -27,6 +27,22 @@ body {
   flex-direction: column;
 }
 
+ul {
+  padding-left: 40px;
+  padding-bottom: 1rem;
+}
+
+.square {
+  width: 5px;
+  height: 5px;
+  background-color: black;
+}
+
+main {
+  width: 1200px;
+  margin: 0 auto;
+}
+
 .button-shadow {
   background-color: black;
   transition: 300ms;

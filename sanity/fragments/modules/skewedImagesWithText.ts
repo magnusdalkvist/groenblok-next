@@ -4,5 +4,7 @@ export const MODULE_SKEWED_IMAGES_WITH_TEXT = groq`
   _key,
   _type,
   title,
-  text,
+  content[]{
+    ...,
+  },
 `;
