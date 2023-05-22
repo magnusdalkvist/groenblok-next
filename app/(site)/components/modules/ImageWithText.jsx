@@ -15,7 +15,7 @@ export default function ImageWithText({ module }) {
       </div>
       <BorderLines className="max-w-2xl" side="right">
         <div className="p-4">
-          <RenderBlocks blocks={module.blocks} />
+          <RenderBlocks blocks={module?.blocks} />
         </div>
       </BorderLines>
     </div>

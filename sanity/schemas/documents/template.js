@@ -37,6 +37,7 @@ export default defineField({
         { type: "module.imageGallery" },
         { type: "module.shopSection" },
         { type: "module.numberedInfoList" },
+        { type: "module.slickSlider" },
         { type: "module.header" },
         { type: "module.footer" },
       ],

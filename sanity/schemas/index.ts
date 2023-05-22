@@ -9,6 +9,7 @@ import imageGallery from "./modules/imageGallery";
 import shopSection from "./modules/shopSection";
 import imageWithText from "./modules/imageWithText";
 import skewedImagesWithText from "./modules/skewedImagesWithText";
+import slickSlider from "./modules/slickSlider";
 const modules = [
   header,
   footer,
@@ -21,6 +22,7 @@ const modules = [
   shopSection,
   imageWithText,
   skewedImagesWithText,
+  slickSlider,
 ];
 
 import articles from "./documents/article";

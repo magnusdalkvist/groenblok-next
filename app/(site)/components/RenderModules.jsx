@@ -5,6 +5,7 @@ import NumberedInfoList from "./modules/NumberedInfoList";
 import Events from "./modules/Events";
 import SkewedImagesWithText from "./modules/SkewedImagesWithText";
 import ImageWithText from "./modules/ImageWithText";
+import SlickSlider from "./modules/SlickSlider";
 
 export default function RenderModules({ modules }) {
   return (
@@ -32,6 +33,8 @@ function Module({ module }) {
       return <SkewedImagesWithText module={module} />;
     case "module.imageWithText":
       return <ImageWithText module={module} />;
+    case "module.slickSlider":
+      return <SlickSlider module={module} />;
     default:
       return null;
   }
