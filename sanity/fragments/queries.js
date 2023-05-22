@@ -21,9 +21,17 @@ export const ARTICLE_QUERY_SANITY = groq`
   ...,
   content[]{
     ...,
-    "image": image {
+    "bannerImage": bannerImage {
       ${IMAGE}
-    },
+    }
+  }
+}`;
+
+export const ARTICLES_QUERY_SANITY = groq`
+*[_type == "article"][] {
+  ...,
+  "bannerImage": bannerImage {
+    ${IMAGE}
   }
 }`;
 

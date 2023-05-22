@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Header module={sanitySettings.headerTemplate.modules[0]} />
-        {children}
+        <main className="flex-1">{children}</main>
         <Footer module={sanitySettings.footerTemplate.modules[0]} />
       </body>
     </html>

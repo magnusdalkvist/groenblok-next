@@ -13,6 +13,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "description",
+      type: "text",
+      title: "Description",
+      validation: (Rule) => Rule.required(),
+      rows: 3,
+    }),
+    defineField({
       name: "slug",
       type: "slug",
       title: "Slug",
