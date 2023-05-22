@@ -38,11 +38,6 @@ ul {
   background-color: black;
 }
 
-main {
-  width: 1200px;
-  margin: 0 auto;
-}
-
 .button-shadow {
   background-color: black;
   transition: 300ms;
