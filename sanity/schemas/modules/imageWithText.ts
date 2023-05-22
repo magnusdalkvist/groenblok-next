@@ -8,15 +8,10 @@ export default defineField({
   icon: BulbOutlineIcon,
   fields: [
     defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-      validation: (Rule) => Rule.required().error("You must add a title"),
-    }),
-    defineField({
-      name: "text",
-      title: "Text",
-      type: "text",
+      name: "blocks",
+      title: "Blocks",
+      type: "array",
+      of: [{ type: "block.title" }, { type: "block.copy" }, { type: "block.buttonGroup" }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({

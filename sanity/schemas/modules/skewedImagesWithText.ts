@@ -14,9 +14,21 @@ export default defineField({
       validation: (Rule) => Rule.required().error("You must add a title"),
     }),
     defineField({
-      name: "text",
-      title: "Text",
-      type: "text",
+      name: "content",
+      type: "array",
+      title: "Content",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "H1", value: "h1" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+            { title: "H4", value: "h4" },
+            { title: "Quote", value: "blockquote" },
+          ],
+        },
+      ],
       validation: (Rule) => Rule.required(),
     }),
   ],

@@ -30,6 +30,7 @@ export default defineField({
       of: [
         { type: "module.hero" },
         { type: "module.imageWithText" },
+        { type: "module.skewedImagesWithText" },
         { type: "module.slidingInfoCards" },
         { type: "module.events" },
         { type: "module.latestArticles" },

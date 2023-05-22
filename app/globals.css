@@ -21,8 +21,24 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
-  margin: 4rem;
+  margin: 0;
   padding: 0;
+}
+
+ul {
+  padding-left: 40px;
+  padding-bottom: 1rem;
+}
+
+.square {
+  width: 5px;
+  height: 5px;
+  background-color: black;
+}
+
+main {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .button-shadow {

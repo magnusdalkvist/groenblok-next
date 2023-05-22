@@ -1,18 +1,23 @@
 import Image from "next/image";
+import BorderLines from "../BorderLines";
+import RenderBlocks from "../RenderBlocks";
 
 export default function ImageWithText({ module }) {
   return (
     <div className="w-full flex justify-between container my-24" datatype="imagesWithText">
-      <Image
-        src={module?.leftImage.url}
-        width={module.leftImage?.width}
-        height={module.leftImage?.height}
-        className="object-cover w-[300px]"
-      />
-      <div className="max-w-2xl">
-        <h2 className="text-4xl mb-5">{module?.title}</h2>
-        <p>{module?.text}</p>
+      <div className="flex items-center justify-center w-full">
+        <Image
+          src={module?.leftImage.url}
+          width={module.leftImage?.width}
+          height={module.leftImage?.height}
+          className="object-cover w-[300px] mt-[16px]"
+        />
       </div>
+      <BorderLines className="max-w-2xl" side="right">
+        <div className="p-4">
+          <RenderBlocks blocks={module.blocks} />
+        </div>
+      </BorderLines>
     </div>
   );
 }

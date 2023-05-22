@@ -21,7 +21,9 @@ export const ARTICLE_QUERY_SANITY = groq`
   ...,
   content[]{
     ...,
-    "image": image.asset->url,
+    "image": image {
+      ${IMAGE}
+    },
   }
 }`;
 

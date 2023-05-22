@@ -12,7 +12,10 @@ export default function RenderPortableText({ content }) {
         />
       ),
     },
-
+    listItem: {
+      bullet: ({ children }) => <li className="list-[square] text-darkGreen mb-2">{children}</li>,
+      numbered: ({ children }) => <li className="list-decimal text-darkGreen mb-2">{children}</li>,
+    },
     marks: {
       link: ({ children, value }) => {
         const rel = !value.href.startsWith("/") ? "noreferrer noopener" : undefined;
