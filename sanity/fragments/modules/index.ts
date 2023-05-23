@@ -32,9 +32,6 @@ export const MODULES_DEFINITION = groq`
   (_type == "module.slickSlider") => {
     ${MODULE_SLICK_SLIDER}
   },
-  (_type == "module.slickSlider") => {
-    ${MODULE_FOOTER}
-  },
 `;
 
 export const MODULES = groq`

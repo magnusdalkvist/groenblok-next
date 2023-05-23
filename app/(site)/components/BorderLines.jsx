@@ -6,7 +6,7 @@ export default function BorderLines({ children, className, side }) {
           <div className="p-4 pt-8 relative">
             <div className="absolute left-0 right-0 top-4 h-[1px] bg-darkGreen" />
             <div className="absolute right-0 bottom-0 top-0 w-[1px] bg-darkGreen" />
-            <div className="absolute top-[14px] right-[-2px] h-[5px] w-[5px] bg-darkGreen" />
+            <div className="absolute top-[13px] right-[-3px] h-[7px] w-[7px] bg-darkGreen" />
             {children}
           </div>
         </div>
@@ -17,9 +17,9 @@ export default function BorderLines({ children, className, side }) {
           <div className="p-4 pt-8 relative">
             <div className="absolute left-0 right-0 top-4 h-[1px] bg-darkGreen" />
             <div className="absolute right-0 bottom-0 top-0 w-[1px] bg-darkGreen" />
-            <div className="absolute top-[14px] right-[-2px] h-[5px] w-[5px] bg-darkGreen" />
+            <div className="absolute top-[13px] right-[-3px] h-[7px] w-[7px] bg-darkGreen" />
             <div className="absolute left-0 bottom-0 top-0 w-[1px] bg-darkGreen" />
-            <div className="absolute top-[14px] left-[-2px] h-[5px] w-[5px] bg-darkGreen" />
+            <div className="absolute top-[13px] left-[-3px] h-[7px] w-[7px] bg-darkGreen" />
             {children}
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function BorderLines({ children, className, side }) {
           <div className="p-4 pt-8 relative">
             <div className="absolute left-0 right-0 top-4 h-[1px] bg-darkGreen" />
             <div className="absolute left-0 bottom-0 top-0 w-[1px] bg-darkGreen" />
-            <div className="absolute top-[14px] left-[-2px] h-[5px] w-[5px] bg-darkGreen" />
+            <div className="absolute top-[13px] left-[-3px] h-[7px] w-[7px] bg-darkGreen" />
             {children}
           </div>
         </div>

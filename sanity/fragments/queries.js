@@ -1,6 +1,7 @@
 import { MODULES } from "./modules";
 import { groq } from "next-sanity";
 import { IMAGE } from "./image";
+import { MODULE_FOOTER } from "./modules/footer";
 
 export const HOME_QUERY_SANITY = groq`
 *[_type == 'home'][0] {
@@ -57,5 +58,8 @@ export const SETTINGS_QUERY_SANITY = groq`
   },
   footerTemplate->{
     ...,
+    modules[]{
+      ${MODULE_FOOTER}
+    },
   },
 }`;
