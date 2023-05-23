@@ -21,8 +21,21 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
-  margin: 4rem;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  padding-left: 40px;
+  padding-bottom: 1rem;
+}
+
+.square {
+  width: 5px;
+  height: 5px;
+  background-color: black;
 }
 
 .button-shadow {
@@ -93,4 +106,8 @@ body {
 
 .infoCard:hover {
   grid-template-columns: 50% 50%;
+}
+
+.selected {
+  font-weight: bold;
 }

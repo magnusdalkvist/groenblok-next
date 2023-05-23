@@ -2,6 +2,7 @@ import { createClient } from "next-sanity";
 import clientConfig from "./config/client-config";
 
 import {
+  ARTICLES_QUERY_SANITY,
   ARTICLE_QUERY_SANITY,
   EVENT_QUERY_SANITY,
   HOME_QUERY_SANITY,
@@ -14,6 +15,14 @@ export async function getArticle(slug) {
   const params = {
     next: { revalidate: 600 },
     slug,
+  };
+  return createClient(clientConfig).fetch(query, params);
+}
+
+export async function getArticles() {
+  const query = ARTICLES_QUERY_SANITY;
+  const params = {
+    next: { revalidate: 600 },
   };
   return createClient(clientConfig).fetch(query, params);
 }

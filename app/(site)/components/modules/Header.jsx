@@ -25,7 +25,7 @@ export default function Header({ module }) {
 
   return (
     <div
-      className="fixed  text-darkGreen top-0 z-10 left-0 right-0 p-5 flex justify-between items-start"
+      className="fixed  text-darkGreen top-0 z-10 left-0 right-0 py-5 px-10 flex justify-between items-start"
       datatype="header"
     >
       <div

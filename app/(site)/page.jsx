@@ -4,14 +4,5 @@ import BorderLines from "./components/BorderLines";
 
 export default async function Home() {
   const home = await getHome();
-  return (
-    <main>
-      <RenderModules modules={home?.modules} />
-      <div className="flex">
-        <BorderLines side="right">Hej med dig</BorderLines>
-        <BorderLines side="center">Hej med dig</BorderLines>
-        <BorderLines side="left">Hej med dig</BorderLines>
-      </div>
-    </main>
-  );
+  return <RenderModules modules={home?.modules} />;
 }
