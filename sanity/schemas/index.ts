@@ -25,7 +25,7 @@ const modules = [
   slickSlider,
 ];
 
-import articles from "./documents/article";
+import article from "./documents/article";
 import authors from "./documents/author";
 import categories from "./documents/category";
 import settings from "./documents/settings";
@@ -33,7 +33,25 @@ import home from "./documents/home";
 import template from "./documents/template";
 import page from "./documents/page";
 import event from "./documents/event";
-const documents = [articles, authors, categories, settings, home, template, page, event];
+import video from "./documents/video";
+import report from "./documents/report";
+import podcast from "./documents/podcast";
+import advice from "./documents/advice";
+
+const documents = [
+  article,
+  video,
+  podcast,
+  report,
+  advice,
+  authors,
+  categories,
+  settings,
+  home,
+  template,
+  page,
+  event,
+];
 
 import buttonGroup from "./blocks/buttonGroup";
 import copy from "./blocks/copy";
