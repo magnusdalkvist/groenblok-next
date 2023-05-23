@@ -6,6 +6,7 @@ import { MODULE_NUMBERED_INFO_LIST } from "./numberedInfoList";
 import { MODULE_EVENTS } from "./events";
 import { MODULE_IMAGE_WITH_TEXT } from "./imageWithText";
 import { MODULE_SLICK_SLIDER } from "./slickSlider";
+import { MODULE_FOOTER } from "./footer";
 
 export const MODULES_DEFINITION = groq`
   _key,
@@ -30,6 +31,9 @@ export const MODULES_DEFINITION = groq`
   },
   (_type == "module.slickSlider") => {
     ${MODULE_SLICK_SLIDER}
+  },
+  (_type == "module.slickSlider") => {
+    ${MODULE_FOOTER}
   },
 `;
 

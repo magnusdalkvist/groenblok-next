@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function SlickSlider({ module }) {
-  console.log(module);
   return (
     <div className="w-full my-24" datatype="slickSlider">
       <h3>Partnere</h3>
