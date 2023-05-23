@@ -1,16 +1,18 @@
+"use client";
 import Image from "next/image";
+import { EmblaCarousel } from "../EmblaCarousel";
 
 export default function SlickSlider({ module }) {
   return (
-    <div className="w-full my-24" datatype="slickSlider">
+    <div className="" datatype="slickSlider">
       <h3>Partnere</h3>
-      <div className="flex gap-2">
+      <EmblaCarousel>
         {module?.images?.map((image, i) => (
-          <div key={i} className="">
-            <Image src={image?.url} width={100} height={100}></Image>
+          <div key={i} className="embla__slide">
+            <Image src={image?.url} width={200} height={200}></Image>
           </div>
         ))}
-      </div>
+      </EmblaCarousel>
     </div>
   );
 }

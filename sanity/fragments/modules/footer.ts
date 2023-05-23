@@ -7,7 +7,7 @@ export const MODULE_FOOTER = groq`
   adresse, 
   email,
   cvr,
-  image {
-      ${IMAGE}
-    },
+  "image": image {
+    ${IMAGE}
+  }
 `;

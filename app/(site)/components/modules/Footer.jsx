@@ -1,13 +1,14 @@
 import Link from "next/link";
-import BorderLines from "../BorderLines";
+import BorderLinesBox from "../BorderLinesBox";
 import Image from "next/image";
 
 export default function Footer({ module }) {
+  console.log(module);
   return (
-    <div className="bg-lightBeige p-4 flex items-center justify-center" datatype="footer">
-      <BorderLines className="" side="left">
-        <div className="flex justify-between w-[1200px]">
-          <div>
+    <div className="bg-lightBeige w-full p-8" datatype="footer">
+      <BorderLinesBox className="w-full">
+        <div className="flex w-full justify-between py-20 px-14">
+          <div className="flex flex-col gap-4">
             <div className="mb-2">
               <h3 className="text-2xl">Adresse</h3>
               <p className="text-sm">{module?.adresse.street}</p>
@@ -23,18 +24,20 @@ export default function Footer({ module }) {
               <p className="text-sm">{module?.cvr}</p>
             </div>
           </div>
-          <div className="flex flex-col">
-            <Link href={"/test-igen"}>Privatpolitik</Link>
-            <Link href={"/test-igen"}>Vilkår & betingelser</Link>
-            <Link href={"/test-igen"}>Cookie politik</Link>
-            <div>
-              <Image src={module.image?.url} width={100} height={100}></Image>
+          <div className="flex flex-col justify-between">
+            <div className="flex flex-col gap-2">
+              <Link href={"/test-igen"}>Privatpolitik</Link>
+              <Link href={"/test-igen"}>Vilkår & betingelser</Link>
+              <Link href={"/test-igen"}>Cookie politik</Link>
+            </div>
+            <div className="justify-self-end">
+              <Image src={module?.image.url} width={100} height={100}></Image>
             </div>
           </div>
           <div className="flex flex-col justify-center">
-            <h3 className="text-2xl mb-2">Tilmeld dig her</h3>
-            <form className="flex gap-1">
-              <div className="flex flex-col gap-2">
+            <h3 className="text-2xl mb-4">Tilmeld dig her</h3>
+            <form className="flex gap-x-5">
+              <div className="flex flex-col">
                 <label htmlFor="email" className="text-sm">
                   E-mail
                 </label>
@@ -45,11 +48,15 @@ export default function Footer({ module }) {
                   className="border-2  border-darkGreen p-1"
                 />
               </div>
-              <input type="submit" value="Tilmeld" className="bg-orangeAccent border p-4" />
+              <input
+                type="submit"
+                value="Tilmeld"
+                className="bg-orangeAccent border py-1.5 px-8 self-end"
+              />
             </form>
           </div>
         </div>
-      </BorderLines>
+      </BorderLinesBox>
     </div>
   );
 }
