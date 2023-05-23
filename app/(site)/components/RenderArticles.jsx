@@ -4,48 +4,35 @@ import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Image from "next/image";
 import clsx from "clsx";
+import BorderLines from "./BorderLines";
+import Accordion from "./Accordion";
 
 export default function RenderArticles({ articles, tags }) {
   const [filteredArticles, setFilteredArticles] = useState(articles);
   const [selectedTags, setSelectedTags] = useState([]);
 
   const changeTag = (tag) => {
-    //when you click a tag it should be added to the selectedTags array and add to the url
-    //if the tag is already in the array it should be removed and removed from the url
-    //remove # from tag
-    tag = tag.replace("#", "");
-    if (selectedTags.includes(tag)) {
-      setSelectedTags(selectedTags.filter((selectedTag) => selectedTag !== tag));
-    }
-    if (!selectedTags.includes(tag)) {
-      setSelectedTags([...selectedTags, tag]);
-    }
-
     const tagWithoutHash = tag.replace("#", "");
-    const url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-    if (params.get("tag") === tagWithoutHash) {
-      params.delete("tag");
-    } else {
-      params.set("tag", tagWithoutHash);
+    if (selectedTags.includes(tagWithoutHash)) {
+      setSelectedTags(selectedTags.filter((tag) => tag !== tagWithoutHash));
     }
-    window.history.replaceState({}, "", `${url.pathname}?${params}`);
-    // window.history.pushState({}, "", `${url.pathname}?${params}`);
+    if (!selectedTags.includes(tagWithoutHash)) {
+      setSelectedTags([...selectedTags, tagWithoutHash]);
+    }
   };
 
   useEffect(() => {
-    const url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-    const searchPramsTag = Array.isArray(params.get("tag"))
-      ? params.get("tag")
-      : [params.get("tag")];
+    //set filtered articles to articles that matches selected tags
     setFilteredArticles(
-      params.get("tag")
-        ? articles.filter((article) =>
-            searchPramsTag.every((tag) => article.tags.includes("#" + tag))
-          )
-        : articles
+      articles.filter((article) => {
+        return selectedTags.every((tag) => article.tags.includes("#" + tag));
+      })
     );
+
+    //if no tags are selected, set filtered articles to all articles
+    if (selectedTags.length === 0) {
+      setFilteredArticles(articles);
+    }
   }, [selectedTags]);
 
   function Items({ currentItems }) {
@@ -64,7 +51,12 @@ export default function RenderArticles({ articles, tags }) {
             <h2>{article.title}</h2>
             <div className="flex flex-wrap gap-x-2">
               {article.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
+                <span
+                  key={tag}
+                  className={clsx(selectedTags.includes(tag.replace("#", "")) && "font-bold")}
+                >
+                  {tag}
+                </span>
               ))}
             </div>
             <p>{article.description}</p>
@@ -116,13 +108,21 @@ export default function RenderArticles({ articles, tags }) {
 
   return (
     <div>
-      <div className="flex gap-4">
-        {tags.map((tag, i) => (
-          <div key={i} onClick={() => changeTag(tag)}>
-            {tag}
+      <BorderLines side="left">
+        <Accordion title="Find by latest tags">
+          <div className="flex gap-4">
+            {tags.map((tag, i) => (
+              <div
+                key={i}
+                onClick={() => changeTag(tag)}
+                className={clsx(selectedTags.includes(tag.replace("#", "")) && "font-bold")}
+              >
+                {tag}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </Accordion>
+      </BorderLines>
       <PaginatedItems itemsPerPage={8} />
     </div>
   );

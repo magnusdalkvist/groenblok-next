@@ -13,7 +13,7 @@ export default async function Page({ params, searchParams }) {
 
   return (
     <div className="pt-[140px]">
-      <h1>Test</h1>
+      <h1 className="text-[90px]">Artikler</h1>
       <RenderArticles tags={tags} articles={articles} />
     </div>
   );
