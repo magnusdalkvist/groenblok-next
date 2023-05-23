@@ -3,7 +3,6 @@ import BorderLinesBox from "../BorderLinesBox";
 import Image from "next/image";
 
 export default function Footer({ module }) {
-  console.log(module);
   return (
     <div className="bg-lightBeige w-full p-8" datatype="footer">
       <BorderLinesBox className="w-full">

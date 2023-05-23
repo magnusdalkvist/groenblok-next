@@ -12,6 +12,8 @@ export default function MagazineContent({ magazine }) {
 
   let allTags = [];
 
+  console.log(magazine);
+
   // Iterate over each category in the magazine
   for (let category in magazine) {
     // Retrieve the items for the current category
@@ -98,14 +100,14 @@ export default function MagazineContent({ magazine }) {
     // (This could be items from props; or items loaded in a local state
     // from an API endpoint with useEffect and useState)
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     const currentItems = items.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(items.length / itemsPerPage);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % items.length;
-      console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+      // console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
       setItemOffset(newOffset);
     };
 
