@@ -12,10 +12,8 @@ export const MODULE_SLIDING_INFO_CARDS = groq`
     subtitle,
     description,
     "image": image {
+      ...,
       ${IMAGE}
     },
-  },
-  "backgroundImage": backgroundImage.asset->{
-    ${IMAGE}
   },
 `;

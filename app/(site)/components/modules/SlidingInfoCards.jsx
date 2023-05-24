@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export default function SlidingInfoCards({ module }) {
   const [activeCard, setActiveCard] = useState(0);
-
   return (
     <div className="" datatype="slidingInfoCard">
       <h2>{module?.title}</h2>

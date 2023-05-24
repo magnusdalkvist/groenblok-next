@@ -10,7 +10,10 @@ export default function ImageWithText({ module }) {
           src={module?.leftImage.url}
           width={module.leftImage?.width}
           height={module.leftImage?.height}
-          className="object-cover w-[300px] mt-[16px]"
+          alt={module.leftImage?.alt}
+          placeholder={module.leftImage?.blurDataURL && "blur"}
+          blurDataURL={module.leftImage?.blurDataURL}
+          className="object-cover w-[300px] mt-[16px] rounded-sm"
         />
       </div>
       <BorderLines className="max-w-2xl" side="right">
