@@ -98,13 +98,14 @@ export default defineType({
     select: {
       title: "title",
       subtitle: "slug.current",
+      image: "bannerImage",
     },
     prepare(selection) {
-      const { title, subtitle } = selection;
+      const { title, subtitle, image } = selection;
       return {
         title,
         subtitle: "/articles/" + subtitle,
-        media: DocumentIcon,
+        media: image || DocumentIcon,
       };
     },
   },

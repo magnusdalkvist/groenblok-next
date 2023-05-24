@@ -10,6 +10,41 @@ export const HOME_QUERY_SANITY = groq`
 }
 `;
 
+export const MAGAZINE_QUERY_SANITY = groq`
+{
+    "articles": *[_type=="article"]{
+      ...,
+      bannerImage {
+        ${IMAGE}
+      }
+    },
+    "videos": *[_type=="video"]{
+      ...,
+      bannerImage {
+        ${IMAGE}
+      }
+    },
+    "podcasts": *[_type=="podcast"]{
+      ...,
+      bannerImage {
+        ${IMAGE}
+      }
+    },
+    "reports": *[_type=="report"]{
+      ...,
+      bannerImage {
+        ${IMAGE}
+      }
+    },
+    "advice": *[_type=="advice"]{
+      ...,
+      bannerImage {
+        ${IMAGE}
+      }
+    }
+}
+`;
+
 export const PAGE_QUERY_SANITY = groq`
 *[_type == 'page' && slug.current == $slug ][0] {
   title,

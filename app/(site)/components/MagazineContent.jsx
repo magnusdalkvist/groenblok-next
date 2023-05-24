@@ -7,33 +7,57 @@ import clsx from "clsx";
 import BorderLines from "./BorderLines";
 import Accordion from "./Accordion";
 
-export default function RenderArticles({ articles, tags }) {
-  const [filteredArticles, setFilteredArticles] = useState(articles);
+export default function MagazineContent({ magazine }) {
+  const { articles, videos, podcasts, reports, advice } = magazine;
+
+  let allTags = [];
+
+  console.log(magazine);
+
+  // Iterate over each category in the magazine
+  for (let category in magazine) {
+    // Retrieve the items for the current category
+    let items = magazine[category];
+
+    // Iterate over each item in the category
+    for (let item of items) {
+      // Retrieve the tags for the current item
+      let tags = item.tags;
+
+      // Add each tag to the 'allTags' array
+      allTags = allTags.concat(tags);
+    }
+  }
+
+  // Remove duplicates from the 'allTags' array
+  let uniqueTags = [...new Set(allTags)];
+
   const [selectedTags, setSelectedTags] = useState([]);
+  const [currentItems, setCurrentItems] = useState(videos);
+  const [filteredItems, setFilteredItems] = useState(currentItems);
 
   const changeTag = (tag) => {
-    const tagWithoutHash = tag.replace("#", "");
-    if (selectedTags.includes(tagWithoutHash)) {
-      setSelectedTags(selectedTags.filter((tag) => tag !== tagWithoutHash));
+    if (selectedTags.includes(tag)) {
+      setSelectedTags(selectedTags.filter((tag) => tag !== tag));
     }
-    if (!selectedTags.includes(tagWithoutHash)) {
-      setSelectedTags([...selectedTags, tagWithoutHash]);
+    if (!selectedTags.includes(tag)) {
+      setSelectedTags([...selectedTags, tag]);
     }
   };
 
   useEffect(() => {
     //set filtered articles to articles that matches selected tags
-    setFilteredArticles(
-      articles.filter((article) => {
-        return selectedTags.every((tag) => article.tags.includes("#" + tag));
+    setFilteredItems(
+      currentItems.filter((item) => {
+        return selectedTags.every((tag) => item.tags.includes(tag));
       })
     );
 
     //if no tags are selected, set filtered articles to all articles
     if (selectedTags.length === 0) {
-      setFilteredArticles(articles);
+      setFilteredItems(currentItems);
     }
-  }, [selectedTags]);
+  }, [selectedTags, currentItems]);
 
   function Items({ currentItems }) {
     return (
@@ -51,10 +75,7 @@ export default function RenderArticles({ articles, tags }) {
             <h2>{article.title}</h2>
             <div className="flex flex-wrap gap-x-2">
               {article.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className={clsx(selectedTags.includes(tag.replace("#", "")) && "font-bold")}
-                >
+                <span key={tag} className={clsx(selectedTags.includes(tag) && "font-bold")}>
                   {tag}
                 </span>
               ))}
@@ -70,7 +91,7 @@ export default function RenderArticles({ articles, tags }) {
     );
   }
 
-  function PaginatedItems({ itemsPerPage }) {
+  function PaginatedItems({ itemsPerPage, items }) {
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);
@@ -79,14 +100,14 @@ export default function RenderArticles({ articles, tags }) {
     // (This could be items from props; or items loaded in a local state
     // from an API endpoint with useEffect and useState)
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    const currentItems = filteredArticles.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(filteredArticles.length / itemsPerPage);
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    const currentItems = items.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(items.length / itemsPerPage);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % filteredArticles.length;
-      console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+      const newOffset = (event.selected * itemsPerPage) % items.length;
+      // console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
       setItemOffset(newOffset);
     };
 
@@ -107,15 +128,22 @@ export default function RenderArticles({ articles, tags }) {
   }
 
   return (
-    <div>
+    <div className="mt-[140px]">
+      <div className="flex gap-4">
+        {Object.entries(magazine).map(([key]) => (
+          <div key={key} onClick={() => setCurrentItems(magazine[key])}>
+            {key}
+          </div>
+        ))}
+      </div>
       <BorderLines side="left">
         <Accordion title="Find by latest tags">
           <div className="flex gap-4">
-            {tags.map((tag, i) => (
+            {uniqueTags.map((tag, i) => (
               <div
                 key={i}
                 onClick={() => changeTag(tag)}
-                className={clsx(selectedTags.includes(tag.replace("#", "")) && "font-bold")}
+                className={clsx(selectedTags.includes(tag) && "font-bold")}
               >
                 {tag}
               </div>
@@ -123,7 +151,7 @@ export default function RenderArticles({ articles, tags }) {
           </div>
         </Accordion>
       </BorderLines>
-      <PaginatedItems itemsPerPage={8} />
+      <PaginatedItems itemsPerPage={8} items={filteredItems} />
     </div>
   );
 }
