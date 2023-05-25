@@ -5,7 +5,7 @@ import { EmblaCarousel } from "../EmblaCarousel";
 export default function SlickSlider({ module }) {
   return (
     <div className="py-14" datatype="slickSlider">
-      <h3 className="">Partnere</h3>
+      <h3 className="">{module?.title}</h3>
       <EmblaCarousel>
         {module?.images?.map((image, i) => (
           <div key={i} className="embla__slide">

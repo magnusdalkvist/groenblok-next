@@ -38,6 +38,7 @@ export default defineField({
         { type: "module.shopSection" },
         { type: "module.numberedInfoList" },
         { type: "module.slickSlider" },
+        { type: "module.instagramFeedComponent" },
         { type: "module.header" },
         { type: "module.footer" },
       ],

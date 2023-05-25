@@ -122,3 +122,27 @@ ul {
   flex: 0 0 25%;
   min-width: 0;
 }
+
+/* #instafeed-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4rem;
+  justify-content: center;
+  padding: 4rem;
+  box-sizing: border-box;
+} */
+
+#instafeed-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  gap: 2rem;
+}
+
+#instafeed-container img {
+  width: 400px; /* Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed */
+  object-fit: cover;
+  border-radius: 6px;
+}

@@ -10,6 +10,7 @@ import shopSection from "./modules/shopSection";
 import imageWithText from "./modules/imageWithText";
 import skewedImagesWithText from "./modules/skewedImagesWithText";
 import slickSlider from "./modules/slickSlider";
+import instagramFeedComponent from "./modules/instagramFeedComponent";
 const modules = [
   header,
   footer,
@@ -23,6 +24,7 @@ const modules = [
   imageWithText,
   skewedImagesWithText,
   slickSlider,
+  instagramFeedComponent,
 ];
 
 import article from "./documents/article";
@@ -56,6 +58,7 @@ const documents = [
 import buttonGroup from "./blocks/buttonGroup";
 import copy from "./blocks/copy";
 import title from "./blocks/title";
+
 const blocks = [buttonGroup, copy, title];
 
 export const schemaTypes = [...documents, ...modules, ...blocks];

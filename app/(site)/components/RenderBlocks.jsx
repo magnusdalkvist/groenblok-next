@@ -5,7 +5,7 @@ import Title from "./blocks/Title";
 export default function RenderBlocks({ blocks }) {
   return (
     <>
-      {blocks.map((block, i) => {
+      {blocks?.map((block, i) => {
         return <Block block={block} key={i}></Block>;
       })}
     </>

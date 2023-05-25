@@ -8,6 +8,12 @@ export default defineField({
   icon: BulbOutlineIcon,
   fields: [
     defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "blocks",
       title: "Blocks",
       type: "array",

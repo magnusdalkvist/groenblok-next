@@ -1,19 +1,21 @@
-import Image from "next/image";
 import BorderLines from "../BorderLines";
+import RenderBlocks from "../RenderBlocks";
 
-export default function ImageWithText({ module }) {
+export default function SkewedImagesWithText({ module }) {
+  console.log(module);
   return (
-    <div className="w-full">
-      <BorderLines className="">
-        <h2>{module?.title}</h2>
-        <p>{module?.text}</p>
-      </BorderLines>
-      <div className="">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <BorderLines className="">
+      <div className="grid grid-cols-2 justify-between w-full">
+        <div>
+          <RenderBlocks blocks={module?.blocks} />
+        </div>
+        <div className="">
+          <div>Link til seneste opslag</div>
+          <div>Link til seneste opslag</div>
+          <div>Link til seneste opslag</div>
+          <div>Link til seneste opslag</div>
+        </div>
       </div>
-    </div>
+    </BorderLines>
   );
 }

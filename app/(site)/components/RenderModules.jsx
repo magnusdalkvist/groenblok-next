@@ -6,6 +6,7 @@ import Events from "./modules/Events";
 import SkewedImagesWithText from "./modules/SkewedImagesWithText";
 import ImageWithText from "./modules/ImageWithText";
 import SlickSlider from "./modules/SlickSlider";
+import InstagramFeedComponent from "./modules/InstagramFeedComponent";
 
 export default function RenderModules({ modules }) {
   return (
@@ -35,6 +36,8 @@ function Module({ module }) {
       return <ImageWithText module={module} />;
     case "module.slickSlider":
       return <SlickSlider module={module} />;
+    case "module.instagramFeedComponent":
+      return <InstagramFeedComponent module={module} />;
     default:
       return null;
   }
