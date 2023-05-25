@@ -24,83 +24,39 @@ export default function Header({ module }) {
   }, []);
 
   return (
-    <div
-      className="fixed  text-darkGreen top-0 z-10 left-0 right-0 py-5 px-10 flex justify-between items-start"
-      datatype="header"
-    >
-      <div
-        className={clsx(
-          "flex items-center transition-all duration-300 justify-center",
-          scrollPosition > 100 && !isClicked ? "w-10 h-10 delay-300" : "w-[100px] h-[100px]"
-        )}
-      >
-        <Image
-          src={module.logo.url}
-          width={module.logo.width}
-          height={module.logo.height}
-          className="object-cover h-full w-full"
-          placeholder={module.logo?.blurDataURL && "blur"}
-          blurDataURL={module.logo?.blurDataURL}
-          priority={true}
-        />
-      </div>
-      <div className="hidden md:flex justify-end">
-        <div
-          onClick={() => setIsClicked(true)}
-          className={clsx(
-            "flex relative transition-all duration-300 overflow-hidden",
-            scrollPosition > 100 && !isClicked ? "w-10 delay-300" : "w-full"
-          )}
-        >
-          <div
-            className={clsx(
-              "transition-all z-10 h-10 duration-300 cursor-pointer absolute inset-0 bg-lightBeige flex justify-center items-center",
-              scrollPosition > 100 && !isClicked
-                ? "opacity-1"
-                : "opacity-0 pointer-events-none delay-300"
-            )}
-          >
-            ☰
-          </div>
-          {module?.menu?.map((menuItem, index) => {
-            const [hoverRef, isHovered] = useHover();
-            return (
-              <div className="flex flex-col" key={index} ref={hoverRef}>
-                <Link
-                  ref={hoverRef}
-                  className="px-4 text-center py-2 min-w-[100px] bg-lightBeige hover:bg-darkGreen hover:text-white relative"
-                  href={menuItem.link}
-                >
-                  {menuItem.title}
-                </Link>
-                <div
-                  className={clsx(
-                    "flex flex-col transition-all duration-300",
-                    isHovered ? "opacity-1 h-full delay-[50ms]" : "opacity-0 h-0"
-                  )}
-                >
-                  {menuItem?.subMenu?.map((subMenuItem, index) => (
-                    <Link
-                      className="px-4 text-center py-2 bg-lightBeige hover:bg-darkGreen hover:text-white relative"
-                      href={subMenuItem.link}
-                      key={index}
-                    >
-                      {subMenuItem.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+    <div className="bg-darkGreen-75" datatype="desktop-header">
+      <div className="max-w-[1200px] flex items-center justify-between p-4 h-[100px] mx-auto">
+        <div className={clsx("aspect-square h-full")}>
+          <Image
+            src={module.logo.url}
+            width={module.logo.width}
+            height={module.logo.height}
+            className="object-cover"
+            placeholder={module.logo?.blurDataURL && "blur"}
+            blurDataURL={module.logo?.blurDataURL}
+            priority={true}
+          />
         </div>
-      </div>
-      <div
-        className={clsx(
-          "md:hidden cursor-pointer bg-lightBeige flex justify-center items-center w-10 h-10"
-        )}
-        onClick={() => setNavOpen(!navOpen)}
-      >
-        {navOpen ? "X" : "☰"}
+        <div className="flex justify-end">
+          <div onClick={() => setIsClicked(true)} className={clsx("flex gap-4")}>
+            {module?.menu?.map((menuItem, index) => {
+              const [hoverRef, isHovered] = useHover();
+              return (
+                <div className="flex flex-col" key={index} ref={hoverRef}>
+                  <Link ref={hoverRef} className="" href={menuItem.link}>
+                    {menuItem.title}
+                  </Link>
+                  <div
+                    className={clsx(
+                      "flex flex-col transition-all duration-300",
+                      isHovered ? "opacity-1 h-full delay-[50ms]" : "opacity-0 h-0"
+                    )}
+                  ></div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
