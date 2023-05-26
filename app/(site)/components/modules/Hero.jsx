@@ -15,7 +15,7 @@ export default function Hero({ module }) {
         //prevents image from stretching in weird ways
         priority={true}
       />
-      <div className="absolute inset-0 flex flex-col justify-center  gap-4 p-4">
+      <div className="absolute inset-0 flex flex-col items-end text-right max-w-[50%] gap-4 p-4">
         <RenderBlocks blocks={module.blocks} />
       </div>
     </div>

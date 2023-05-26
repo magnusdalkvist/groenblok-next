@@ -7,6 +7,7 @@ import SkewedImagesWithText from "./modules/SkewedImagesWithText";
 import ImageWithText from "./modules/ImageWithText";
 import SlickSlider from "./modules/SlickSlider";
 import InstagramFeedComponent from "./modules/InstagramFeedComponent";
+import AccordionList from "./modules/AccordionList";
 
 export default function RenderModules({ modules }) {
   return (
@@ -38,6 +39,8 @@ function Module({ module }) {
       return <SlickSlider module={module} />;
     case "module.instagramFeedComponent":
       return <InstagramFeedComponent module={module} />;
+    case "module.accordionList":
+      return <AccordionList module={module} />;
     default:
       return null;
   }

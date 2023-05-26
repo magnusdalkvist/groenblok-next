@@ -11,6 +11,8 @@ import imageWithText from "./modules/imageWithText";
 import skewedImagesWithText from "./modules/skewedImagesWithText";
 import slickSlider from "./modules/slickSlider";
 import instagramFeedComponent from "./modules/instagramFeedComponent";
+import accordionList from "./modules/accordionList";
+
 const modules = [
   header,
   footer,
@@ -25,6 +27,7 @@ const modules = [
   skewedImagesWithText,
   slickSlider,
   instagramFeedComponent,
+  accordionList,
 ];
 
 import article from "./documents/article";

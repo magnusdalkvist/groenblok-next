@@ -1,56 +1,57 @@
-import {DocumentIcon} from '@sanity/icons'
-import {defineField, defineType} from 'sanity'
+import { DocumentIcon } from "@sanity/icons";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'page',
-  type: 'document',
-  title: 'Page',
+  name: "page",
+  type: "document",
+  title: "Page",
   fields: [
     defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Title',
+      name: "blocks",
+      title: "Blocks",
+      type: "array",
+      of: [{ type: "block.title" }, { type: "block.copy" }, { type: "block.buttonGroup" }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
+      name: "slug",
+      type: "slug",
+      title: "Slug",
       options: {
-        source: 'title',
+        source: "title",
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'template',
-      type: 'reference',
-      title: 'Page Template',
-      to: [{type: 'template'}],
+      name: "template",
+      type: "reference",
+      title: "Page Template",
+      to: [{ type: "template" }],
       options: {
         filter: () => {
           return {
             filter: `type == $type`,
             params: {
-              type: 'page',
+              type: "page",
             },
-          }
+          };
         },
       },
     }),
   ],
   preview: {
     select: {
-      title: 'title',
-      subtitle: 'slug.current',
+      title: "title",
+      subtitle: "slug.current",
     },
     prepare(selection) {
-      const {title, subtitle} = selection
+      const { title, subtitle } = selection;
       return {
         title,
-        subtitle: '/' + subtitle,
+        subtitle: "/" + subtitle,
         media: DocumentIcon,
-      }
+      };
     },
   },
-})
+});

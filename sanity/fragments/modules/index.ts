@@ -8,6 +8,7 @@ import { MODULE_IMAGE_WITH_TEXT } from "./imageWithText";
 import { MODULE_SLICK_SLIDER } from "./slickSlider";
 import { MODULE_SKEWED_IMAGES_WITH_TEXT } from "./skewedImagesWithText";
 import { MODULE_INSTAGRAM_FEED_COMPONENT } from "./instagramFeedComponent";
+import { MODULE_ACCORDION_LIST } from "./accordionList";
 
 export const MODULES_DEFINITION = groq`
   _key,
@@ -38,6 +39,9 @@ export const MODULES_DEFINITION = groq`
   },
    (_type == "module.instagramFeedComponent") => {
     ${MODULE_INSTAGRAM_FEED_COMPONENT}
+  },
+   (_type == "module.accordionList") => {
+    ${MODULE_ACCORDION_LIST}
   },
 `;
 

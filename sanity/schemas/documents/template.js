@@ -39,6 +39,7 @@ export default defineField({
         { type: "module.numberedInfoList" },
         { type: "module.slickSlider" },
         { type: "module.instagramFeedComponent" },
+        { type: "module.accordionList" },
         { type: "module.header" },
         { type: "module.footer" },
       ],
