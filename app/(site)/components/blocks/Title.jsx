@@ -1,3 +1,3 @@
 export default function Title({ block }) {
-  return <h1 className="font-bold text-5xl">{block.text}</h1>;
+  return <h1 className="font-black text-[80px] text-lightBeige">{block.text}</h1>;
 }

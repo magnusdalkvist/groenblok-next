@@ -7,6 +7,9 @@ export const MODULE_HERO = groq`
   blocks[] {
     ...,
   },
+  "grundprincipper": grundprincipper[] {
+    ...,
+  },
   "backgroundImage": backgroundImage {
     ${IMAGE}
   },

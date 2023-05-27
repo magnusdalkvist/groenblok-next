@@ -27,6 +27,10 @@ body {
   flex-direction: column;
 }
 
+main {
+  background-color: #f9f4e8;
+}
+
 ul {
   padding-left: 40px;
   padding-bottom: 1rem;
@@ -38,23 +42,24 @@ ul {
   background-color: black;
 }
 
-.button-shadow {
-  background-color: black;
+.button-trans {
+  background-color: none;
   transition: 300ms;
-  border: 1px solid black;
-  color: #ff8c00;
+  border: 1px solid #f9f4e8;
+  border-radius: 6px;
+  color: #f9f4e8;
 }
 
-.button-shadow:hover {
-  background-color: #ff8c00;
+.button-trans:hover {
+  background-color: #12471e;
   transition: 300ms;
-  color: black;
-  box-shadow: 4px 4px 0 0 black;
+  color: #f9f4e8;
+  border: 1px solid #12471e;
 }
 
-.button-shadow:active {
-  background-color: black;
-  color: #ff8c00;
+.button-trans:active {
+  background-color: #12471e;
+  color: #f9f4e8;
   box-shadow: none;
 }
 
