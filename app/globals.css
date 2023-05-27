@@ -27,6 +27,28 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  font-size: 90px;
+}
+h2 {
+  font-size: 60px;
+}
+h3 {
+  font-size: 40px;
+}
+h4 {
+  font-size: 36px;
+}
+h5 {
+  font-size: 26px;
+}
+h6 {
+  font-size: 140;
+}
+h7 {
+  font-size: 18px;
+}
+
 ul {
   padding-left: 40px;
   padding-bottom: 1rem;
