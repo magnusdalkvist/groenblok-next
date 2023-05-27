@@ -5,7 +5,7 @@ export default function ButtonGroup({ block }) {
     <div className="flex gap-4">
       {block?.buttons?.map((button, i) => {
         return (
-          <Button key={i} type="shadow" href={button?.link}>
+          <Button key={i} type="trans" href={button?.link}>
             {button?.text}
           </Button>
         );

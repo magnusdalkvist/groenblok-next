@@ -2,7 +2,7 @@ import ButtonGroup from "./blocks/ButtonGroup";
 import Copy from "./blocks/Copy";
 import Title from "./blocks/Title";
 
-export default function RenderBlocks({ blocks }) {
+export default function RenderBlocks({ blocks, className }) {
   return (
     <>
       {blocks?.map((block, i) => {

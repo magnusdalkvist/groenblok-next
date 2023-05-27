@@ -2,9 +2,9 @@ import clsx from "clsx";
 
 export default function Button({ type = "default", className = "px-4 py-1", children, href = "" }) {
   switch (type) {
-    case "shadow":
+    case "trans":
       return (
-        <button className={clsx("button-shadow", className)}>
+        <button className={clsx("button-trans", className)}>
           <a href={href}>{children}</a>
         </button>
       );

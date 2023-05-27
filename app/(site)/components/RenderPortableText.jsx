@@ -1,7 +1,9 @@
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
-export default function RenderPortableText({ content }) {
+export default function RenderPortableText({ content, color }) {
+  const textColor = color || "text-darkGreen";
+
   const myPortableTextComponents = {
     types: {
       image: ({ value }) => (
@@ -13,8 +15,8 @@ export default function RenderPortableText({ content }) {
       ),
     },
     listItem: {
-      bullet: ({ children }) => <li className="list-[square] text-darkGreen mb-2">{children}</li>,
-      numbered: ({ children }) => <li className="list-decimal text-darkGreen mb-2">{children}</li>,
+      bullet: ({ children }) => <li className={`list-[square] ${color} mb-2`}>{children}</li>,
+      numbered: ({ children }) => <li className={`list-decimal ${color} mb-2`}>{children}</li>,
     },
     marks: {
       link: ({ children, value }) => {
