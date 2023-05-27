@@ -57,6 +57,23 @@ export default function BorderLines({
           </div>
         </div>
       );
+    case "hero":
+      return (
+        <div className={className}>
+          <div className={`relative`}>
+            <div className={`absolute left-0 right-0 ${posTop} h-[1px] ${lineColor} z-10`} />
+            <div
+              className={`absolute right-[40px] bottom-[70%] top-[-70px] w-[1px] ${lineColor} z-10`}
+            />
+            <div className={`absolute top-[13px] right-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
+            <div
+              className={`absolute left-[40px] bottom-[20%] top-[-70px] w-[1px] ${lineColor} z-10`}
+            />
+            <div className={`absolute top-[13px] left-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
+            {children}
+          </div>
+        </div>
+      );
     default:
       return (
         <div className={className}>
