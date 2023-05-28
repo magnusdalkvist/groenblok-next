@@ -88,7 +88,7 @@ export default function BorderLines({
     default:
       return (
         <div className={className}>
-          <div className={defaultStyles}>
+          <div className={`p-4 ${topLinePadding} relative`}>
             <div className="absolute left-0 right-0 top-4 h-[1px] bg-darkGreen" />
             {children}
           </div>
