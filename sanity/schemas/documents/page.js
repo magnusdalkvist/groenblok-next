@@ -18,7 +18,7 @@ export default defineType({
       type: "slug",
       title: "Slug",
       options: {
-        source: "title",
+        source: "blocks.0.text",
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
@@ -42,7 +42,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: "title",
+      title: "blocks.0.text",
       subtitle: "slug.current",
     },
     prepare(selection) {

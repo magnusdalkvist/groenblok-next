@@ -6,7 +6,7 @@ import BorderLines from "./BorderLines";
 import Accordion from "./Accordion";
 import PaginatedItems from "./PaginatedItems";
 
-export default function EventContent({ events }) {
+export default function EventsContent({ events }) {
   const [selectedTags, setSelectedTags] = useState([]);
   const [filteredItems, setFilteredItems] = useState(events);
 

@@ -1,10 +1,10 @@
-import { DocumentIcon } from "@sanity/icons";
+import { CalendarIcon, DocumentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "advice",
+  name: "project",
   type: "document",
-  title: "Advice",
+  title: "Project",
   fields: [
     defineField({
       name: "title",
@@ -24,13 +24,15 @@ export default defineType({
       },
     }),
     defineField({
-      name: "description",
-      type: "text",
-      title: "Description",
+      name: "date",
+      type: "date",
+      title: "Date",
+      initialValue: () => new Date().toISOString().substring(0, 10),
+      options: {
+        dateFormat: "DD-MM-YYYY",
+      },
       validation: (Rule) => Rule.required(),
-      rows: 3,
     }),
-    //tags
     defineField({
       name: "tags",
       type: "array",
@@ -40,23 +42,27 @@ export default defineType({
         layout: "tags",
       },
     }),
-    //add article banner image
     defineField({
-      name: "bannerImage",
+      name: "image",
       type: "image",
-      title: "Banner Image",
+      title: "Image",
     }),
   ],
   preview: {
     select: {
       title: "title",
-      image: "bannerImage",
+      date: "date",
     },
     prepare(selection) {
-      const { title, image } = selection;
+      const { title, date } = selection;
       return {
         title,
-        media: image || DocumentIcon,
+        subtitle: new Date(date).toLocaleDateString("da-DK", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }),
+        media: CalendarIcon,
       };
     },
   },

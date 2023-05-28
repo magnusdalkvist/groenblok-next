@@ -30,7 +30,12 @@ export default function Footer({ module }) {
               <Link href={"/test-igen"}>Cookie politik</Link>
             </div>
             <div className="justify-self-end">
-              <Image src={module?.image.url} width={100} height={100}></Image>
+              <Image
+                src={module?.image.url}
+                width={100}
+                height={100}
+                alt={module?.image.alt}
+              ></Image>
             </div>
           </div>
           <div className="flex flex-col justify-center">

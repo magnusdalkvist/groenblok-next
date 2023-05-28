@@ -29,22 +29,6 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-    //author
-    defineField({
-      name: "author",
-      type: "reference",
-      title: "Author",
-      to: [{ type: "author" }],
-      validation: (Rule) => Rule.required(),
-    }),
-    //category
-    defineField({
-      name: "category",
-      type: "reference",
-      title: "Category",
-      to: [{ type: "category" }],
-      validation: (Rule) => Rule.required(),
-    }),
     //tags
     defineField({
       name: "tags",
