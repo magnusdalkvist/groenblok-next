@@ -47,6 +47,29 @@ export default defineType({
       type: "image",
       title: "Image",
     }),
+    defineField({
+      name: "content",
+      type: "array",
+      title: "Content",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "H1", value: "h1" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+            { title: "H4", value: "h4" },
+            { title: "Quote", value: "blockquote" },
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: "Location",
+      name: "location",
+      type: "geopoint",
+    }),
   ],
   preview: {
     select: {

@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@portabletext/react": "^2.0.2",
+    "@react-google-maps/api": "^2.18.1",
+    "@sanity/google-maps-input": "^3.0.1",
     "@sanity/vision": "^3.10.3",
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",

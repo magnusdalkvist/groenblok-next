@@ -19,7 +19,7 @@ export default function Hero({ module }) {
           priority={true}
         />
         <div className="flex justify-between w-full relative p-20">
-          <div class="flex relative inset-0 w-1/2 p-14">
+          <div className="flex relative inset-0 w-1/2 p-14">
             {module?.grundprincipper?.map((grundprincip, i) => {
               let marginTop = 0;
 

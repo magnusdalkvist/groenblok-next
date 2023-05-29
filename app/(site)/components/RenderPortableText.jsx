@@ -22,7 +22,7 @@ export default function RenderPortableText({ content, color }) {
       link: ({ children, value }) => {
         const rel = !value.href.startsWith("/") ? "noreferrer noopener" : undefined;
         return (
-          <a href={value.href} rel={rel}>
+          <a href={value.href} rel={rel} className="hover:underline">
             {children}
           </a>
         );
