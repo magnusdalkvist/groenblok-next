@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getEvents } from "../../../../sanity/fragments/sanity-utils";
 import Image from "next/image";
 
@@ -28,8 +29,9 @@ export default async function Events({ module }) {
 }
 
 export function EventListItem({ event }) {
+  console.log(event.slug.current);
   return (
-    <div className="eventList p-4 flex flex-col gap-2">
+    <Link href={"events/" + event.slug.current} className="eventList p-4 flex flex-col gap-2">
       <h2 className="text-2xl mb-8 flex-1">{event.title}</h2>
       <div className="flex items-end justify-between">
         <div className="flex flex-col text-xs">
@@ -49,6 +51,6 @@ export function EventListItem({ event }) {
         placeholder={event.image?.blurDataURL && "blur"}
         blurDataURL={event.image?.blurDataURL}
       />
-    </div>
+    </Link>
   );
 }
