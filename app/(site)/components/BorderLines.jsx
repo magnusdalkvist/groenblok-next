@@ -74,13 +74,22 @@ export default function BorderLines({
           </div>
         </div>
       );
-    default:
+    case "left":
       return (
         <div className={className}>
           <div className={`p-4 ${topLinePadding} relative`}>
             <div className={`absolute ${posLeft} right-0 ${posTop} h-[1px] ${lineColor}`} />
             <div className={`absolute left-0 bottom-0 ${sidelineHeight} w-[1px] ${lineColor}`} />
             <div className={`absolute ${posTopBlock} left-[-3px] h-[7px] w-[7px] ${lineColor}`} />
+            {children}
+          </div>
+        </div>
+      );
+    default:
+      return (
+        <div className={className}>
+          <div className={`p-4 ${topLinePadding} relative`}>
+            <div className="absolute left-0 right-0 top-4 h-[1px] bg-darkGreen" />
             {children}
           </div>
         </div>

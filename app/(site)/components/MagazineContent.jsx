@@ -6,12 +6,14 @@ import Image from "next/image";
 import clsx from "clsx";
 import BorderLines from "./BorderLines";
 import Accordion from "./Accordion";
+import PaginatedItems from "./PaginatedItems";
 
 export default function MagazineContent({ magazine }) {
   const { articles, videos, podcasts, reports, advice } = magazine;
+  const allPosts = [...articles, ...videos, ...podcasts, ...reports, ...advice];
 
   const [selectedTags, setSelectedTags] = useState([]);
-  const [currentItems, setCurrentItems] = useState();
+  const [currentItems, setCurrentItems] = useState(allPosts);
   const [filteredItems, setFilteredItems] = useState(currentItems);
 
   //get all tags from current items
@@ -44,88 +46,23 @@ export default function MagazineContent({ magazine }) {
     }
   }, [selectedTags, currentItems]);
 
-  function Items({ currentItems }) {
-    return (
-      <div className="grid grid-cols-[1fr_2fr_1fr] [&>*:nth-child(5n+2)]:row-span-3 grid-rows-[repeat(6,auto)] gap-4">
-        {currentItems?.map((article) => (
-          <div key={article._id} className="row-span-2">
-            <Image
-              src={article.bannerImage?.url}
-              alt={article.bannerImage?.alt}
-              width={article.bannerImage?.width}
-              height={article.bannerImage?.height}
-              placeholder={article.bannerImage?.blurDataURL && "blur"}
-              blurDataURL={article.bannerImage?.blurDataURL}
-            />
-            <h2>{article.title}</h2>
-            <div className="flex flex-wrap gap-x-2">
-              {article.tags.map((tag) => (
-                <span key={tag} className={clsx(selectedTags.includes(tag) && "font-bold")}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <p>{article.description}</p>
-            <div className="my-2">
-              <div className="h-[1px] bg-darkGreen w-full" />
-              <div className="h-[5px] w-[5px] bg-darkGreen mt-[-3px]" />
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  function PaginatedItems({ itemsPerPage, items }) {
-    // Here we use item offsets; we could also use page offsets
-    // following the API or data you're working with.
-    const [itemOffset, setItemOffset] = useState(0);
-
-    // Simulate fetching items from another resources.
-    // (This could be items from props; or items loaded in a local state
-    // from an API endpoint with useEffect and useState)
-    const endOffset = itemOffset + itemsPerPage;
-    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    const currentItems = items?.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(items?.length / itemsPerPage);
-
-    // Invoke when user click to request another page.
-    const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % items?.length;
-      // console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
-      setItemOffset(newOffset);
-      //scroll to top of page
-      window.scrollTo(0, 0);
-    };
-
-    return (
-      <>
-        <Items currentItems={currentItems} />
-        <ReactPaginate
-          previousLabel="Forrige side"
-          breakLabel="..."
-          nextLabel="Næste side"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={0}
-          pageCount={pageCount}
-          className={clsx(
-            "flex justify-center gap-4 my-8 items-center p-0 w-full pagination",
-            pageCount <= 1 && "hidden"
-          )}
-        />
-      </>
-    );
-  }
-
   return (
     <div className="mt-[140px]">
       <div className="flex gap-4">
         <div
           onClick={() => {
-            setCurrentItems(null);
+            setCurrentItems(allPosts);
             setSelectedTags([]);
           }}
-          className={clsx(!currentItems && "font-bold")}
+          //if currentItems is not articles,videos,podcasts,reports or advice, make font bold
+          className={clsx(
+            currentItems !== articles &&
+              currentItems !== videos &&
+              currentItems !== podcasts &&
+              currentItems !== reports &&
+              currentItems !== advice &&
+              "font-bold"
+          )}
         >
           Forside
         </div>
@@ -166,12 +103,90 @@ export default function MagazineContent({ magazine }) {
           </div>
         </Accordion>
       </BorderLines>
-      {currentItems == articles && <PaginatedItems itemsPerPage={8} items={filteredItems} />}
-      {currentItems == videos && <div>videos</div>}
-      {currentItems == podcasts && <div>podcasts</div>}
-      {currentItems == reports && <div>reports</div>}
-      {currentItems == advice && <div>advice</div>}
-      {!currentItems && <div>frontpage</div>}
+      {currentItems == articles ? (
+        <Articles items={filteredItems} selectedTags={selectedTags} />
+      ) : currentItems == videos ? (
+        <Videos items={filteredItems} selectedTags={selectedTags} />
+      ) : currentItems == podcasts ? (
+        <Podcasts items={filteredItems} selectedTags={selectedTags} />
+      ) : currentItems == reports ? (
+        <Reports items={filteredItems} selectedTags={selectedTags} />
+      ) : currentItems == advice ? (
+        <Advice items={filteredItems} selectedTags={selectedTags} />
+      ) : (
+        <Frontpage items={filteredItems} selectedTags={selectedTags} />
+      )}
     </div>
+  );
+}
+
+function Frontpage({ items, selectedTags }) {
+  return (
+    <div>
+      <div className="frontpage-image">
+        <img src="" alt="hej" />
+      </div>
+      <PaginatedItems
+        itemsPerPage={6}
+        items={items}
+        selectedTags={selectedTags}
+        gridLayout="grid-3"
+      />
+    </div>
+  );
+}
+
+function Articles({ items, selectedTags }) {
+  return (
+    <PaginatedItems
+      itemsPerPage={8}
+      items={items}
+      selectedTags={selectedTags}
+      gridLayout="grid-3-big"
+    />
+  );
+}
+
+function Videos({ items, selectedTags }) {
+  return (
+    <PaginatedItems
+      itemsPerPage={6}
+      items={items}
+      selectedTags={selectedTags}
+      gridLayout="grid-3"
+    />
+  );
+}
+
+function Podcasts({ items, selectedTags }) {
+  return (
+    <PaginatedItems
+      itemsPerPage={6}
+      items={items}
+      selectedTags={selectedTags}
+      gridLayout="grid-4"
+    />
+  );
+}
+
+function Reports({ items, selectedTags }) {
+  return (
+    <PaginatedItems
+      itemsPerPage={6}
+      items={items}
+      selectedTags={selectedTags}
+      gridLayout="grid-3"
+    />
+  );
+}
+
+function Advice({ items, selectedTags }) {
+  return (
+    <PaginatedItems
+      itemsPerPage={6}
+      items={items}
+      selectedTags={selectedTags}
+      gridLayout="videos"
+    />
   );
 }

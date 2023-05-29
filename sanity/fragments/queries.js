@@ -52,8 +52,8 @@ export const PAGE_QUERY_SANITY = groq`
 }
 `;
 
-export const ARTICLE_QUERY_SANITY = groq`
-*[_type == "article" && slug.current == $slug][0] {
+export const ADVICE_QUERY_SANITY = groq`
+*[_type == "advice" && slug.current == $slug][0] {
   ...,
   content[]{
     ...,
@@ -71,8 +71,32 @@ export const ARTICLES_QUERY_SANITY = groq`
   }
 }`;
 
-export const EVENT_QUERY_SANITY = groq`
+export const EVENTS_QUERY_SANITY = groq`
 *[_type == "event"][] {
+  ...,
+    "image": image {
+      ${IMAGE}
+    }
+}`;
+
+export const EVENT_QUERY_SANITY = groq`
+*[_type == "event" && slug.current == $slug][0] {
+  ...,
+    "image": image {
+      ${IMAGE}
+    }
+}`;
+
+export const PROJECTS_QUERY_SANITY = groq`
+*[_type == "project"][] {
+  ...,
+    "image": image {
+      ${IMAGE}
+    }
+}`;
+
+export const PROJECT_QUERY_SANITY = groq`
+*[_type == "project" && slug.current == $slug][0] {
   ...,
     "image": image {
       ${IMAGE}

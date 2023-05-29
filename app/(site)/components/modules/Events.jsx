@@ -27,13 +27,13 @@ export default async function Events({ module }) {
   );
 }
 
-function EventListItem({ event }) {
+export function EventListItem({ event }) {
   return (
     <div className="eventList p-4 flex flex-col gap-2">
       <h2 className="text-2xl mb-8 flex-1">{event.title}</h2>
       <div className="flex items-end justify-between">
         <div className="flex flex-col text-xs">
-          {event.tags.map((tag, i) => (
+          {event.tags?.map((tag, i) => (
             <span key={i}>{tag}</span>
           ))}
         </div>

@@ -13,6 +13,16 @@ module.exports = {
       lg: "12px",
       full: "9999px",
     },
+    fontSize: {
+      h1: "90px",
+      h2: "60px",
+      h3: "40px",
+      h4: "36px",
+      h5: "26px",
+      h6: "140",
+      h7: "18px",
+      body: "17px",
+    },
     extend: {
       colors: {
         darkGreen: "#12471e",

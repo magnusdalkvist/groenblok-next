@@ -13,6 +13,17 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      description: "This is used to generate the page URL",
+      validation: (Rule) => Rule.required(),
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+    }),
+    defineField({
       name: "description",
       type: "text",
       title: "Description",

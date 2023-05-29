@@ -56,6 +56,7 @@ export default function Header({ module }) {
             src={module.logo.url}
             width={module.logo.width}
             height={module.logo.height}
+            alt={module.logo.alt}
             className="object-cover"
             placeholder={module.logo?.blurDataURL && "blur"}
             blurDataURL={module.logo?.blurDataURL}

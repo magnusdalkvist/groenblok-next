@@ -31,8 +31,6 @@ const modules = [
 ];
 
 import article from "./documents/article";
-import authors from "./documents/author";
-import categories from "./documents/category";
 import settings from "./documents/settings";
 import home from "./documents/home";
 import template from "./documents/template";
@@ -42,6 +40,7 @@ import video from "./documents/video";
 import report from "./documents/report";
 import podcast from "./documents/podcast";
 import advice from "./documents/advice";
+import project from "./documents/project";
 
 const documents = [
   article,
@@ -49,13 +48,12 @@ const documents = [
   podcast,
   report,
   advice,
-  authors,
-  categories,
   settings,
   home,
   template,
   page,
   event,
+  project,
 ];
 
 import buttonGroup from "./blocks/buttonGroup";
