@@ -1,7 +1,13 @@
 import clsx from "clsx";
 
-export default function Button({ type = "default", className = "px-4 py-1", children, href = "" }) {
+export default function Button({ type = "default", className, children, href = "" }) {
   switch (type) {
+    case "hero":
+      return (
+        <button className={clsx("button-hero", className)}>
+          <a href={href}>{children}</a>
+        </button>
+      );
     case "trans":
       return (
         <button className={clsx("button-trans", className)}>

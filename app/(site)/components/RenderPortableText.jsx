@@ -13,10 +13,11 @@ export default function RenderPortableText({ content, color }) {
           src={value.asset.url}
         />
       ),
+      paragraph: ({ children }) => <p className={`${textColor}`}>{children}</p>,
     },
     listItem: {
-      bullet: ({ children }) => <li className={`list-[square] ${color} mb-2`}>{children}</li>,
-      numbered: ({ children }) => <li className={`list-decimal ${color} mb-2`}>{children}</li>,
+      bullet: ({ children }) => <li className={`list-[square] ${textColor} mb-2`}>{children}</li>,
+      numbered: ({ children }) => <li className={`list-decimal ${textColor} mb-2`}>{children}</li>,
     },
     marks: {
       link: ({ children, value }) => {
@@ -30,5 +31,11 @@ export default function RenderPortableText({ content, color }) {
     },
   };
 
-  return <PortableText value={content} components={myPortableTextComponents} />;
+  return (
+    <PortableText
+      value={content}
+      serializers={myPortableTextComponents} // Use serializers instead of components
+      className={`${color}`}
+    />
+  );
 }

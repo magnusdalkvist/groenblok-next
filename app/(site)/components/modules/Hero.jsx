@@ -5,7 +5,7 @@ import BorderLines from "../BorderLines";
 
 export default function Hero({ module }) {
   return (
-    <BorderLines side="hero" color="bg-lightBeige">
+    <BorderLines side="hero" top="top-[6rem]" color="bg-lightBeige">
       <div className="w-full h-screen relative" datatype="hero">
         <Image
           src={module.backgroundImage?.url}
@@ -18,7 +18,11 @@ export default function Hero({ module }) {
           //prevents image from stretching in weird ways
           priority={true}
         />
-        <div className="flex justify-between w-full relative p-20">
+        <div className="absolute inset-0 bg-black opacity-25" />
+        <div className="absolute inset-0">
+          <div className="absolute bottom-0 h-[100px] w-full bg-gradient-to-b from-transparent to-lightBeige" />
+        </div>
+        <div className="flex justify-between w-full h-full relative top-[100px] p-20 pe-56">
           <div class="flex relative inset-0 w-1/2 p-14">
             {module?.grundprincipper?.map((grundprincip, i) => {
               let marginTop = 0;
@@ -88,8 +92,13 @@ export default function Hero({ module }) {
               );
             })}
           </div>
-          <div className="relative inset-y-0 right-0 flex flex-col items-end text-right gap-4 p-4 max-w-[600px]">
-            <RenderBlocks blocks={module.blocks} />
+          <div className="relative inset-y-0 right-0 flex flex-col items-center text-right gap-4 p-4 pb-[25rem] max-w-[600px] justify-between">
+            <RenderBlocks
+              classNameButton="px-28 py-4"
+              classNameTitle="font-black text-[80px] text-lightBeige tracking-[5px]"
+              titleSize="h1"
+              blocks={module.blocks}
+            />
           </div>
         </div>
       </div>

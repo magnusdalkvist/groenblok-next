@@ -63,6 +63,28 @@ ul {
   box-shadow: none;
 }
 
+.button-hero {
+  background-color: none;
+  transition: 300ms;
+  border: 1px solid #f9f4e8;
+  border-radius: 6px;
+  color: #f9f4e8;
+  font-size: 24px;
+}
+
+.button-hero:hover {
+  background-color: #12471e;
+  transition: 300ms;
+  color: #f9f4e8;
+  border: 1px solid #12471e;
+}
+
+.button-hero:active {
+  background-color: #12471e;
+  color: #f9f4e8;
+  box-shadow: none;
+}
+
 .button-block {
   position: relative;
   z-index: 2;
