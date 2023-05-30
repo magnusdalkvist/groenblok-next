@@ -67,9 +67,9 @@ ul {
 .button-trans {
   background-color: none;
   transition: 300ms;
-  border: 1px solid #f9f4e8;
+  border: 1px solid #12471e;
   border-radius: 6px;
-  color: #f9f4e8;
+  color: #12471e;
 }
 
 .button-trans:hover {

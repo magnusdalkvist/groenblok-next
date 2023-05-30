@@ -47,24 +47,24 @@ export default function Hero({ module }) {
                       sideline="top-[50px]"
                       left="left-[-30px]"
                     >
-                      <h4
+                      <h5
                         className="text-xl font-bold text-lightBeige"
                         style={{ marginTop: `${marginTop}px` }}
                       >
                         {grundprincip?.title}
-                      </h4>
+                      </h5>
                       <RenderPortableText content={grundprincip?.content} color="text-lightBeige" />
                     </BorderLines>
                   )}
                   {i === 1 && (
                     /* Render the second grundprincip with split BorderLines */
                     <BorderLines side="split" color="bg-lightBeige">
-                      <h4
-                        className="text-xl font-bold text-lightBeige"
+                      <h5
+                        className="font-bold text-lightBeige"
                         style={{ marginTop: `${marginTop}px` }}
                       >
                         {grundprincip?.title}
-                      </h4>
+                      </h5>
                       <RenderPortableText content={grundprincip?.content} color="text-lightBeige" />
                     </BorderLines>
                   )}
@@ -79,12 +79,12 @@ export default function Hero({ module }) {
                       sideline="top-[70px]"
                       right="right-[-30px]"
                     >
-                      <h4
+                      <h5
                         className="text-xl font-bold text-lightBeige"
                         style={{ marginTop: `${marginTop}px` }}
                       >
                         {grundprincip?.title}
-                      </h4>
+                      </h5>
                       <RenderPortableText content={grundprincip?.content} color="text-lightBeige" />
                     </BorderLines>
                   )}
@@ -98,6 +98,7 @@ export default function Hero({ module }) {
               classNameTitle="font-black text-[80px] text-lightBeige tracking-[5px]"
               titleSize="h1"
               blocks={module.blocks}
+              buttonType="hero"
             />
           </div>
         </div>

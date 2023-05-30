@@ -41,10 +41,12 @@ export default function Header({ module }) {
   }, []);
 
   const opacity = isMouseAtTop ? 1 : 0;
+  const transitionDuration = 500; // Transition duration in milliseconds
+  const navbarColor = isMouseAtTop && scrollPosition > 50 ? "bg-darkGreen" : "";
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 transition-opacity duration-500"
+      className={`fixed top-0 left-0 right-0 z-50 transition-opacity duration-${transitionDuration} ${navbarColor}`}
       datatype="desktop-header"
       style={{ opacity }}
       onMouseEnter={handleMouseEnter}
