@@ -46,93 +46,106 @@ export default function MagazineContent({ magazine }) {
     }
   }, [selectedTags, currentItems]);
 
-  return (
-    <div className="mt-[140px]">
-      <div className="flex gap-4">
-        <div
-          onClick={() => {
-            setCurrentItems(allPosts);
-            setSelectedTags([]);
-          }}
-          //if currentItems is not articles,videos,podcasts,reports or advice, make font bold
-          className={clsx(
-            currentItems !== articles &&
-              currentItems !== videos &&
-              currentItems !== podcasts &&
-              currentItems !== reports &&
-              currentItems !== advice &&
-              "font-bold"
-          )}
-        >
-          Forside
-        </div>
-        {Object.entries(magazine).map(([key]) => {
-          let title = "undefined";
-          if (key === "articles") title = "Artikler";
-          if (key === "videos") title = "Videoer";
-          if (key === "podcasts") title = "Podcasts";
-          if (key === "reports") title = "Rapporter";
-          if (key === "advice") title = "Grønne råd";
+  console.log(currentItems);
 
-          return (
-            <div
-              key={key}
-              onClick={() => {
-                setCurrentItems(magazine[key]);
-                setSelectedTags([]);
-              }}
-              className={clsx(currentItems == magazine[key] && "font-bold")}
-            >
-              {title}
-            </div>
-          );
-        })}
-      </div>
-      <BorderLines side="left">
-        <Accordion title="Find by latest tags">
-          <div className="flex gap-4">
-            {uniqueTags.map((tag, i) => (
-              <div
-                key={i}
-                onClick={() => changeTag(tag)}
-                className={clsx(selectedTags.includes(tag) && "font-bold")}
-              >
-                {tag}
-              </div>
-            ))}
+  return (
+    <div className="max-w-[1600px] mx-auto mt-[140px]">
+      <div
+        className={clsx(
+          currentItems !== articles &&
+            currentItems !== videos &&
+            currentItems !== podcasts &&
+            currentItems !== reports &&
+            currentItems !== advice &&
+            "bg-white h-[1500px]",
+          "px-8"
+        )}
+      >
+        <h1 className="w-full text-center">Grøn Blok Magazine</h1>
+        <div className="flex gap-4">
+          <div
+            onClick={() => {
+              setCurrentItems(allPosts);
+              setSelectedTags([]);
+            }}
+            //if currentItems is not articles,videos,podcasts,reports or advice, make font bold
+            className={clsx(
+              currentItems !== articles &&
+                currentItems !== videos &&
+                currentItems !== podcasts &&
+                currentItems !== reports &&
+                currentItems !== advice &&
+                "font-bold",
+              "text-h5"
+            )}
+          >
+            Forside
           </div>
-        </Accordion>
-      </BorderLines>
-      {currentItems == articles ? (
-        <Articles items={filteredItems} selectedTags={selectedTags} />
-      ) : currentItems == videos ? (
-        <Videos items={filteredItems} selectedTags={selectedTags} />
-      ) : currentItems == podcasts ? (
-        <Podcasts items={filteredItems} selectedTags={selectedTags} />
-      ) : currentItems == reports ? (
-        <Reports items={filteredItems} selectedTags={selectedTags} />
-      ) : currentItems == advice ? (
-        <Advice items={filteredItems} selectedTags={selectedTags} />
-      ) : (
-        <Frontpage items={filteredItems} selectedTags={selectedTags} />
-      )}
+          {Object.entries(magazine).map(([key]) => {
+            let title = "undefined";
+            if (key === "articles") title = "Artikler";
+            if (key === "videos") title = "Videoer";
+            if (key === "podcasts") title = "Podcasts";
+            if (key === "reports") title = "Rapporter";
+            if (key === "advice") title = "Grønne råd";
+
+            return (
+              <div
+                key={key}
+                onClick={() => {
+                  setCurrentItems(magazine[key]);
+                  setSelectedTags([]);
+                }}
+                className={clsx(currentItems == magazine[key] && "font-bold", "text-h5")}
+              >
+                {title}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="px-8">
+        <BorderLines side="left">
+          <Accordion title="Find by latest tags">
+            <div className="flex gap-4">
+              {uniqueTags.map((tag, i) => (
+                <div
+                  key={i}
+                  onClick={() => changeTag(tag)}
+                  className={clsx(selectedTags.includes(tag) && "font-bold")}
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </Accordion>
+        </BorderLines>
+        {currentItems == articles ? (
+          <Articles items={filteredItems} selectedTags={selectedTags} />
+        ) : currentItems == videos ? (
+          <Videos items={filteredItems} selectedTags={selectedTags} />
+        ) : currentItems == podcasts ? (
+          <Podcasts items={filteredItems} selectedTags={selectedTags} />
+        ) : currentItems == reports ? (
+          <Reports items={filteredItems} selectedTags={selectedTags} />
+        ) : currentItems == advice ? (
+          <Advice items={filteredItems} selectedTags={selectedTags} />
+        ) : (
+          <Frontpage items={filteredItems} selectedTags={selectedTags} />
+        )}
+      </div>
     </div>
   );
 }
 
 function Frontpage({ items, selectedTags }) {
   return (
-    <div>
-      <div className="frontpage-image">
-        <img src="" alt="hej" />
-      </div>
-      <PaginatedItems
-        itemsPerPage={6}
-        items={items}
-        selectedTags={selectedTags}
-        gridLayout="grid-3"
-      />
-    </div>
+    <PaginatedItems
+      itemsPerPage={6}
+      items={items}
+      selectedTags={selectedTags}
+      gridLayout="grid-3"
+    />
   );
 }
 
@@ -186,7 +199,7 @@ function Advice({ items, selectedTags }) {
       itemsPerPage={6}
       items={items}
       selectedTags={selectedTags}
-      gridLayout="videos"
+      gridLayout="grid-3"
     />
   );
 }
