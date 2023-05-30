@@ -3,12 +3,15 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import BorderLines from "../BorderLines";
 
 export default function Header({ module }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [isMouseAtTop, setIsMouseAtTop] = useState(true);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [hoveredMenuItem, setHoveredMenuItem] = useState(null);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -16,7 +19,7 @@ export default function Header({ module }) {
     setIsClicked(false);
 
     // Update opacity and isMouseAtTop based on scroll position
-    const maxScroll = 50; // Maximum scroll position for full transparency
+    const maxScroll = 20; // Maximum scroll position for full transparency
     const opacity = position === 0 ? 1 : 0;
     const isMouseAtTop = opacity === 1 || position < maxScroll;
     setIsMouseAtTop(isMouseAtTop);
@@ -42,7 +45,34 @@ export default function Header({ module }) {
 
   const opacity = isMouseAtTop ? 1 : 0;
   const transitionDuration = 500; // Transition duration in milliseconds
-  const navbarColor = isMouseAtTop && scrollPosition > 50 ? "bg-darkGreen" : "";
+  const navbarColor = isMouseAtTop && scrollPosition > 20 ? "bg-darkGreen" : "";
+
+  function useHover(index) {
+    const [value, setValue] = useState(false);
+    const ref = useRef(null);
+    const handleMouseOver = () => {
+      setValue(true);
+      setActiveSubMenu(index);
+    };
+    const handleMouseOut = () => {
+      setValue(false);
+      setActiveSubMenu(null);
+    };
+
+    useEffect(() => {
+      const node = ref.current;
+      if (node) {
+        node.addEventListener("mouseover", handleMouseOver);
+        node.addEventListener("mouseout", handleMouseOut);
+        return () => {
+          node.removeEventListener("mouseover", handleMouseOver);
+          node.removeEventListener("mouseout", handleMouseOut);
+        };
+      }
+    }, [ref.current]);
+
+    return [ref, value];
+  }
 
   return (
     <div
@@ -52,8 +82,8 @@ export default function Header({ module }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="max-w-[1900px] flex items-center justify-between p-4 h-[100px] mx-auto">
-        <div className={clsx("aspect-square h-full")}>
+      <div className="max-w-[1900px] flex items-center justify-between p-4 pt-6 h-[120px] mx-auto">
+        <div className={clsx("h-full")}>
           <Image
             src={module.logo.url}
             width={module.logo.width}
@@ -66,20 +96,54 @@ export default function Header({ module }) {
           />
         </div>
         <div className="flex justify-end">
-          <div onClick={() => setIsClicked(true)} className={clsx("flex gap-4")}>
+          <div onClick={() => setIsClicked(true)} className={clsx("flex gap-6")}>
             {module?.menu?.map((menuItem, index) => {
-              const [hoverRef, isHovered] = useHover();
+              const [hoverRef, isHovered] = useHover(index);
+              const showSubMenu = activeSubMenu === index && menuItem.subMenu?.length > 0;
+              const isMenuItemHovered = hoveredMenuItem === index;
               return (
-                <div className="flex flex-col" key={index} ref={hoverRef}>
-                  <Link ref={hoverRef} className="" href={menuItem.link}>
+                <div
+                  className={clsx(
+                    "flex flex-col relative",
+                    isMenuItemHovered && "text-accentOrange" // Apply orange color to hovered menu item
+                  )}
+                  key={index}
+                  ref={hoverRef}
+                  onMouseEnter={() => setHoveredMenuItem(index)}
+                  onMouseLeave={() => setHoveredMenuItem(null)}
+                >
+                  <Link
+                    className={clsx("text-lightBeige", isMenuItemHovered && "text-orangeAccent")}
+                    href={menuItem.link}
+                  >
                     {menuItem.title}
                   </Link>
-                  <div
-                    className={clsx(
-                      "flex flex-col transition-all duration-300",
-                      isHovered ? "opacity-1 h-full delay-[50ms]" : "opacity-0 h-0"
-                    )}
-                  ></div>
+                  {showSubMenu && (
+                    <div
+                      className={clsx(
+                        "absolute top-full left-0 flex flex-col transition-all duration-300",
+                        isHovered ? "opacity-1 h-full delay-[50ms]" : "opacity-0 h-0"
+                      )}
+                    >
+                      <div className="submenu flex flex-col gap-4 bg-darkGreen py-2 px-8">
+                        {menuItem.subMenu.map((subMenuItem, i) => (
+                          <Link
+                            key={i}
+                            className="text-lightBeige hover:text-orangeAccent"
+                            href={subMenuItem.link}
+                          >
+                            {subMenuItem.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {isMenuItemHovered && (
+                    <BorderLines
+                      color="bg-orangeAccent"
+                      side={showSubMenu ? "line-down" : "line"}
+                    ></BorderLines>
+                  )}
                 </div>
               );
             })}
@@ -88,23 +152,4 @@ export default function Header({ module }) {
       </div>
     </div>
   );
-}
-
-function useHover() {
-  const [value, setValue] = useState(false);
-  const ref = useRef(null);
-  const handleMouseOver = () => setValue(true);
-  const handleMouseOut = () => setValue(false);
-  useEffect(() => {
-    const node = ref.current;
-    if (node) {
-      node.addEventListener("mouseover", handleMouseOver);
-      node.addEventListener("mouseout", handleMouseOut);
-      return () => {
-        node.removeEventListener("mouseover", handleMouseOver);
-        node.removeEventListener("mouseout", handleMouseOut);
-      };
-    }
-  }, [ref.current]); // Recall only if ref changes
-  return [ref, value];
 }

@@ -65,11 +65,13 @@ export default function BorderLines({
             <div
               className={`absolute right-[40px] bottom-[70%] top-[50px] w-[2px] ${lineColor} z-10`}
             />
-            <div className={`absolute top-[94px] right-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
+            <div
+              className={`absolute top-[109px] right-[37px] h-[7px] w-[7px] ${lineColor} z-10`}
+            />
             <div
               className={`absolute left-[40px] bottom-[20%] top-[50px] w-[2px] ${lineColor} z-10`}
             />
-            <div className={`absolute top-[94px] left-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
+            <div className={`absolute top-[109px] left-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
             {children}
           </div>
         </div>
@@ -81,6 +83,26 @@ export default function BorderLines({
             <div className={`absolute ${posLeft} right-0 ${posTop} h-[1px] ${lineColor}`} />
             <div className={`absolute left-0 bottom-0 ${sidelineHeight} w-[1px] ${lineColor}`} />
             <div className={`absolute ${posTopBlock} left-[-3px] h-[7px] w-[7px] ${lineColor}`} />
+            {children}
+          </div>
+        </div>
+      );
+    case "line":
+      return (
+        <div className={className}>
+          <div className={`relative`}>
+            <div className={`absolute left-0 right-0 ${posTop} h-[1px] ${lineColor}`} />
+            <div className={`absolute top-[13px] left-[-3px] h-[7px] w-[7px] ${lineColor}`} />
+            {children}
+          </div>
+        </div>
+      );
+    case "line-down":
+      return (
+        <div className={className}>
+          <div className={`relative`}>
+            <div className={`absolute top-[13px] left-[-3px] h-[7px] w-[7px] ${lineColor} z-10`} />
+            <div className={`absolute left-[5px] bottom-0 top-0 w-[1px] ${lineColor} z-10`} />
             {children}
           </div>
         </div>

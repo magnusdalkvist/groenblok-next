@@ -7,8 +7,9 @@ export default function SkewedImagesWithText({ module }) {
       <BorderLines className="">
         <div className="">
           <RenderBlocks
-            classNameButton="px-14 py-2 mt-8"
-            classNameTitle="mb-8"
+            classNameButton="px-14 py-3 mt-8 text-[20px]"
+            classNameTitle="mb-8 text-darkGreen"
+            classNameCopy="max-w-[700px] text-black"
             buttonType="trans"
             blocks={module?.blocks}
             titleSize="h2"
