@@ -5,6 +5,14 @@ export default function RenderPortableText({ content, color }) {
   const textColor = color || "text-darkGreen";
 
   const myPortableTextComponents = {
+    block: {
+      normal: ({ children }) => {
+        if (children[0].length == 0) {
+          return <br></br>;
+        }
+        return <div className={`${textColor}`}>{children}</div>;
+      },
+    },
     types: {
       image: ({ value }) => (
         <Image
@@ -13,7 +21,8 @@ export default function RenderPortableText({ content, color }) {
           src={value.asset.url}
         />
       ),
-      paragraph: ({ children }) => <p className={textColor}>{children}</p>,
+      span: ({ children }) => <span className={`${textColor}`}>{children}</span>,
+      paragraph: ({ children }) => <p className={`${textColor}`}>{children}</p>,
     },
     listItem: {
       bullet: ({ children }) => <li className={`list-[square] ${textColor} mb-2`}>{children}</li>,
@@ -32,6 +41,9 @@ export default function RenderPortableText({ content, color }) {
   };
 
   return (
-    <PortableText value={content} className={textColor} components={myPortableTextComponents} />
+    <PortableText
+      value={content}
+      components={myPortableTextComponents} // Use serializers instead of components
+    />
   );
 }
