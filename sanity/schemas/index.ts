@@ -12,6 +12,7 @@ import skewedImagesWithText from "./modules/skewedImagesWithText";
 import slickSlider from "./modules/slickSlider";
 import instagramFeedComponent from "./modules/instagramFeedComponent";
 import accordionList from "./modules/accordionList";
+import projects from "./modules/projects";
 
 const modules = [
   header,
@@ -28,6 +29,7 @@ const modules = [
   slickSlider,
   instagramFeedComponent,
   accordionList,
+  projects,
 ];
 
 import article from "./documents/article";

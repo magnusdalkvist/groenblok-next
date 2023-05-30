@@ -33,6 +33,7 @@ export default defineField({
         { type: "module.skewedImagesWithText" },
         { type: "module.slidingInfoCards" },
         { type: "module.events" },
+        { type: "module.projects" },
         { type: "module.latestArticles" },
         { type: "module.imageGallery" },
         { type: "module.shopSection" },

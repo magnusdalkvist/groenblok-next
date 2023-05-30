@@ -9,7 +9,11 @@ export function EventListItem({ event, tagColor = "text-darkGreen" }) {
 
   return (
     <Link
-      href={"events/" + event.slug.current}
+      href={
+        event._type == "project"
+          ? `/projekter/${event.slug.current}`
+          : `/events/${event.slug.current}`
+      }
       ref={hoverRef}
       className="eventList flex flex-col gap-2 h-full p-4 hover:bg-gradient-to-b from-orangeAccent to-transparent transition-all duration-200"
     >

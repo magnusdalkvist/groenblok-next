@@ -59,7 +59,7 @@ export default function EventsContent({ events }) {
     <div className="mt-[140px]">
       <div className="p-8 text-darkGreen max-w-[1600px] mx-auto">
         <h1>Events</h1>
-        <BorderLines side="left">
+        <BorderLines side="left" innerStyle="p-4">
           <Accordion title="Find by latest tags">
             <div className="flex gap-4">
               {uniqueTags.map((tag, i) => (

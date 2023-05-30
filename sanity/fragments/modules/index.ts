@@ -9,6 +9,7 @@ import { MODULE_SLICK_SLIDER } from "./slickSlider";
 import { MODULE_SKEWED_IMAGES_WITH_TEXT } from "./skewedImagesWithText";
 import { MODULE_INSTAGRAM_FEED_COMPONENT } from "./instagramFeedComponent";
 import { MODULE_ACCORDION_LIST } from "./accordionList";
+import { MODULE_PROJECTS } from "./projects";
 
 export const MODULES_DEFINITION = groq`
   _key,
@@ -27,6 +28,9 @@ export const MODULES_DEFINITION = groq`
   },
   (_type == "module.events") => {
     ${MODULE_EVENTS}
+  },
+  (_type == "module.projects") => {
+    ${MODULE_PROJECTS}
   },
   (_type == "module.imageWithText") => {
     ${MODULE_IMAGE_WITH_TEXT}

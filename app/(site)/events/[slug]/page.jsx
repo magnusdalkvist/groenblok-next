@@ -11,13 +11,14 @@ export default async function Event({ params, searchParams }) {
   }
 
   const { results } = await fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${event.location.lat},${event.location.lng}&key=${process.env.GOOGLE_MAPS_API_KEY}`
+    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${event.location.lat || ""},${
+      event.location.lng || ""
+    }&key=${process.env.GOOGLE_MAPS_API_KEY}`
   ).then((res) => res.json());
 
   //results[0].adress_components take all long_name and put them in a string with + between each word
   const fullAddress = results[0]?.address_components.map((address) => address.long_name).join("+");
 
-  console.log(event.content[3]);
   return (
     <div className="mt-[140px] max-w-[1600px] mx-auto px-10">
       <div className="text-orangeAccent flex gap-2">
@@ -34,7 +35,7 @@ export default async function Event({ params, searchParams }) {
               month: "2-digit",
             })}
           </h3>
-          <RenderPortableText content={event?.content} />
+          {event?.content && <RenderPortableText content={event?.content} />}
         </div>
         <div className="flex flex-col gap-[50px]">
           <form action="" className="bg-darkGreen rounded p-8">

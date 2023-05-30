@@ -150,13 +150,7 @@ function Items({ currentItems, selectedTags, gridLayout }) {
       return (
         <div className="grid grid-cols-3 gap-y-4">
           {currentItems?.map((event, i) => (
-            <BorderLines
-              key={i}
-              side={
-                // in a 3 column grid, the first 2 items should have "right" and the 3rd should have "top"
-                i % 3 === 2 ? "top" : "right"
-              }
-            >
+            <BorderLines key={i} innerStyle="p-0" side={i % 3 === 2 ? "top" : "right"}>
               <EventListItem event={event} />
             </BorderLines>
           ))}
@@ -169,10 +163,8 @@ function Items({ currentItems, selectedTags, gridLayout }) {
             <BorderLines
               color="bg-orangeAccent"
               key={i}
-              side={
-                // in a 3 column grid, the first 2 items should have "right" and the 3rd should have "top"
-                i % 3 === 2 ? "top" : "right"
-              }
+              innerStyle="p-0"
+              side={i % 3 === 2 ? "" : "right"}
             >
               <EventListItem tagColor="text-orangeAccent" tagHover="text-darkGreen" event={event} />
             </BorderLines>

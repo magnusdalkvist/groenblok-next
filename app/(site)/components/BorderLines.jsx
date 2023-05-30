@@ -10,7 +10,7 @@ export default function BorderLines({
   topBlock,
   paddingTop,
   sideline,
-  innerStyle = "p-4",
+  innerStyle = "",
 }) {
   const topLinePadding = paddingTop || "pt-4";
   const lineColor = color || "bg-darkGreen";
@@ -112,7 +112,7 @@ export default function BorderLines({
       return (
         <div className={className}>
           <div className={`${topLinePadding} relative h-full`}>
-            <div className="absolute left-0 right-0 top-4 h-[1px] bg-darkGreen" />
+            <div className={`absolute left-0 right-0 top-4 h-[1px] ${lineColor}`} />
             <div className={innerStyle}>{children}</div>
           </div>
         </div>
