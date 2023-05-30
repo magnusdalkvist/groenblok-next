@@ -1,7 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
-export default function RenderPortableText({ content, color }) {
+export default function RenderPortableText({ content, color, classNameCopy }) {
   const textColor = color || "text-darkGreen";
 
   const myPortableTextComponents = {
@@ -10,7 +10,7 @@ export default function RenderPortableText({ content, color }) {
         if (children[0].length == 0) {
           return <br></br>;
         }
-        return <div className={`${textColor}`}>{children}</div>;
+        return <p className={`${textColor} ${classNameCopy} leading-6`}>{children}</p>;
       },
     },
     types: {
@@ -40,10 +40,5 @@ export default function RenderPortableText({ content, color }) {
     },
   };
 
-  return (
-    <PortableText
-      value={content}
-      components={myPortableTextComponents} // Use serializers instead of components
-    />
-  );
+  return <PortableText value={content} components={myPortableTextComponents} />;
 }

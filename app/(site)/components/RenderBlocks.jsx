@@ -29,7 +29,7 @@ export default function RenderBlocks({
   );
 }
 
-function Block({ block, classNameTitle, classNameButton, titleSize, buttonType }) {
+function Block({ block, classNameTitle, classNameButton, titleSize, buttonType, classNameCopy }) {
   switch (block._type) {
     case "block.title":
       return <Title classNameTitle={classNameTitle} titleSize={titleSize} block={block} />;
