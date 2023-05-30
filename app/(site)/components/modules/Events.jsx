@@ -1,5 +1,6 @@
 import { getEvents } from "../../../../sanity/fragments/sanity-utils";
 import BorderLines from "../BorderLines";
+import Button from "../Button";
 import { EventListItem } from "../EventListItem";
 
 export default async function Events({ module }) {
@@ -9,9 +10,9 @@ export default async function Events({ module }) {
   events.sort((a, b) => (a.date > b.date ? 1 : -1));
 
   return (
-    <div className="" datatype="events">
+    <div className="flex flex-col items-center gap-8" datatype="events">
       <h3 className="text-center">{module.title}</h3>
-      <div className="grid grid-cols-3 gap-y-4 max-w-[1000px] mx-auto">
+      <div className="grid grid-cols-3 gap-y-4 max-w-[1000px]">
         {module.show == "custom" &&
           module?.events.map((event, i) => (
             <BorderLines side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
@@ -37,6 +38,9 @@ export default async function Events({ module }) {
               </BorderLines>
             ))}
       </div>
+      <Button type="trans" className="px-8 py-2" href="/projekter">
+        Se alle events
+      </Button>
     </div>
   );
 }

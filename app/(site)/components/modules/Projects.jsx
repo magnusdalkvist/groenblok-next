@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { getProjects } from "../../../../sanity/fragments/sanity-utils";
 import BorderLines from "../BorderLines";
+import Button from "../Button";
 import { EventListItem } from "../EventListItem";
 
 export default async function Projects({ module }) {
@@ -11,9 +13,9 @@ export default async function Projects({ module }) {
   console.log(projects);
 
   return (
-    <div datatype="projects">
+    <div className="flex flex-col items-center gap-8" datatype="projects">
       <h3 className="text-center">{module.title}</h3>
-      <div className="grid grid-cols-3 gap-y-4 max-w-[1000px] mx-auto">
+      <div className="grid grid-cols-3 gap-y-4 max-w-[1000px]">
         {module.show == "custom" &&
           module?.projects.map((event, i) => (
             <BorderLines side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
@@ -39,6 +41,9 @@ export default async function Projects({ module }) {
               </BorderLines>
             ))}
       </div>
+      <Button type="trans" className="px-8 py-2" href="/projekter">
+        Se alle projekter
+      </Button>
     </div>
   );
 }

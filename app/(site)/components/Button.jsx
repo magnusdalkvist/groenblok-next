@@ -4,27 +4,27 @@ export default function Button({ type = "default", className, children, href = "
   switch (type) {
     case "hero":
       return (
-        <button className={clsx("button-hero", className)}>
-          <a href={href}>{children}</a>
-        </button>
+        <a href={href} className={clsx("button-hero", className)}>
+          {children}
+        </a>
       );
     case "trans":
       return (
-        <button className={clsx("button-trans", className)}>
-          <a href={href}>{children}</a>
-        </button>
+        <a href={href} className={clsx("button-trans", className)}>
+          {children}
+        </a>
       );
     case "block":
       return (
-        <button href={href} className={clsx("button-block", className)}>
-          <a href={href}>{children}</a>
-        </button>
+        <a href={href} className={clsx("button-block", className)}>
+          {children}
+        </a>
       );
     default:
       return (
-        <button href={href} className={clsx(className)}>
-          <a href={href}>{children}</a>
-        </button>
+        <a href={href} className={clsx(className)}>
+          {children}
+        </a>
       );
   }
 }
