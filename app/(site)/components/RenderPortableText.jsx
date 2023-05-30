@@ -13,7 +13,7 @@ export default function RenderPortableText({ content, color }) {
           src={value.asset.url}
         />
       ),
-      paragraph: ({ children }) => <p className={`${textColor}`}>{children}</p>,
+      paragraph: ({ children }) => <p className={textColor}>{children}</p>,
     },
     listItem: {
       bullet: ({ children }) => <li className={`list-[square] ${textColor} mb-2`}>{children}</li>,
@@ -32,10 +32,6 @@ export default function RenderPortableText({ content, color }) {
   };
 
   return (
-    <PortableText
-      value={content}
-      serializers={myPortableTextComponents} // Use serializers instead of components
-      className={`${color}`}
-    />
+    <PortableText value={content} className={textColor} components={myPortableTextComponents} />
   );
 }
