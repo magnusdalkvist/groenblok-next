@@ -5,7 +5,7 @@ import BorderLines from "../BorderLines";
 
 export default function Hero({ module }) {
   return (
-    <BorderLines side="hero" top="top-[6rem]" color="bg-lightBeige">
+    <BorderLines side="hero" top="top-[7rem]" color="bg-lightBeige">
       <div className="w-full h-screen relative" datatype="hero">
         <Image
           src={module.backgroundImage?.url}
@@ -48,7 +48,7 @@ export default function Hero({ module }) {
                       left="left-[-30px]"
                     >
                       <h5
-                        className="text-xl font-bold text-lightBeige"
+                        className=" font-bold text-lightBeige mb-2"
                         style={{ marginTop: `${marginTop}px` }}
                       >
                         {grundprincip?.title}
@@ -60,7 +60,7 @@ export default function Hero({ module }) {
                     /* Render the second grundprincip with split BorderLines */
                     <BorderLines side="split" color="bg-lightBeige">
                       <h5
-                        className="font-bold text-lightBeige"
+                        className="font-bold text-lightBeige mb-2"
                         style={{ marginTop: `${marginTop}px` }}
                       >
                         {grundprincip?.title}
@@ -80,7 +80,7 @@ export default function Hero({ module }) {
                       right="right-[-30px]"
                     >
                       <h5
-                        className="text-xl font-bold text-lightBeige"
+                        className="text-xl font-bold text-lightBeige mb-2"
                         style={{ marginTop: `${marginTop}px` }}
                       >
                         {grundprincip?.title}
