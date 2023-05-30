@@ -209,5 +209,8 @@ ul {
 }
 
 .pagination li.disabled a {
-  background: gray;
+  background: transparent;
+  border: #12471e 1px solid;
+  color: #12471e;
+  cursor: not-allowed;
 }
