@@ -90,7 +90,7 @@ export default function Header({ module }) {
   );
 }
 
-function useHover() {
+export function useHover() {
   const [value, setValue] = useState(false);
   const ref = useRef(null);
   const handleMouseOver = () => setValue(true);

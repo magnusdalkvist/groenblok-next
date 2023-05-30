@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-export default function Accordion({ title, children }) {
+export default function Accordion({ title, children, className }) {
   const [isShowing, setIsShowing] = useState(false);
 
   const toggle = () => {
@@ -10,7 +10,7 @@ export default function Accordion({ title, children }) {
   };
 
   return (
-    <div>
+    <div className={className}>
       <button
         className="flex justify-between items-center w-full text-[30px] relative cursor-pointer"
         onClick={toggle}

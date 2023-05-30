@@ -1,7 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
 import ReactPaginate from "react-paginate";
-import { EventListItem } from "./modules/Events";
+import { EventListItem } from "./EventListItem";
 import BorderLines from "./BorderLines";
 import { useState } from "react";
 
@@ -158,6 +158,23 @@ function Items({ currentItems, selectedTags, gridLayout }) {
               }
             >
               <EventListItem event={event} />
+            </BorderLines>
+          ))}
+        </div>
+      );
+    case "events-inverted":
+      return (
+        <div className="grid grid-cols-3 gap-y-4">
+          {currentItems?.map((event, i) => (
+            <BorderLines
+              color="bg-orangeAccent"
+              key={i}
+              side={
+                // in a 3 column grid, the first 2 items should have "right" and the 3rd should have "top"
+                i % 3 === 2 ? "top" : "right"
+              }
+            >
+              <EventListItem tagColor="text-orangeAccent" tagHover="text-darkGreen" event={event} />
             </BorderLines>
           ))}
         </div>

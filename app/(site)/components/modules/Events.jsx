@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { getEvents } from "../../../../sanity/fragments/sanity-utils";
-import Image from "next/image";
+import EventListItem from "../EventListItem";
 
 export default async function Events({ module }) {
   const events = await getEvents();
@@ -25,32 +24,5 @@ export default async function Events({ module }) {
             .map((event, i) => <EventListItem key={i} event={event} />)}
       </div>
     </div>
-  );
-}
-
-export function EventListItem({ event }) {
-  console.log(event.slug.current);
-  return (
-    <Link href={"events/" + event.slug.current} className="eventList p-4 flex flex-col gap-2">
-      <h2 className="text-2xl mb-8 flex-1">{event.title}</h2>
-      <div className="flex items-end justify-between">
-        <div className="flex flex-col text-xs">
-          {event.tags?.map((tag, i) => (
-            <span key={i}>{tag}</span>
-          ))}
-        </div>
-        <span className="font-bold text-2xl">
-          {new Date(event.date).toLocaleDateString("da-dk", { day: "2-digit", month: "2-digit" })}
-        </span>
-      </div>
-      <Image
-        src={event.image?.url}
-        alt={event.image?.alt}
-        width={event.image?.width}
-        height={event.image?.height}
-        placeholder={event.image?.blurDataURL && "blur"}
-        blurDataURL={event.image?.blurDataURL}
-      />
-    </Link>
   );
 }

@@ -56,43 +56,50 @@ export default function EventsContent({ events }) {
   }, [selectedTags, events]);
 
   return (
-    <div>
-      <BorderLines side="left">
-        <Accordion title="Find by latest tags">
-          <div className="flex gap-4">
-            {uniqueTags.map((tag, i) => (
-              <div
-                key={i}
-                onClick={() => changeTag(tag)}
-                className={clsx(selectedTags.includes(tag) && "font-bold")}
-              >
-                {tag}
-              </div>
-            ))}
-          </div>
-        </Accordion>
-      </BorderLines>
-      <div className="flex flex-col bg-darkGreen px-8">
-        <h2>Kommende events</h2>
-        <PaginatedItems
-          itemsPerPage={6}
-          items={filteredItems.filter((_) => _.date >= date)}
-          selectedTags={selectedTags}
-          gridLayout="events"
-          scrollToTop={false}
-        />
+    <div className="mt-[140px] max-w-[1600px] mx-auto">
+      <div className="p-8 text-darkGreen">
+        <h1>Events</h1>
+        <BorderLines side="left">
+          <Accordion title="Find by latest tags">
+            <div className="flex gap-4">
+              {uniqueTags.map((tag, i) => (
+                <div
+                  key={i}
+                  onClick={() => changeTag(tag)}
+                  className={clsx(selectedTags.includes(tag) && "font-bold")}
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </Accordion>
+        </BorderLines>
       </div>
+      {filteredItems.filter((_) => _.date >= date).length > 0 && (
+        <div className="flex flex-col bg-darkGreen text-white px-8 pt-8">
+          <h2>Kommende events</h2>
+          <PaginatedItems
+            itemsPerPage={6}
+            items={filteredItems.filter((_) => _.date >= date)}
+            selectedTags={selectedTags}
+            gridLayout="events-inverted"
+            scrollToTop={false}
+          />
+        </div>
+      )}
       <div className="h-[200px] bg-gradient-to-b from-darkGreen to-lightGreen"></div>
-      <div className="flex flex-col bg-lightGreen px-8">
-        <h2>Forrige events</h2>
-        <PaginatedItems
-          itemsPerPage={6}
-          items={filteredItems.filter((_) => _.date < date)}
-          selectedTags={selectedTags}
-          gridLayout="events"
-          scrollToTop={false}
-        />
-      </div>
+      {filteredItems.filter((_) => _.date < date).length > 0 && (
+        <div className="flex flex-col bg-lightGreen px-8 pb-8">
+          <h2>Forrige events</h2>
+          <PaginatedItems
+            itemsPerPage={6}
+            items={filteredItems.filter((_) => _.date < date)}
+            selectedTags={selectedTags}
+            gridLayout="events"
+            scrollToTop={false}
+          />
+        </div>
+      )}
     </div>
   );
 }

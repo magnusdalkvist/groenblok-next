@@ -10,8 +10,9 @@ export default function BorderLines({
   topBlock,
   paddingTop,
   sideline,
+  innerStyle = "p-4",
 }) {
-  const topLinePadding = paddingTop || "pt-8";
+  const topLinePadding = paddingTop || "pt-4";
   const lineColor = color || "bg-darkGreen";
   const posTop = top || "top-4";
   const posTopBlock = topBlock || "top-[13px]";
@@ -24,43 +25,43 @@ export default function BorderLines({
     case "right":
       return (
         <div className={className}>
-          <div className={`p-4 ${topLinePadding} relative`}>
+          <div className={`${topLinePadding} relative h-full`}>
             <div className={`absolute left-0 ${posRight} ${posTop} h-[1px] ${lineColor}`} />
             <div className={`absolute right-0 bottom-0 ${sidelineHeight} w-[1px] ${lineColor}`} />
             <div className={`absolute ${posTopBlock} right-[-3px] h-[7px] w-[7px] ${lineColor}`} />
-            {children}
+            <div className={innerStyle}>{children}</div>
           </div>
         </div>
       );
     case "center":
       return (
         <div className={className}>
-          <div className={`p-4 ${topLinePadding} relative`}>
+          <div className={`${topLinePadding} relative h-full`}>
             <div className={`absolute left-0 right-0 ${posTop} h-[1px] ${lineColor}`} />
             <div className={`absolute right-0 bottom-0 top-0 w-[1px] ${lineColor}`} />
             <div className={`absolute top-[13px] right-[-3px] h-[7px] w-[7px] ${lineColor}`} />
             <div className={`absolute left-0 bottom-0 top-0 w-[1px] ${lineColor}`} />
             <div className={`absolute top-[13px] left-[-3px] h-[7px] w-[7px] ${lineColor}`} />
-            {children}
+            <div className={innerStyle}>{children}</div>
           </div>
         </div>
       );
     case "split":
       return (
         <div className={className}>
-          <div className="p-4 relative">
+          <div className="relative h-full">
             <div className={`absolute right-0 bottom-0 top-0 w-[1px] ${lineColor}`} />
             <div className={`absolute top-[102px] right-[-3px] h-[7px] w-[7px] ${lineColor}`} />
             <div className={`absolute left-0 bottom-0 top-0 w-[1px] ${lineColor}`} />
             <div className={`absolute top-[77px] left-[-3px] h-[7px] w-[7px] ${lineColor}`} />
-            {children}
+            <div className={innerStyle}>{children}</div>
           </div>
         </div>
       );
     case "hero":
       return (
         <div className={className}>
-          <div className={`relative`}>
+          <div className={`relative h-full`}>
             <div className={`absolute left-0 right-0 ${posTop} h-[2px] ${lineColor} z-10`} />
             <div
               className={`absolute right-[40px] bottom-[70%] top-[50px] w-[2px] ${lineColor} z-10`}
@@ -70,27 +71,27 @@ export default function BorderLines({
               className={`absolute left-[40px] bottom-[20%] top-[50px] w-[2px] ${lineColor} z-10`}
             />
             <div className={`absolute top-[94px] left-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
-            {children}
+            <div className={innerStyle}>{children}</div>
           </div>
         </div>
       );
     case "left":
       return (
         <div className={className}>
-          <div className={`p-4 ${topLinePadding} relative`}>
+          <div className={`${topLinePadding} relative h-full`}>
             <div className={`absolute ${posLeft} right-0 ${posTop} h-[1px] ${lineColor}`} />
             <div className={`absolute left-0 bottom-0 ${sidelineHeight} w-[1px] ${lineColor}`} />
             <div className={`absolute ${posTopBlock} left-[-3px] h-[7px] w-[7px] ${lineColor}`} />
-            {children}
+            <div className={innerStyle}>{children}</div>
           </div>
         </div>
       );
     default:
       return (
         <div className={className}>
-          <div className={`p-4 ${topLinePadding} relative`}>
+          <div className={`${topLinePadding} relative h-full`}>
             <div className="absolute left-0 right-0 top-4 h-[1px] bg-darkGreen" />
-            {children}
+            <div className={innerStyle}>{children}</div>
           </div>
         </div>
       );
