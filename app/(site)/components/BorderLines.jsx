@@ -82,7 +82,9 @@ export default function BorderLines({
         <div className={className}>
           <div className={`${topLinePadding} relative h-full`}>
             <div className={`absolute ${posLeft} right-0 ${posTop} h-[1px] ${lineColor}`} />
-            <div className={`absolute left-0 bottom-0 ${sidelineHeight} w-[1px] ${lineColor}`} />
+            <div
+              className={`absolute left-0 ${posBottom} ${sidelineHeight} w-[1px] ${lineColor}`}
+            />
             <div className={`absolute ${posTopBlock} left-[-3px] h-[7px] w-[7px] ${lineColor}`} />
             <div className={innerStyle}>{children}</div>
           </div>

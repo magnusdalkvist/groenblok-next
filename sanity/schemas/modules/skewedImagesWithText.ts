@@ -19,6 +19,18 @@ export default defineField({
       type: "array",
       of: [{ type: "block.title" }, { type: "block.copy" }, { type: "block.buttonGroup" }],
     }),
+    defineField({
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [
+        defineField({
+          name: "image",
+          title: "Image",
+          type: "image",
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {
