@@ -75,30 +75,30 @@ export default function ProjectsContent({ projects }) {
           </Accordion>
         </BorderLines>
       </div>
-      <div className="bg-darkGreen">
+      <div className="bg-lightGreen">
         {filteredItems.filter((_) => _.date >= date).length > 0 && (
-          <div className="flex flex-col text-white px-8 pt-8 max-w-[1600px] mx-auto">
+          <div className="flex flex-col text-darkGreen p-8 max-w-[1600px] mx-auto">
             <h2>Kommende Projekter</h2>
             <PaginatedItems
               itemsPerPage={6}
               items={filteredItems.filter((_) => _.date >= date)}
               selectedTags={selectedTags}
-              gridLayout="events-inverted"
+              gridLayout="projects"
               scrollToTop={false}
             />
           </div>
         )}
       </div>
-      <div className="h-[200px] bg-gradient-to-b from-darkGreen to-lightGreen"></div>
-      <div className="bg-lightGreen">
+      <div className="h-[200px] bg-gradient-to-t from-darkGreen to-lightGreen"></div>
+      <div className="bg-darkGreen">
         {filteredItems.filter((_) => _.date < date).length > 0 && (
-          <div className="flex flex-col px-8 pb-8 max-w-[1600px] mx-auto">
+          <div className="flex flex-col gap-8 text-orangeAccent p-8 max-w-[1600px] mx-auto">
             <h2>Forrige Projekter</h2>
             <PaginatedItems
               itemsPerPage={6}
               items={filteredItems.filter((_) => _.date < date)}
               selectedTags={selectedTags}
-              gridLayout="events"
+              gridLayout="projects-inverted"
               scrollToTop={false}
             />
           </div>

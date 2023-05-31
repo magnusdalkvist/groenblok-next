@@ -1,7 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
-export default function RenderPortableText({ content, color, classNameCopy }) {
+export default function RenderPortableText({ content, color, classNameCopy, preview = false }) {
   const textColor = color || "text-darkGreen";
 
   const myPortableTextComponents = {
@@ -39,6 +39,24 @@ export default function RenderPortableText({ content, color, classNameCopy }) {
       },
     },
   };
+
+  const previewComponents = {
+    block: {
+      normal: ({ children }) => {
+        return (
+          <p
+            className={`${textColor} ${classNameCopy} leading-6 overflow-hidden whitespace-nowrap text-ellipsis`}
+          >
+            {children}
+          </p>
+        );
+      },
+    },
+  };
+
+  if (preview) {
+    return <PortableText value={content[0]} components={previewComponents} />;
+  }
 
   return <PortableText value={content} components={myPortableTextComponents} />;
 }

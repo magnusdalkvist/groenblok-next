@@ -151,7 +151,7 @@ function Items({ currentItems, selectedTags, gridLayout }) {
         <div className="grid grid-cols-3 gap-y-4">
           {currentItems?.map((event, i) => (
             <BorderLines key={i} innerStyle="p-0" side={i % 3 === 2 ? "top" : "right"}>
-              <EventListItem event={event} />
+              <EventListItem selectedTags={selectedTags} event={event} />
             </BorderLines>
           ))}
         </div>
@@ -166,7 +166,42 @@ function Items({ currentItems, selectedTags, gridLayout }) {
               innerStyle="p-0"
               side={i % 3 === 2 ? "" : "right"}
             >
-              <EventListItem tagColor="text-orangeAccent" tagHover="text-darkGreen" event={event} />
+              <EventListItem
+                selectedTags={selectedTags}
+                tagColor="text-orangeAccent"
+                tagHover="text-darkGreen"
+                event={event}
+              />
+            </BorderLines>
+          ))}
+        </div>
+      );
+    case "projects":
+      return (
+        <div className="grid grid-cols-2 gap-y-4">
+          {currentItems?.map((event, i) => (
+            <BorderLines key={i} innerStyle="p-0" side={i % 2 === 0 ? "right" : "top"}>
+              <EventListItem selectedTags={selectedTags} event={event} />
+            </BorderLines>
+          ))}
+        </div>
+      );
+    case "projects-inverted":
+      return (
+        <div className="grid grid-cols-2 gap-y-4">
+          {currentItems?.map((event, i) => (
+            <BorderLines
+              color="bg-orangeAccent"
+              key={i}
+              innerStyle="p-0"
+              side={i % 2 === 0 ? "right" : "top"}
+            >
+              <EventListItem
+                selectedTags={selectedTags}
+                tagColor="text-orangeAccent"
+                tagHover="text-darkGreen"
+                event={event}
+              />
             </BorderLines>
           ))}
         </div>

@@ -77,7 +77,7 @@ export default function EventsContent({ events }) {
       </div>
       <div className="bg-darkGreen">
         {filteredItems.filter((_) => _.date >= date).length > 0 && (
-          <div className="flex flex-col text-white px-8 pt-8 max-w-[1600px] mx-auto">
+          <div className="flex flex-col text-orangeAccent px-8 pt-8 max-w-[1600px] mx-auto">
             <h2>Kommende events</h2>
             <PaginatedItems
               itemsPerPage={6}
@@ -92,7 +92,7 @@ export default function EventsContent({ events }) {
       <div className="h-[200px] bg-gradient-to-b from-darkGreen to-lightGreen"></div>
       <div className="bg-lightGreen">
         {filteredItems.filter((_) => _.date < date).length > 0 && (
-          <div className="flex flex-col px-8 pb-8 max-w-[1600px] mx-auto">
+          <div className="flex flex-col text-darkGreen px-8 pb-8 max-w-[1600px] mx-auto">
             <h2>Forrige events</h2>
             <PaginatedItems
               itemsPerPage={6}
