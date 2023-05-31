@@ -55,12 +55,12 @@ export default function MagazineContent({ magazine }) {
             currentItems !== podcasts &&
             currentItems !== reports &&
             currentItems !== advice &&
-            "bg-white h-[1500px]",
-          "px-8"
+            "bg-[url('tree.jfif')] flex flex-col text-lightBeige bg-cover bg-center aspect-[3/4] mb-8",
+          "px-8 text-darkGreen"
         )}
       >
-        <h1 className="w-full text-center">Grøn Blok Magazine</h1>
-        <div className="flex gap-4">
+        <h1 className="w-full text-center italic">Grøn Blok Magazine</h1>
+        <div className="flex justify-evenly gap-4">
           <div
             onClick={() => {
               setCurrentItems(allPosts);
@@ -101,9 +101,51 @@ export default function MagazineContent({ magazine }) {
             );
           })}
         </div>
+        {currentItems !== articles &&
+          currentItems !== videos &&
+          currentItems !== podcasts &&
+          currentItems !== reports &&
+          currentItems !== advice && (
+            <div className="flex flex-1 flex-col">
+              <div className="relative mt-4">
+                <div className="bg-lightBeige w-full h-[1px] " />
+                <div className="bg-lightBeige w-[7px] h-[7px] absolute top-[-3px]" />
+              </div>
+              <div className="flex flex-col gap-12 md:gap-[6rem] lg:gap-[12rem] py-12 flex-1 justify-center">
+                <div className="text-right max-w-[40ch] w-1/2 self-end">
+                  <div className="text-darkGreen font-bold text-h5">
+                    Vækstfondens 3 kriterier for investering af grønne milliarder
+                  </div>
+                  <div>
+                    Ny grøn fremtidsfond øger Vækstfondens investeringsbudget med 10 mia. kr.
+                  </div>
+                </div>
+                <div className="text-right max-w-[40ch] w-1/2 self-end">
+                  <div className="text-darkGreen font-bold text-h5">
+                    EU har landet en unik aftale om CO2-beskatning
+                  </div>
+                  <div>
+                    Bag de europæiske forkortelser ETS og CBAM gemmer sig en teknokratisk
+                    klimarevolution, der med markedsmekanismerne som løftestang nu har fået en
+                    kraftig opjustering. De er rasende vigtige, så lær begreberne før din nabo
+                  </div>
+                </div>
+                <div className="max-w-[40ch] w-1/2 text-right self-end">
+                  <div className="text-orangeAccent font-bold text-h4">
+                    Danmarks grønneste bank er fundet: Merkur andelskasse
+                  </div>
+                  <div>
+                    It is a long established fact that a reader will be distracted by the readable
+                    content of a page when looking at its layout. The point of using Lorem Ipsum is
+                    that it has a more-or-less normal distribution.
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
       </div>
-      <div className="px-8">
-        <BorderLines side="left">
+      <div className="px-8 text-darkGreen">
+        <BorderLines side="left" innerStyle="p-4">
           <Accordion title="Find by latest tags">
             <div className="flex gap-4">
               {uniqueTags.map((tag, i) => (
