@@ -56,7 +56,7 @@ export default function ProjectsContent({ projects }) {
   }, [selectedTags, projects]);
 
   return (
-    <div className="mt-[140px]">
+    <div>
       <div className="p-8 text-darkGreen max-w-[1600px] mx-auto">
         <h1>Projekter</h1>
         <BorderLines side="left" innerStyle="p-4">

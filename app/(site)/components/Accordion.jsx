@@ -11,10 +11,9 @@ export default function Accordion({ title, children, className }) {
 
   return (
     <div className={className}>
-      <button
-        className="flex justify-between items-center w-full text-[30px] relative cursor-pointer"
+      <div
+        className="flex mb-4 justify-between items-center w-full text-[30px] relative cursor-pointer gap-4"
         onClick={toggle}
-        type="button"
       >
         <p>{title}</p>
         <svg
@@ -33,7 +32,7 @@ export default function Accordion({ title, children, className }) {
             fill="#12471E"
           />
         </svg>
-      </button>
+      </div>
       <div className={clsx(isShowing ? "block" : "hidden")}>{children}</div>
     </div>
   );

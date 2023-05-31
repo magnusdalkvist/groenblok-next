@@ -43,7 +43,7 @@ export default function Header({ module }) {
     setScrollPosition(position);
 
     // Update opacity and isMouseAtTop based on scroll position
-    const maxScroll = 20; // Maximum scroll position for full transparency
+    const maxScroll = 16 * 5; // Maximum scroll position for full transparency
     const opacity = position === 0 ? 1 : 0;
     const isMouseAtTop = opacity === 1 || position < maxScroll;
     setIsMouseAtTop(isMouseAtTop);
@@ -80,48 +80,15 @@ export default function Header({ module }) {
         )}
       >
         <div className="flex flex-col justify-evenly h-full text-h4 max-w-[400px] px-8 text-center text-lightBeige mx-auto">
-          <Link onClick={() => setNavOpen(false)} className="w-full" href="/gron-blok-magazine">
-            Grøn Blok Magazine
-            <>
-              <div className="h-[1px] w-full bg-lightBeige" />
-              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
-            </>
-          </Link>
-          <Link onClick={() => setNavOpen(false)} className="w-full" href="/hvad-er-gron-blok">
-            Hvad er Grøn Blok
-            <>
-              <div className="h-[1px] w-full bg-lightBeige" />
-              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
-            </>
-          </Link>
-          <Link onClick={() => setNavOpen(false)} className="w-full" href="/events">
-            Events
-            <>
-              <div className="h-[1px] w-full bg-lightBeige" />
-              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
-            </>
-          </Link>
-          <Link onClick={() => setNavOpen(false)} className="w-full" href="/projekter">
-            Projekter
-            <>
-              <div className="h-[1px] w-full bg-lightBeige" />
-              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
-            </>
-          </Link>
-          <Link onClick={() => setNavOpen(false)} className="w-full" href="/bliv-medlem">
-            Bliv medlem
-            <>
-              <div className="h-[1px] w-full bg-lightBeige" />
-              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
-            </>
-          </Link>
-          <Link onClick={() => setNavOpen(false)} className="w-full" href="/">
-            Log ind
-            <>
-              <div className="h-[1px] w-full bg-lightBeige" />
-              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
-            </>
-          </Link>
+          {module?.menu?.map((menuItem, index) => (
+            <Link onClick={() => setNavOpen(false)} className="w-full" href={menuItem.link}>
+              {menuItem.title}
+              <>
+                <div className="h-[1px] w-full bg-lightBeige" />
+                <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
+              </>
+            </Link>
+          ))}
         </div>
       </div>
       <div
@@ -151,8 +118,6 @@ export default function Header({ module }) {
                 <div ref={hoverRef} className="h-full relative">
                   <Link
                     key={index}
-                    onMouseEnter={() => setHoveredMenuItem(index)}
-                    onMouseLeave={() => setHoveredMenuItem(null)}
                     className={clsx(
                       "flex flex-col h-full justify-center p-4",
                       isHovered ? "text-orangeAccent" : "text-lightBeige"

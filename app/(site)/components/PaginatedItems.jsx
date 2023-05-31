@@ -10,7 +10,7 @@ export default function PaginatedItems({
   items,
   selectedTags,
   gridLayout,
-  scrollToTop = true,
+  scrollTo = undefined,
 }) {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
@@ -30,7 +30,8 @@ export default function PaginatedItems({
     // console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
     setItemOffset(newOffset);
     //scroll to top of page
-    scrollToTop && window.scrollTo(0, 0);
+    location.hash = "";
+    location.hash = scrollTo;
   };
 
   return (
@@ -148,9 +149,9 @@ function Items({ currentItems, selectedTags, gridLayout }) {
       );
     case "events":
       return (
-        <div className="grid grid-cols-3 gap-y-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-y-4">
           {currentItems?.map((event, i) => (
-            <BorderLines key={i} innerStyle="p-0" side={i % 3 === 2 ? "top" : "right"}>
+            <BorderLines key={i} innerStyle="p-0 h-full" side="right">
               <EventListItem selectedTags={selectedTags} event={event} />
             </BorderLines>
           ))}
@@ -158,12 +159,12 @@ function Items({ currentItems, selectedTags, gridLayout }) {
       );
     case "events-inverted":
       return (
-        <div className="grid grid-cols-3 gap-y-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-y-4">
           {currentItems?.map((event, i) => (
             <BorderLines
               color="bg-orangeAccent"
               key={i}
-              innerStyle="p-0"
+              innerStyle="p-0 h-full"
               side={i % 3 === 2 ? "" : "right"}
             >
               <EventListItem
@@ -180,7 +181,7 @@ function Items({ currentItems, selectedTags, gridLayout }) {
       return (
         <div className="grid grid-cols-2 gap-y-4">
           {currentItems?.map((event, i) => (
-            <BorderLines key={i} innerStyle="p-0" side={i % 2 === 0 ? "right" : "top"}>
+            <BorderLines key={i} innerStyle="p-0 h-full" side={i % 2 === 0 ? "right" : "top"}>
               <EventListItem selectedTags={selectedTags} event={event} />
             </BorderLines>
           ))}
@@ -193,7 +194,7 @@ function Items({ currentItems, selectedTags, gridLayout }) {
             <BorderLines
               color="bg-orangeAccent"
               key={i}
-              innerStyle="p-0"
+              innerStyle="p-0 h-full"
               side={i % 2 === 0 ? "right" : "top"}
             >
               <EventListItem

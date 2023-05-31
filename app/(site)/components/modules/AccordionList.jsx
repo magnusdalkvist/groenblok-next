@@ -5,7 +5,7 @@ import Underline from "../Underline";
 
 export default function AccordionList({ module }) {
   return (
-    <div className="mt-[140px]">
+    <div>
       <BorderLines className="w-[10%]">
         <h4>{module?.title}</h4>
       </BorderLines>

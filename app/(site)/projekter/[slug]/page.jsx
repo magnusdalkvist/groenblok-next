@@ -20,7 +20,7 @@ export default async function Project({ params, searchParams }) {
   const fullAddress = results[0]?.address_components.map((address) => address.long_name).join("+");
 
   return (
-    <div className="mt-[140px] max-w-[1600px] mx-auto px-10">
+    <div className="max-w-[1600px] mx-auto px-10">
       <div className="text-orangeAccent flex gap-2">
         {project.tags.map((tag, i) => (
           <span key={i}>{tag}</span>
