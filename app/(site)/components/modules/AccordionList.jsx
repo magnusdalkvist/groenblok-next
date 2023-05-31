@@ -4,7 +4,6 @@ import RenderPortableText from "../RenderPortableText";
 import Underline from "../Underline";
 
 export default function AccordionList({ module }) {
-  console.log(module.accordions[0].content);
   return (
     <div className="mt-[140px]">
       <BorderLines className="w-[10%]">

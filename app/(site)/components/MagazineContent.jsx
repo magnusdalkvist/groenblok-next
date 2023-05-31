@@ -46,8 +46,6 @@ export default function MagazineContent({ magazine }) {
     }
   }, [selectedTags, currentItems]);
 
-  console.log(currentItems);
-
   return (
     <div className="max-w-[1600px] mx-auto mt-[140px]">
       <div

@@ -10,8 +10,6 @@ export default async function Projects({ module }) {
 
   projects.sort((a, b) => (a.date > b.date ? 1 : -1));
 
-  console.log(projects);
-
   return (
     <div className="flex flex-col items-center gap-8" datatype="projects">
       <h3 className="text-center">{module.title}</h3>

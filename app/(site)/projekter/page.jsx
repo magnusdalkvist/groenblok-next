@@ -5,8 +5,6 @@ import ProjectsContent from "../components/ProjectsContent";
 export default async function Article({ params, searchParams }) {
   const projects = await getProjects();
 
-  console.log(projects);
-
   if (!projects || projects.length === 0) {
     notFound();
   }
