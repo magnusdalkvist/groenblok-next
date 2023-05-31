@@ -4,61 +4,82 @@ import Image from "next/image";
 
 export default function Footer({ module }) {
   return (
-    <div className="bg-lightBeige w-full p-8" datatype="footer">
-      <BorderLinesBox className="w-full">
-        <div className="flex w-full justify-between py-20 px-14">
-          <div className="flex flex-col gap-4">
-            <div className="mb-2">
-              <h3 className="text-2xl">Adresse</h3>
-              <p className="text-sm">{module?.adresse.street}</p>
-              <p className="text-sm">{module?.adresse.city}</p>
-              <p className="text-sm">{module?.adresse.zip}</p>
-            </div>
-            <div className="mb-2">
-              <h3 className="text-2xl">E-mail</h3>
-              <p className="text-sm">{module?.email}</p>
-            </div>
-            <div>
-              <h3 className="text-2xl">CVR</h3>
-              <p className="text-sm">{module?.cvr}</p>
+    <div className="bg-lightBeige text-darkGreen w-full p-8" datatype="footer">
+      <BorderLinesBox className="w-full p-8 sm:p-12 flex gap-8 sm:gap-20 flex-col">
+        <div className="flex flex-col sm:flex-wrap sm:flex-row justify-between gap-8">
+          <div className="flex flex-col order-2 sm:order-none">
+            <h7 className="font-bold">Kontakt os</h7>
+            <p>{module?.adresse.street}</p>
+            <p>
+              {module?.adresse.zip} {module?.adresse.city}
+            </p>
+            <p className="underline">
+              <a href={`mailto:${module?.email}`}>{module?.email}</a>
+            </p>
+            <p>CVR: {module?.cvr}</p>
+          </div>
+          <div className="flex flex-col order-4 sm:order-none">
+            <h7 className="font-bold">Politikker</h7>
+            <Link className="hover:underline" href="/privatpolitik">
+              Privatpolitik
+            </Link>
+            <Link className="hover:underline" href="/vilkar-og-betingelser">
+              Vilkår og betingelser
+            </Link>
+            <Link className="hover:underline" href="/cookies">
+              Cookies
+            </Link>
+          </div>
+          <div className="order-3 sm:order-none">
+            <h7 className="font-bold">Følg os</h7>
+            <div className="flex gap-2">
+              <svg
+                width="30"
+                height="27"
+                viewBox="0 0 30 27"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.7857 0H3.21429C2.3618 0 1.54424 0.302166 0.941442 0.840026C0.338647 1.37789 0 2.10738 0 2.86803L0 23.9002C0 24.6609 0.338647 25.3904 0.941442 25.9282C1.54424 26.4661 2.3618 26.7683 3.21429 26.7683H12.4051V17.6677H8.18638V13.3841H12.4051V10.1194C12.4051 6.40586 14.8828 4.35462 18.6777 4.35462C20.4951 4.35462 22.3955 4.64382 22.3955 4.64382V8.2886H20.3016C18.2384 8.2886 17.5949 9.43103 17.5949 10.6027V13.3841H22.2007L21.4641 17.6677H17.5949V26.7683H26.7857C27.6382 26.7683 28.4558 26.4661 29.0586 25.9282C29.6614 25.3904 30 24.6609 30 23.9002V2.86803C30 2.10738 29.6614 1.37789 29.0586 0.840026C28.4558 0.302166 27.6382 0 26.7857 0Z"
+                  fill="#12471E"
+                />
+              </svg>
+              <svg
+                width="30"
+                height="27"
+                viewBox="0 0 30 27"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 10.197C14.2936 10.1973 13.6032 10.3844 13.0159 10.7347C12.4287 11.0851 11.9711 11.5829 11.701 12.1653C11.4308 12.7477 11.3603 13.3885 11.4983 14.0066C11.6362 14.6248 11.9765 15.1926 12.4761 15.6382C12.9757 16.0838 13.6122 16.3872 14.305 16.5101C14.9978 16.633 15.7159 16.5698 16.3685 16.3285C17.0211 16.0873 17.5789 15.6788 17.9713 15.1547C18.3638 14.6306 18.5732 14.0144 18.5732 13.3841C18.5725 12.5388 18.1958 11.7284 17.5258 11.1308C16.8558 10.5332 15.9473 10.1974 15 10.197ZM23.3511 7.74726C23.1693 7.33608 22.8947 6.96263 22.5444 6.65006C22.1941 6.3375 21.7756 6.09249 21.3147 5.93025C19.9085 5.43491 16.5603 5.54605 15 5.54605C13.4397 5.54605 10.0949 5.43073 8.6846 5.93025C8.22378 6.09249 7.80524 6.3375 7.45494 6.65006C7.10464 6.96263 6.83005 7.33608 6.64821 7.74726C6.09375 9.00202 6.21763 11.9925 6.21763 13.3835C6.21763 14.7745 6.09375 17.7615 6.65089 19.0204C6.83273 19.4316 7.10732 19.805 7.45761 20.1176C7.80791 20.4302 8.22646 20.6752 8.68728 20.8374C10.0935 21.3328 13.4417 21.2216 15.0027 21.2216C16.5636 21.2216 19.9071 21.3369 21.3174 20.8374C21.7782 20.6752 22.1968 20.4302 22.5471 20.1176C22.8974 19.805 23.172 19.4316 23.3538 19.0204C23.9129 17.7656 23.7844 14.7751 23.7844 13.3841C23.7844 11.9931 23.9129 9.0068 23.3538 7.74786L23.3511 7.74726ZM15 18.2837C13.914 18.2837 12.8523 17.9963 11.9493 17.458C11.0463 16.9196 10.3425 16.1544 9.92691 15.2591C9.5113 14.3638 9.40256 13.3787 9.61444 12.4283C9.82631 11.4779 10.3493 10.6048 11.1172 9.91963C11.8852 9.23441 12.8636 8.76778 13.9287 8.57873C14.9939 8.38968 16.098 8.4867 17.1013 8.85754C18.1047 9.22837 18.9623 9.85636 19.5657 10.6621C20.169 11.4678 20.4911 12.4151 20.4911 13.3841C20.492 14.0278 20.3505 14.6652 20.0749 15.26C19.7992 15.8548 19.3948 16.3953 18.8847 16.8504C18.3747 17.3055 17.769 17.6664 17.1024 17.9123C16.4358 18.1583 15.7213 18.2845 15 18.2837ZM20.7174 9.42267C20.4639 9.42279 20.216 9.35581 20.0052 9.23022C19.7943 9.10463 19.6299 8.92606 19.5328 8.7171C19.4357 8.50814 19.4102 8.27818 19.4596 8.0563C19.509 7.83442 19.631 7.63059 19.8102 7.47059C19.9894 7.31059 20.2178 7.20161 20.4664 7.15743C20.7151 7.11326 20.9728 7.13587 21.2071 7.22241C21.4413 7.30895 21.6415 7.45553 21.7824 7.64361C21.9233 7.8317 21.9984 8.05283 21.9984 8.27904C21.9991 8.42926 21.9666 8.57813 21.9027 8.7171C21.8388 8.85608 21.7447 8.98242 21.626 9.0889C21.5072 9.19537 21.366 9.27987 21.2106 9.33756C21.0551 9.39525 20.8884 9.42498 20.7201 9.42506L20.7174 9.42267ZM26.7857 0H3.21429C2.3618 0 1.54424 0.302166 0.941442 0.840026C0.338647 1.37789 0 2.10738 0 2.86803L0 23.9002C0 24.6609 0.338647 25.3904 0.941442 25.9282C1.54424 26.4661 2.3618 26.7683 3.21429 26.7683H26.7857C27.6382 26.7683 28.4558 26.4661 29.0586 25.9282C29.6614 25.3904 30 24.6609 30 23.9002V2.86803C30 2.10738 29.6614 1.37789 29.0586 0.840026C28.4558 0.302166 27.6382 0 26.7857 0ZM25.6393 17.3277C25.5529 18.8591 25.1612 20.216 23.9083 21.331C22.6554 22.4459 21.1359 22.8026 19.4217 22.8755C17.6531 22.9645 12.3509 22.9645 10.5824 22.8755C8.86607 22.7984 7.35067 22.4483 6.09576 21.331C4.84085 20.2136 4.44643 18.8561 4.36473 17.3277C4.26496 15.7491 4.26496 11.0174 4.36473 9.44059C4.45112 7.90919 4.83817 6.55225 6.09576 5.4373C7.35335 4.32236 8.87277 3.96983 10.5824 3.89693C12.3509 3.8079 17.6531 3.8079 19.4217 3.89693C21.1379 3.97401 22.658 4.32415 23.9083 5.44149C25.1585 6.55882 25.5576 7.91636 25.6393 9.44776C25.7391 11.0204 25.7391 15.7479 25.6393 17.3277Z"
+                  fill="#12471E"
+                />
+              </svg>
             </div>
           </div>
-          <div className="flex flex-col justify-between">
-            <div className="flex flex-col gap-2">
-              <Link href={"/test-igen"}>Privatpolitik</Link>
-              <Link href={"/test-igen"}>Vilkår & betingelser</Link>
-              <Link href={"/test-igen"}>Cookie politik</Link>
-            </div>
-            <div className="justify-self-end">
-              <Image
-                src={module?.image.url}
-                width={100}
-                height={100}
-                alt={module?.image.alt}
-              ></Image>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center">
-            <h3 className="text-2xl mb-4">Tilmeld dig her</h3>
-            <form className="flex gap-x-5">
-              <div className="flex flex-col">
-                <label htmlFor="email" className="text-sm">
-                  E-mail
-                </label>
+          <div className="order-1 sm:order-none">
+            <h5 className="font-bold">Tilmeld dig her</h5>
+            <form className="flex flex-col">
+              Email
+              <div className="flex gap-4 flex-col sm:flex-row">
                 <input
                   type="email"
                   name="email"
-                  placeholder="mail@mail.dk"
-                  className="border-2  border-darkGreen p-1"
+                  className="border-2 border-darkGreen rounded bg-transparent p-1"
+                />
+                <input
+                  type="submit"
+                  value="BLIV MEDLEM"
+                  className="bg-darkGreen rounded text-body text-lightBeige px-8 py-1"
                 />
               </div>
-              <input
-                type="submit"
-                value="Tilmeld"
-                className="bg-orangeAccent border py-1.5 px-8 self-end"
-              />
             </form>
           </div>
+        </div>
+        <div className="flex justify-between gap-8">
+          <Image src={module?.image.url} width={100} height={100} alt={module?.image.alt} />
         </div>
       </BorderLinesBox>
     </div>
