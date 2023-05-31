@@ -5,18 +5,42 @@ import Image from "next/image";
 import Link from "next/link";
 import BorderLines from "../BorderLines";
 
+function SubMenu(props) {
+  return (
+    <div className="submenu flex flex-col gap-6 px-4 pb-6 bg-darkGreen">
+      {props.subMenu.map((subMenuItem, i) => {
+        const [subHoverRef, isSubHovered] = useHover();
+        return (
+          <Link
+            key={i}
+            ref={subHoverRef}
+            className="text-lightBeige hover:text-orangeAccent"
+            href={subMenuItem.link}
+          >
+            <div className="relative">
+              {subMenuItem.title}
+              {isSubHovered && (
+                <>
+                  <div className="absolute -bottom-2 -left-2 -right-2 bg-orangeAccent h-[1px]" />
+                  <div className="absolute bottom-[-11px] -left-2 right-0 bg-orangeAccent h-[7px] w-[7px]" />
+                </>
+              )}
+            </div>
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Header({ module }) {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [isClicked, setIsClicked] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [isMouseAtTop, setIsMouseAtTop] = useState(true);
-  const [activeSubMenu, setActiveSubMenu] = useState(null);
-  const [hoveredMenuItem, setHoveredMenuItem] = useState(null);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
-    setIsClicked(false);
 
     // Update opacity and isMouseAtTop based on scroll position
     const maxScroll = 20; // Maximum scroll position for full transparency
@@ -38,111 +62,122 @@ export default function Header({ module }) {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
+    handleScroll();
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const opacity = isMouseAtTop ? 1 : 0;
-  const transitionDuration = 500; // Transition duration in milliseconds
-  const navbarColor = isMouseAtTop && scrollPosition > 20 ? "bg-darkGreen" : "";
-
-  function useHover(index) {
-    const [value, setValue] = useState(false);
-    const ref = useRef(null);
-    const handleMouseOver = () => {
-      setValue(true);
-      setActiveSubMenu(index);
-    };
-    const handleMouseOut = () => {
-      setValue(false);
-      setActiveSubMenu(null);
-    };
-
-    useEffect(() => {
-      const node = ref.current;
-      if (node) {
-        node.addEventListener("mouseover", handleMouseOver);
-        node.addEventListener("mouseout", handleMouseOut);
-        return () => {
-          node.removeEventListener("mouseover", handleMouseOver);
-          node.removeEventListener("mouseout", handleMouseOut);
-        };
-      }
-    }, [ref.current]);
-
-    return [ref, value];
-  }
 
   return (
-    <div
-      className={`fixed top-0 left-0 right-0 z-50 transition-opacity duration-${transitionDuration} ${navbarColor}`}
-      datatype="desktop-header"
-      style={{ opacity }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="max-w-[1900px] flex items-center justify-between p-4 pt-6 h-[120px] mx-auto">
-        <div className={clsx("h-full")}>
-          <Image
-            src={module.logo.url}
-            width={module.logo.width}
-            height={module.logo.height}
-            alt={module.logo.alt}
-            className="object-cover"
-            placeholder={module.logo?.blurDataURL && "blur"}
-            blurDataURL={module.logo?.blurDataURL}
-            priority={true}
-          />
+    <>
+      <div
+        className={clsx(
+          "fixed top-0 left-0 right-0 h-screen z-[90] pt-20 bg-darkGreen",
+          !navOpen && "hidden"
+        )}
+      >
+        <div className="flex flex-col justify-evenly h-full text-h4 max-w-[400px] px-8 text-center text-lightBeige mx-auto">
+          <Link onClick={() => setNavOpen(false)} className="w-full" href="/gron-blok-magazine">
+            Grøn Blok Magazine
+            <>
+              <div className="h-[1px] w-full bg-lightBeige" />
+              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
+            </>
+          </Link>
+          <Link onClick={() => setNavOpen(false)} className="w-full" href="/hvad-er-gron-blok">
+            Hvad er Grøn Blok
+            <>
+              <div className="h-[1px] w-full bg-lightBeige" />
+              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
+            </>
+          </Link>
+          <Link onClick={() => setNavOpen(false)} className="w-full" href="/events">
+            Events
+            <>
+              <div className="h-[1px] w-full bg-lightBeige" />
+              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
+            </>
+          </Link>
+          <Link onClick={() => setNavOpen(false)} className="w-full" href="/projekter">
+            Projekter
+            <>
+              <div className="h-[1px] w-full bg-lightBeige" />
+              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
+            </>
+          </Link>
+          <Link onClick={() => setNavOpen(false)} className="w-full" href="/bliv-medlem">
+            Bliv medlem
+            <>
+              <div className="h-[1px] w-full bg-lightBeige" />
+              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
+            </>
+          </Link>
+          <Link onClick={() => setNavOpen(false)} className="w-full" href="/">
+            Log ind
+            <>
+              <div className="h-[1px] w-full bg-lightBeige" />
+              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
+            </>
+          </Link>
         </div>
-        <div className="flex justify-end">
-          <div onClick={() => setIsClicked(true)} className={clsx("flex gap-6")}>
+      </div>
+      <div
+        datatype="desktop-header"
+        className="hidden lg:block bg-darkGreen sticky top-0 z-[100] h-[5rem] transition-opacity duration-[500ms]"
+        style={{ opacity }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="flex h-full items-center gap-12 justify-between max-w-[1200px] mx-auto">
+          <Link href="/" className="p-4 h-full">
+            <Image
+              src={module.logo.url}
+              width={module.logo.width}
+              height={module.logo.height}
+              alt={module.logo.alt}
+              className="object-cover h-full w-auto"
+              // placeholder={module.logo?.blurDataURL && "blur"}
+              // blurDataURL={module.logo?.blurDataURL}
+              priority={true}
+            />
+          </Link>
+          <div className="flex h-full items-center">
             {module?.menu?.map((menuItem, index) => {
-              const [hoverRef, isHovered] = useHover(index);
-              const showSubMenu = activeSubMenu === index && menuItem.subMenu?.length > 0;
-              const isMenuItemHovered = hoveredMenuItem === index;
+              const [hoverRef, isHovered] = useHover();
               return (
-                <div
-                  className={clsx(
-                    "flex flex-col relative",
-                    isMenuItemHovered && "text-accentOrange" // Apply orange color to hovered menu item
-                  )}
-                  key={index}
-                  ref={hoverRef}
-                  onMouseEnter={() => setHoveredMenuItem(index)}
-                  onMouseLeave={() => setHoveredMenuItem(null)}
-                >
+                <div ref={hoverRef} className="h-full relative">
                   <Link
-                    className={clsx("text-lightBeige", isMenuItemHovered && "text-orangeAccent")}
+                    key={index}
+                    onMouseEnter={() => setHoveredMenuItem(index)}
+                    onMouseLeave={() => setHoveredMenuItem(null)}
+                    className={clsx(
+                      "flex flex-col h-full justify-center p-4",
+                      isHovered ? "text-orangeAccent" : "text-lightBeige"
+                    )}
                     href={menuItem.link}
                   >
-                    {menuItem.title}
+                    <div className="relative">
+                      {menuItem.title}
+                      {isHovered && (
+                        <>
+                          <div className="absolute -bottom-2 -left-2 -right-2 bg-orangeAccent h-[1px]" />
+                          <div className="absolute bottom-[-11px] -left-2 right-0 bg-orangeAccent h-[7px] w-[7px]" />
+                        </>
+                      )}
+                    </div>
                   </Link>
-                  {showSubMenu && (
+                  {isHovered && menuItem.subMenu && (
                     <div
                       className={clsx(
-                        "absolute top-full left-0 flex flex-col transition-all duration-300",
+                        "absolute top-full left-0 right-0 flex flex-col transition-all duration-300",
                         isHovered ? "opacity-1 h-full delay-[50ms]" : "opacity-0 h-0"
                       )}
                     >
-                      <div className="submenu flex flex-col gap-4 bg-darkGreen py-2 px-8">
-                        {menuItem.subMenu.map((subMenuItem, i) => (
-                          <Link
-                            key={i}
-                            className="text-lightBeige hover:text-orangeAccent"
-                            href={subMenuItem.link}
-                          >
-                            {subMenuItem.title}
-                          </Link>
-                        ))}
-                      </div>
+                      <SubMenu subMenu={menuItem.subMenu} />
                     </div>
-                  )}
-                  {isMenuItemHovered && (
-                    <BorderLines
-                      color="bg-orangeAccent"
-                      side={showSubMenu ? "line-down" : "line"}
-                    ></BorderLines>
                   )}
                 </div>
               );
@@ -150,7 +185,75 @@ export default function Header({ module }) {
           </div>
         </div>
       </div>
-    </div>
+      <div
+        datatype="mobile-header"
+        className="lg:hidden bg-darkGreen sticky top-0 z-[100] h-[5rem] transition-opacity duration-[500ms] relative"
+      >
+        <div className="flex h-full items-center gap-12 justify-between max-w-[1200px] mx-auto">
+          <Link href="/" className="p-4 h-full">
+            <Image
+              src={module.logo.url}
+              width={module.logo.width}
+              height={module.logo.height}
+              alt={module.logo.alt}
+              className="object-cover h-full w-auto"
+              // placeholder={module.logo?.blurDataURL && "blur"}
+              // blurDataURL={module.logo?.blurDataURL}
+              priority={true}
+            />
+          </Link>
+          <div className="h-1/2 m-4 box-content relative" onClick={() => setNavOpen(!navOpen)}>
+            <svg
+              width="auto"
+              height="auto"
+              viewBox="0 0 60 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className={clsx(
+                "transition-opacity duration-150",
+                navOpen ? "opacity-0" : "opacity-1"
+              )}
+            >
+              <rect x="0.5" y="0.5" width="59" height="59" rx="2.5" stroke="#F9F4E8" />
+              <rect x="11.1113" y="13.2002" width="38.8889" height="6" rx="3" fill="#F9F4E8" />
+              <rect x="11.1113" y="26.3999" width="38.8889" height="6" rx="3" fill="#F9F4E8" />
+              <rect x="11.1113" y="39.6001" width="38.8889" height="6" rx="3" fill="#F9F4E8" />
+            </svg>
+            <svg
+              width="auto"
+              height="auto"
+              viewBox="0 0 60 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className={clsx(
+                "absolute z-10 inset-0 transition-opacity duration-150",
+                navOpen ? "opacity-1" : "opacity-0"
+              )}
+            >
+              <rect x="0.5" y="0.5" width="59" height="59" rx="2.5" stroke="#F9F4E8" />
+              <rect
+                x="16"
+                y="40.7485"
+                width="35"
+                height="5"
+                rx="2.5"
+                transform="rotate(-45 16 40.7485)"
+                fill="#F9F4E8"
+              />
+              <rect
+                x="19.5356"
+                y="16"
+                width="35"
+                height="5"
+                rx="2.5"
+                transform="rotate(45 19.5356 16)"
+                fill="#F9F4E8"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
