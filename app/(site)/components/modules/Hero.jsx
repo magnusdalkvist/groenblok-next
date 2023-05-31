@@ -18,7 +18,7 @@ export default function Hero({ module }) {
           //prevents image from stretching in weird ways
           priority={true}
         />
-        <div className="absolute inset-0 bg-black opacity-25" />
+        <div className="absolute inset-0 bg-black opacity-30" />
         <div className="absolute inset-0">
           <div className="absolute bottom-0 h-[100px] w-full bg-gradient-to-b from-transparent to-lightBeige" />
         </div>
@@ -46,6 +46,7 @@ export default function Hero({ module }) {
                       paddingTop="pt-16"
                       sideline="top-[50px]"
                       left="left-[-30px]"
+                      innerStyle="px-5"
                     >
                       <h5
                         className=" font-bold text-lightBeige mb-2"
@@ -58,7 +59,7 @@ export default function Hero({ module }) {
                   )}
                   {i === 1 && (
                     /* Render the second grundprincip with split BorderLines */
-                    <BorderLines side="split" color="bg-lightBeige">
+                    <BorderLines side="split" color="bg-lightBeige" innerStyle="px-5">
                       <h5
                         className="font-bold text-lightBeige mb-2"
                         style={{ marginTop: `${marginTop}px` }}
@@ -78,6 +79,7 @@ export default function Hero({ module }) {
                       paddingTop="pt-16"
                       sideline="top-[70px]"
                       right="right-[-30px]"
+                      innerStyle="px-5"
                     >
                       <h5
                         className="text-xl font-bold text-lightBeige mb-2"
