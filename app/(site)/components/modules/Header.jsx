@@ -75,11 +75,11 @@ export default function Header({ module }) {
     <>
       <div
         className={clsx(
-          "fixed top-0 left-0 right-0 h-screen z-[90] pt-20 bg-darkGreen",
-          !navOpen && "hidden"
+          "fixed top-0 left-0 right-0 h-screen z-[90] pt-20 bg-darkGreen transition-transform duration-300",
+          !navOpen && "translate-x-full"
         )}
       >
-        <div className="grid justify-evenly h-full text-h4 px-8 text-center text-lightBeige mx-auto">
+        <div className="grid justify-evenly h-full text-h2 p-8 text-center text-lightBeige mx-auto">
           {module?.menu?.map((menuItem, index) => (
             <Link
               onClick={() => setNavOpen(false)}

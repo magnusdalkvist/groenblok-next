@@ -18,6 +18,67 @@
 }
  */
 
+:root {
+  /* --color-orange-140: #995400;
+  --color-orange-120: #cc7000;
+  --color-orange-80: #ffa333;
+  --color-orange-60: #ffba66;
+  --color-orange-100: #ff8c00;
+  --color-yellow-140: #989955;
+  --color-yellow-120: #cacc72;
+  --color-yellow-80: #fdffa5;
+  --color-yellow-60: #feffbb;
+  --color-yellow-100: #fdff8e;
+  --color-lightgreen-140: #4f6e37;
+  --color-lightgreen-120: #6a934a;
+  --color-lightgreen-80: #9dc67d;
+  --color-lightgreen-60: #b5d49d;
+  --color-lightgreen-100: #84b85c;
+  --color-beige-140: #95928b;
+  --color-beige-120: #c7c3ba;
+  --color-beige-80: #faf6ed;
+  --color-beige-60: #fbf8f1;
+  --color-beige-100: #f9f4e8;
+  --color-darkgreen-120: #0b2b12;
+  --color-darkgreen-120: #0e3918;
+  --color-darkgreen-80: #416c4b;
+  --color-darkgreen-60: #719178;
+  --color-darkgreen-100: #12471e; */
+  --font-size-mobile-button-xl: 20px;
+  --font-size-mobile-button: 15px;
+  --font-size-mobile-body-xl: 17.5px;
+  --font-size-mobile-body: 15px;
+  --font-size-mobile-H7: 16px;
+  --font-size-mobile-H6: 50px;
+  --font-size-mobile-H5: 20px;
+  --font-size-mobile-H4: 22px;
+  --font-size-mobile-H3: 26px;
+  --font-size-mobile-H2: 30px;
+  --font-size-mobile-H1: 38px;
+
+  --font-family-body: Taviraj;
+  --font-family-headings: Chivo;
+  --letter-spacing-2: 2px;
+  --letter-spacing-1: 1px;
+  --letter-spacing-4: 4px;
+  --letter-spacing-3: 3px;
+  --font-weight-black: 900;
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+
+  --font-size-web-button-xl: 24px;
+  --font-size-web-button: 20px;
+  --font-size-web-body-xl: 20px;
+  --font-size-web-body: 17px;
+  --font-size-web-H7: 18px;
+  --font-size-web-H6: 140px;
+  --font-size-web-H5: 26px;
+  --font-size-web-H4: 36px;
+  --font-size-web-H3: 40px;
+  --font-size-web-H2: 60px;
+  --font-size-web-H1: 80px;
+}
+
 html {
   background-color: #f9f4e8;
   font-family: "Chivo", sans-serif;
@@ -35,34 +96,35 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-size: var(--font-size-mobile-body);
 }
 
 h1 {
-  font-size: 90px;
+  font-size: var(--font-size-mobile-H1);
   font-family: "Chivo", sans-serif;
 }
 h2 {
-  font-size: 60px;
+  font-size: var(--font-size-mobile-H2);
   font-family: "Chivo", sans-serif;
 }
 h3 {
-  font-size: 40px;
+  font-size: var(--font-size-mobile-H3);
   font-family: "Chivo", sans-serif;
 }
 h4 {
-  font-size: 36px;
+  font-size: var(--font-size-mobile-H4);
   font-family: "Chivo", sans-serif;
 }
 h5 {
-  font-size: 26px;
+  font-size: var(--font-size-mobile-H5);
   font-family: "Chivo", sans-serif;
 }
 h6 {
-  font-size: 24px;
+  font-size: var(--font-size-mobile-H6);
   font-family: "Chivo", sans-serif;
 }
 h7 {
-  font-size: 18px;
+  font-size: var(--font-size-mobile-H7);
   font-family: "Chivo", sans-serif;
 }
 
@@ -74,6 +136,33 @@ h5,
 h6,
 h7 {
   line-height: 1;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: var(--font-size-web-H1);
+  }
+  h2 {
+    font-size: var(--font-size-web-H2);
+  }
+  h3 {
+    font-size: var(--font-size-web-H3);
+  }
+  h4 {
+    font-size: var(--font-size-web-H4);
+  }
+  h5 {
+    font-size: var(--font-size-web-H5);
+  }
+  h6 {
+    font-size: var(--font-size-web-H6);
+  }
+  h7 {
+    font-size: var(--font-size-web-H7);
+  }
+  body {
+    font-size: var(--font-size-web-body);
+  }
 }
 
 main {
@@ -246,21 +335,10 @@ ul {
 }
 
 /* PAGINATION */
-.pagination li:first-of-type a,
-.pagination li:last-of-type a {
-  background: #12471e;
-  padding: 0.5rem 1rem;
-  min-width: 200px;
-  color: white;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-}
-
-.pagination li.disabled a {
+.pagination-disabled {
   background: transparent;
   border: #12471e 1px solid;
-  color: #12471e;
+  color: #12471e !important;
   cursor: not-allowed;
 }
 
