@@ -1,8 +1,8 @@
 import Button from "../Button";
 
-export default function ButtonGroup({ block, classNameButton, buttonType }) {
+export default function ButtonGroup({ block, classNameButton, buttonType, buttonWrapper }) {
   return (
-    <div className="flex gap-4">
+    <div className={`flex gap-4 ${buttonWrapper}`}>
       {block?.buttons?.map((button, i) => {
         return (
           <Button className={classNameButton} key={i} type={buttonType} href={button?.link}>

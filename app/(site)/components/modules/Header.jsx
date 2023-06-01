@@ -151,8 +151,8 @@ export default function Header({ module }) {
                 <div ref={hoverRef} className="h-full relative">
                   <Link
                     key={index}
-                    onMouseEnter={() => setHoveredMenuItem(index)}
-                    onMouseLeave={() => setHoveredMenuItem(null)}
+                    // onMouseEnter={() => setHoveredMenuItem(index)}
+                    // onMouseLeave={() => setHoveredMenuItem(null)}
                     className={clsx(
                       "flex flex-col h-full justify-center p-4",
                       isHovered ? "text-orangeAccent" : "text-lightBeige"

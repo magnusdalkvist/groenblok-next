@@ -1,65 +1,70 @@
-import {BulbOutlineIcon} from '@sanity/icons'
-import {defineField} from 'sanity'
+import { BulbOutlineIcon } from "@sanity/icons";
+import { defineField } from "sanity";
 
 export default defineField({
-  name: 'module.slidingInfoCards',
-  title: 'Sliding Info Cards',
-  type: 'object',
+  name: "module.slidingInfoCards",
+  title: "Sliding Info Cards",
+  type: "object",
   icon: BulbOutlineIcon,
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule) => Rule.required().error('You must add a title'),
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule) => Rule.required().error("You must add a title"),
     }),
     defineField({
-      name: 'cards',
-      title: 'Cards',
-      type: 'array',
+      name: "cards",
+      title: "Cards",
+      type: "array",
       of: [
         defineField({
-          name: 'card',
-          title: 'Card',
-          type: 'object',
+          name: "card",
+          title: "Card",
+          type: "object",
           fields: [
             defineField({
-              name: 'title',
-              title: 'Title',
-              type: 'string',
+              name: "title",
+              title: "Title",
+              type: "string",
             }),
             defineField({
-              name: 'subtitle',
-              title: 'Subtitle',
-              type: 'string',
+              name: "subtitle",
+              title: "Subtitle",
+              type: "string",
             }),
             defineField({
-              name: 'description',
-              title: 'Description',
-              type: 'text',
+              name: "description",
+              title: "Description",
+              type: "text",
               rows: 3,
             }),
             defineField({
-              name: 'image',
-              title: 'Image',
-              type: 'image',
+              name: "image",
+              title: "Image",
+              type: "image",
             }),
           ],
         }),
       ],
-      validation: (Rule) => [Rule.required().error('You must add a speaker'), Rule.max(6)],
+      validation: (Rule) => [Rule.required().error("You must add a speaker"), Rule.max(6)],
+    }),
+    defineField({
+      name: "backgroundImage",
+      title: "Background Image",
+      type: "image",
     }),
   ],
   preview: {
     select: {
-      title: 'title',
+      title: "title",
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
         title,
-        subtitle: 'Sliding Info Cards',
+        subtitle: "Sliding Info Cards",
         media: BulbOutlineIcon,
-      }
+      };
     },
   },
-})
+});

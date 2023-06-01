@@ -6,9 +6,9 @@ export default function SlickSlider({ module }) {
   return (
     <div className="py-14" datatype="slickSlider">
       <h3 className="">{module?.title}</h3>
-      <EmblaCarousel>
+      <div className="flex gap-4 justify-evenly items-center">
         {module?.images?.map((image, i) => (
-          <div key={i} className="embla__slide">
+          <div key={i}>
             <Image
               src={image?.url}
               width={200}
@@ -20,7 +20,7 @@ export default function SlickSlider({ module }) {
             ></Image>
           </div>
         ))}
-      </EmblaCarousel>
+      </div>
     </div>
   );
 }
