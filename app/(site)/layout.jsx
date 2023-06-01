@@ -20,7 +20,7 @@ export default async function RootLayout({ children }) {
   const referer = headersList.get("referer");
 
   return (
-    <html lang="en">
+    <html lang="da">
       <body className={inter.className}>
         <Header module={sanitySettings.headerTemplate.modules[0]} />
         <main className="flex-1">{children}</main>

@@ -11,13 +11,13 @@ export default async function Projects({ module }) {
   projects.sort((a, b) => (a.date > b.date ? 1 : -1));
 
   return (
-    <div className="flex flex-col items-center gap-8" datatype="projects">
+    <div className="flex flex-col items-center gap-8 p-4" datatype="projects">
       <h3 className="text-center">{module.title}</h3>
       <div className="grid grid-cols-3 gap-y-4 max-w-[1000px]">
         {module.show == "custom" &&
           module?.projects.map((event, i) => (
-            <BorderLines side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
-              <EventListItem key={i} event={event} />
+            <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+              <EventListItem event={event} />
             </BorderLines>
           ))}
         {module.show == "future" &&
@@ -25,8 +25,8 @@ export default async function Projects({ module }) {
           projects
             .filter((_) => _.date >= date)
             .map((event, i) => (
-              <BorderLines side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
-                <EventListItem key={i} event={event} />
+              <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+                <EventListItem event={event} />
               </BorderLines>
             ))}
         {module.show == "previous" &&
@@ -34,8 +34,8 @@ export default async function Projects({ module }) {
           projects
             .filter((_) => _.date < date)
             .map((event, i) => (
-              <BorderLines side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
-                <EventListItem key={i} event={event} />
+              <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+                <EventListItem event={event} />
               </BorderLines>
             ))}
       </div>

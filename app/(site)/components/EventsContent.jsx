@@ -78,7 +78,7 @@ export default function EventsContent({ events }) {
       <div className="bg-darkGreen">
         {filteredItems.filter((_) => _.date >= date).length > 0 && (
           <div
-            id="futureEvents"
+            id="kommende-events"
             className="scroll-mt-20 flex flex-col text-orangeAccent px-8 pt-8 max-w-[1600px] mx-auto"
           >
             <h2>Kommende events</h2>
@@ -87,7 +87,7 @@ export default function EventsContent({ events }) {
               items={filteredItems.filter((_) => _.date >= date)}
               selectedTags={selectedTags}
               gridLayout="events-inverted"
-              scrollTo="#futureEvents"
+              scrollTo="#kommende-events"
             />
           </div>
         )}
@@ -96,7 +96,7 @@ export default function EventsContent({ events }) {
       <div className="bg-lightGreen">
         {filteredItems.filter((_) => _.date < date).length > 0 && (
           <div
-            id="pastEvents"
+            id="forrige-events"
             className="scroll-mt-20 flex flex-col text-darkGreen px-8 pb-8 max-w-[1600px] mx-auto"
           >
             <h2>Forrige events</h2>
@@ -105,7 +105,7 @@ export default function EventsContent({ events }) {
               items={filteredItems.filter((_) => _.date < date)}
               selectedTags={selectedTags}
               gridLayout="events"
-              scrollTo="#pastEvents"
+              scrollTo="#forrige-events"
             />
           </div>
         )}

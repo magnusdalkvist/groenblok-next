@@ -77,14 +77,17 @@ export default function ProjectsContent({ projects }) {
       </div>
       <div className="bg-lightGreen">
         {filteredItems.filter((_) => _.date >= date).length > 0 && (
-          <div className="flex flex-col text-darkGreen p-8 max-w-[1600px] mx-auto">
+          <div
+            id="kommende-projekter"
+            className="scroll-mt-20 flex flex-col text-darkGreen p-8 max-w-[1600px] mx-auto"
+          >
             <h2>Kommende Projekter</h2>
             <PaginatedItems
               itemsPerPage={6}
               items={filteredItems.filter((_) => _.date >= date)}
               selectedTags={selectedTags}
               gridLayout="projects"
-              scrollToTop={false}
+              scrollTo="#kommende-projekter"
             />
           </div>
         )}
@@ -92,14 +95,17 @@ export default function ProjectsContent({ projects }) {
       <div className="h-[200px] bg-gradient-to-t from-darkGreen to-lightGreen"></div>
       <div className="bg-darkGreen">
         {filteredItems.filter((_) => _.date < date).length > 0 && (
-          <div className="flex flex-col gap-8 text-orangeAccent p-8 max-w-[1600px] mx-auto">
+          <div
+            id="forrige-projekter"
+            className="scroll-mt-20 flex flex-col gap-8 text-orangeAccent p-8 max-w-[1600px] mx-auto"
+          >
             <h2>Forrige Projekter</h2>
             <PaginatedItems
               itemsPerPage={6}
               items={filteredItems.filter((_) => _.date < date)}
               selectedTags={selectedTags}
               gridLayout="projects-inverted"
-              scrollToTop={false}
+              scrollTo="forrige-projekter"
             />
           </div>
         )}

@@ -7,6 +7,12 @@ export default defineType({
   title: "Advice",
   fields: [
     defineField({
+      name: "adviceNumber",
+      type: "number",
+      title: "Advice #",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "title",
       type: "string",
       title: "Title",

@@ -21,12 +21,12 @@ export default async function Project({ params, searchParams }) {
 
   return (
     <div className="max-w-[1600px] mx-auto px-10">
-      <div className="text-orangeAccent flex gap-2">
+      <div className="text-orangeAccent flex flex-wrap gap-x-2 pt-4 pb-0 md:pb-4">
         {project.tags.map((tag, i) => (
           <span key={i}>{tag}</span>
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-[75px]">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-[75px]">
         <div>
           <h1 className="text-darkGreen font-bold">{project?.title}</h1>
           <h3 className="text-orangeAccent font-bold">
@@ -37,11 +37,9 @@ export default async function Project({ params, searchParams }) {
           </h3>
           {project?.content && <RenderPortableText content={project?.content} />}
         </div>
-        <div className="flex flex-col gap-[50px]">
+        <div className="flex flex-col gap-4 md:gap-[50px]">
           <form action="" className="bg-darkGreen rounded p-8">
-            <h3 className="w-full text-center text-orangeAccent font-bold">
-              Tilmelding til project
-            </h3>
+            <h3 className="w-full text-center text-orangeAccent font-bold">Ansøg</h3>
             <div className="max-w-[300px] flex flex-col mx-auto gap-4 items-end">
               <label className="text-yellowAccent w-full flex flex-col">
                 Fornavn
@@ -58,7 +56,7 @@ export default async function Project({ params, searchParams }) {
               <input
                 className="bg-orangeAccent cursor-pointer px-8 py-2"
                 type="submit"
-                value="Tilmeld"
+                value="ANSØG NU"
               />
             </div>
           </form>

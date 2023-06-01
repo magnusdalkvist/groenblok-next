@@ -79,14 +79,19 @@ export default function Header({ module }) {
           !navOpen && "hidden"
         )}
       >
-        <div className="flex flex-col justify-evenly h-full text-h4 max-w-[400px] px-8 text-center text-lightBeige mx-auto">
+        <div className="grid justify-evenly h-full text-h4 px-8 text-center text-lightBeige mx-auto">
           {module?.menu?.map((menuItem, index) => (
-            <Link onClick={() => setNavOpen(false)} className="w-full" href={menuItem.link}>
+            <Link
+              onClick={() => setNavOpen(false)}
+              className="w-full px-4 relative"
+              href={menuItem.link}
+              key={index}
+            >
               {menuItem.title}
-              <>
+              <div className="absolute left-0 right-0 w-full">
                 <div className="h-[1px] w-full bg-lightBeige" />
                 <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
-              </>
+              </div>
             </Link>
           ))}
         </div>
@@ -115,7 +120,7 @@ export default function Header({ module }) {
             {module?.menu?.map((menuItem, index) => {
               const [hoverRef, isHovered] = useHover();
               return (
-                <div ref={hoverRef} className="h-full relative">
+                <div ref={hoverRef} className="h-full relative" key={index}>
                   <Link
                     key={index}
                     className={clsx(
@@ -169,13 +174,13 @@ export default function Header({ module }) {
           </Link>
           <div className="h-1/2 m-4 box-content relative" onClick={() => setNavOpen(!navOpen)}>
             <svg
-              width="auto"
-              height="auto"
+              width="60"
+              height="60"
               viewBox="0 0 60 60"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className={clsx(
-                "transition-opacity duration-150",
+                "transition-opacity duration-150 w-full h-full",
                 navOpen ? "opacity-0" : "opacity-1"
               )}
             >
@@ -185,13 +190,13 @@ export default function Header({ module }) {
               <rect x="11.1113" y="39.6001" width="38.8889" height="6" rx="3" fill="#F9F4E8" />
             </svg>
             <svg
-              width="auto"
-              height="auto"
+              width="60"
+              height="60"
               viewBox="0 0 60 60"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className={clsx(
-                "absolute z-10 inset-0 transition-opacity duration-150",
+                "absolute z-10 inset-0 transition-opacity duration-150 w-full h-full",
                 navOpen ? "opacity-1" : "opacity-0"
               )}
             >

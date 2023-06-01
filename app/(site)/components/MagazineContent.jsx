@@ -16,8 +16,11 @@ export default function MagazineContent({ magazine }) {
   const [currentItems, setCurrentItems] = useState(allPosts);
   const [filteredItems, setFilteredItems] = useState(currentItems);
 
-  //get all tags from current items
-  const allTags = currentItems?.map((item) => item.tags).flat();
+  //get all tags from current items and remove empty tags
+  const allTags = currentItems
+    ?.map((item) => item.tags)
+    .flat()
+    .filter((tag) => tag);
   //get unique tags
   const uniqueTags = [...new Set(allTags)];
 
@@ -36,7 +39,7 @@ export default function MagazineContent({ magazine }) {
     //set filtered articles to articles that matches selected tags
     setFilteredItems(
       currentItems?.filter((item) => {
-        return selectedTags.every((tag) => item.tags.includes(tag));
+        return selectedTags.every((tag) => item.tags?.includes(tag));
       })
     );
 
@@ -55,12 +58,12 @@ export default function MagazineContent({ magazine }) {
             currentItems !== podcasts &&
             currentItems !== reports &&
             currentItems !== advice &&
-            "bg-[url('tree.jfif')] flex flex-col text-lightBeige bg-cover bg-center aspect-[3/4] mb-8",
-          "px-8 text-darkGreen"
+            "bg-[url('tree.jfif')] flex flex-col text-lightBeige bg-cover bg-center aspect-[3/4] mb-8 p-4",
+          "p-8 text-darkGreen"
         )}
       >
-        <h1 className="w-full text-center italic">Grøn Blok Magazine</h1>
-        <div className="flex justify-evenly gap-4">
+        <h1 className="w-full text-center italic mb-4">Grøn Blok Magazine</h1>
+        <div className="flex flex-wrap justify-evenly gap-4">
           <div
             onClick={() => {
               setCurrentItems(allPosts);
@@ -144,15 +147,15 @@ export default function MagazineContent({ magazine }) {
             </div>
           )}
       </div>
-      <div className="px-8 text-darkGreen">
-        <BorderLines side="left" innerStyle="p-4">
+      <div className="px-8 text-darkGreen scroll-mt-20" id="tags">
+        <BorderLines side="left" innerStyle="p-4" className="mb-4">
           <Accordion title="Find by latest tags">
-            <div className="flex gap-4">
-              {uniqueTags.map((tag, i) => (
+            <div className="flex flex-wrap gap-4">
+              {uniqueTags?.map((tag, i) => (
                 <div
                   key={i}
                   onClick={() => changeTag(tag)}
-                  className={clsx(selectedTags.includes(tag) && "font-bold")}
+                  className={clsx(selectedTags.includes(tag) && "font-bold", "cursor-pointer")}
                 >
                   {tag}
                 </div>
@@ -181,6 +184,7 @@ export default function MagazineContent({ magazine }) {
 function Frontpage({ items, selectedTags }) {
   return (
     <PaginatedItems
+      scrollTo="tags"
       itemsPerPage={6}
       items={items}
       selectedTags={selectedTags}
@@ -192,6 +196,7 @@ function Frontpage({ items, selectedTags }) {
 function Articles({ items, selectedTags }) {
   return (
     <PaginatedItems
+      scrollTo="tags"
       itemsPerPage={8}
       items={items}
       selectedTags={selectedTags}
@@ -203,10 +208,11 @@ function Articles({ items, selectedTags }) {
 function Videos({ items, selectedTags }) {
   return (
     <PaginatedItems
+      scrollTo="tags"
       itemsPerPage={6}
       items={items}
       selectedTags={selectedTags}
-      gridLayout="grid-3"
+      gridLayout="videos"
     />
   );
 }
@@ -214,7 +220,8 @@ function Videos({ items, selectedTags }) {
 function Podcasts({ items, selectedTags }) {
   return (
     <PaginatedItems
-      itemsPerPage={6}
+      scrollTo="tags"
+      itemsPerPage={8}
       items={items}
       selectedTags={selectedTags}
       gridLayout="grid-4"
@@ -225,10 +232,11 @@ function Podcasts({ items, selectedTags }) {
 function Reports({ items, selectedTags }) {
   return (
     <PaginatedItems
+      scrollTo="tags"
       itemsPerPage={6}
       items={items}
       selectedTags={selectedTags}
-      gridLayout="grid-3"
+      gridLayout="reports"
     />
   );
 }
@@ -236,10 +244,11 @@ function Reports({ items, selectedTags }) {
 function Advice({ items, selectedTags }) {
   return (
     <PaginatedItems
-      itemsPerPage={6}
+      scrollTo="tags"
+      itemsPerPage={8}
       items={items}
       selectedTags={selectedTags}
-      gridLayout="grid-3"
+      gridLayout="advice"
     />
   );
 }
