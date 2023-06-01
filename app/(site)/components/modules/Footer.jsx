@@ -62,8 +62,8 @@ export default function Footer({ module }) {
           <div className="order-1 sm:order-none">
             <h5 className="font-bold">Tilmeld dig her</h5>
             <form className="flex flex-col">
-              Email
-              <div className="flex gap-4 flex-col sm:flex-row">
+              <label htmlFor="email">Email</label>
+              <div className="flex gap-2 flex-col sm:flex-row">
                 <input
                   type="email"
                   name="email"
@@ -72,7 +72,7 @@ export default function Footer({ module }) {
                 <input
                   type="submit"
                   value="BLIV MEDLEM"
-                  className="bg-darkGreen rounded text-body text-lightBeige px-8 py-1"
+                  className="bg-darkGreen rounded text-body text-lightBeige px-8 py-2"
                 />
               </div>
             </form>
