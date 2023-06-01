@@ -58,7 +58,7 @@ export default function MagazineContent({ magazine }) {
             currentItems !== podcasts &&
             currentItems !== reports &&
             currentItems !== advice &&
-            "bg-[url('tree.jfif')] flex flex-col text-lightBeige bg-cover bg-center aspect-[3/4] mb-8 p-4",
+            "bg-[url('/tree.webp')] flex flex-col text-lightBeige bg-cover bg-center aspect-[3/4] mb-8 p-4",
           "p-8 text-darkGreen"
         )}
       >
