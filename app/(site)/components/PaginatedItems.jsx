@@ -42,7 +42,7 @@ export default function PaginatedItems({
         breakLabel="..."
         nextLabel="Næste side"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={0}
+        pageRangeDisplayed={3}
         pageCount={pageCount}
         className={clsx(
           "flex justify-center gap-4 my-8 items-center p-0 w-full pagination",
