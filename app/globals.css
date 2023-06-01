@@ -301,21 +301,10 @@ ul {
 }
 
 /* PAGINATION */
-.pagination li:first-of-type a,
-.pagination li:last-of-type a {
-  background: #12471e;
-  padding: 0.5rem 1rem;
-  min-width: 200px;
-  color: white;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-}
-
-.pagination li.disabled a {
+.pagination-disabled {
   background: transparent;
   border: #12471e 1px solid;
-  color: #12471e;
+  color: #12471e !important;
   cursor: not-allowed;
 }
 

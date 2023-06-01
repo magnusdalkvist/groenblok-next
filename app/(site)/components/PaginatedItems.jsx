@@ -38,14 +38,18 @@ export default function PaginatedItems({
     <>
       <Items currentItems={currentItems} selectedTags={selectedTags} gridLayout={gridLayout} />
       <ReactPaginate
-        previousLabel="Forrige side"
+        previousLabel="Forrige"
         breakLabel="..."
-        nextLabel="Næste side"
+        nextLabel="Næste"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
+        pageRangeDisplayed={0}
+        marginPagesDisplayed={1}
         pageCount={pageCount}
+        previousLinkClassName="bg-darkGreen py-2 px-6 text-lightBeige rounded flex justify-center"
+        nextLinkClassName="bg-darkGreen py-2 px-6 text-lightBeige rounded flex justify-center"
+        disabledLinkClassName="pagination-disabled"
         className={clsx(
-          "flex justify-center gap-4 my-8 items-center p-0 w-full pagination",
+          "flex justify-center gap-2 my-8 items-center p-0 w-full",
           pageCount <= 1 && "hidden"
         )}
       />
