@@ -10,7 +10,7 @@ export default function InstagramFeedComponent({ module }) {
     limit: 3,
   };
   return (
-    <div className="">
+    <div className="py-20">
       <h2 className="text-center">{module?.title}</h2>
       <InstagramFeed instafeedConfig={instafeedConfig} />
     </div>

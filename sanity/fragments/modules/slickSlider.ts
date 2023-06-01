@@ -5,8 +5,11 @@ export const MODULE_SLICK_SLIDER = groq`
   _key,
   _type,
   title,
-  "images": images[] {
+  sliders[]{
+    ...,
+     "images": images[] {
     ...,
     ${IMAGE}
+  },
   },
   `;

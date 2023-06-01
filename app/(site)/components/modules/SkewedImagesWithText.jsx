@@ -3,9 +3,8 @@ import RenderBlocks from "../RenderBlocks";
 import Image from "next/image";
 
 export default function SkewedImagesWithText({ module }) {
-  console.log(module);
   return (
-    <div className="grid grid-cols-2 w-full p-20 pb-0 gap-[40px] sm: flex flex-col">
+    <div className="grid grid-cols-2 w-full p-20 pb-0 gap-[40px]">
       <BorderLines side="left" innerStyle="py-10 px-10" bottom="bottom-[50%]">
         <RenderBlocks
           classNameButton="px-14 py-3 mt-8 text-[20px] font-chivo uppercase"

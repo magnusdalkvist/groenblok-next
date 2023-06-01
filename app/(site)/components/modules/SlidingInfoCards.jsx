@@ -17,7 +17,7 @@ export default function SlidingInfoCards({ module }) {
 
             return (
               <>
-                <div class="flip-card rounded">
+                <div key={i} class="flip-card rounded">
                   <div class="flip-card-inner">
                     <div class="flip-card-front rounded">
                       <h3 className="absolute z-10 bottom-[-50px] text-orangeAccent">

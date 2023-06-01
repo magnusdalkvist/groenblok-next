@@ -22,7 +22,7 @@ export default function Hero({ module }) {
           <div className="absolute bottom-0 h-[100px] w-full bg-gradient-to-b from-transparent to-lightBeige" />
         </div>
         <div className="flex justify-between gap-10 w-full h-full relative top-[100px] ps-20 pe-10 py-20">
-          <div class="flex relative inset-0 w-[100%]">
+          <div className="hidden md:flex md:relative md:inset-0 md:w-[100%]">
             {module?.grundprincipper?.map((grundprincip, i) => {
               console.log(grundprincip.content);
               let marginTop = 0;
@@ -97,6 +97,7 @@ export default function Hero({ module }) {
               );
             })}
           </div>
+
           <div className="relative max-w-[930px] inset-y-0 right-0 flex flex-col items-end text-right gap-4 p-4">
             <RenderBlocks
               buttonWrapper="items-end"
