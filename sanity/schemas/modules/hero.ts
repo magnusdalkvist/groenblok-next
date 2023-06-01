@@ -33,18 +33,7 @@ export default defineField({
               name: "content",
               type: "array",
               title: "Content",
-              of: [
-                {
-                  type: "block",
-                  styles: [
-                    { title: "H1", value: "h1" },
-                    { title: "H2", value: "h2" },
-                    { title: "H3", value: "h3" },
-                    { title: "H4", value: "h4" },
-                    { title: "Quote", value: "blockquote" },
-                  ],
-                },
-              ],
+              of: [{ type: "block.title" }, { type: "block.copy" }, { type: "block.buttonGroup" }],
               validation: (Rule) => Rule.required(),
             }),
           ],
@@ -59,7 +48,7 @@ export default defineField({
   ],
   preview: {
     select: {
-      title: "blocks.0.title",
+      title: "Hero",
     },
     prepare({ title }) {
       return {

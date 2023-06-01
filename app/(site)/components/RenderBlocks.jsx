@@ -9,6 +9,7 @@ export default function RenderBlocks({
   classNameCopy,
   titleSize,
   buttonType,
+  buttonWrapper,
 }) {
   return (
     <>
@@ -18,6 +19,7 @@ export default function RenderBlocks({
             classNameTitle={classNameTitle}
             classNameButton={classNameButton}
             classNameCopy={classNameCopy}
+            buttonWrapper={buttonWrapper}
             titleSize={titleSize}
             buttonType={buttonType}
             block={block}
@@ -29,7 +31,15 @@ export default function RenderBlocks({
   );
 }
 
-function Block({ block, classNameTitle, classNameButton, titleSize, buttonType, classNameCopy }) {
+function Block({
+  block,
+  classNameTitle,
+  classNameButton,
+  titleSize,
+  buttonType,
+  classNameCopy,
+  buttonWrapper,
+}) {
   switch (block._type) {
     case "block.title":
       return <Title classNameTitle={classNameTitle} titleSize={titleSize} block={block} />;
@@ -37,7 +47,12 @@ function Block({ block, classNameTitle, classNameButton, titleSize, buttonType, 
       return <Copy block={block} classNameCopy={classNameCopy} />;
     case "block.buttonGroup":
       return (
-        <ButtonGroup classNameButton={classNameButton} buttonType={buttonType} block={block} />
+        <ButtonGroup
+          buttonWrapper={buttonWrapper}
+          classNameButton={classNameButton}
+          buttonType={buttonType}
+          block={block}
+        />
       );
     default:
       return null;

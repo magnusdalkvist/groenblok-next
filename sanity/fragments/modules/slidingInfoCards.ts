@@ -16,4 +16,7 @@ export const MODULE_SLIDING_INFO_CARDS = groq`
       ${IMAGE}
     },
   },
+"backgroundImage": backgroundImage {
+    ${IMAGE}
+  },
 `;

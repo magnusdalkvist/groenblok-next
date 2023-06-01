@@ -9,6 +9,9 @@ export const MODULE_HERO = groq`
   },
   "grundprincipper": grundprincipper[] {
     ...,
+    "content" : content[]{
+      ...,
+    }
   },
   "backgroundImage": backgroundImage {
     ${IMAGE}
