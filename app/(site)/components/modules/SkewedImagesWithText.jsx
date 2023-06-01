@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SkewedImagesWithText({ module }) {
   return (
-    <div className="grid grid-cols-2 w-full p-20 pb-0 gap-[40px]">
+    <div className="lg:grid lg:grid-cols-2 lg:w-full lg:p-20 lg:pb-0 lg:gap-[40px] flex flex-col">
       <BorderLines side="left" innerStyle="py-10 px-10" bottom="bottom-[50%]">
         <RenderBlocks
           classNameButton="px-14 py-3 mt-8 text-[20px] font-chivo uppercase"
@@ -14,10 +14,10 @@ export default function SkewedImagesWithText({ module }) {
           blocks={module?.blocks}
           titleSize="h2"
         />
-        <p className="text-darkGreen mt-6 hidden md:hidden">
+        <p className="text-darkGreen mt-6 block lg:hidden">
           Nedenfor finder du seneste indslag fra Grøn Blok Magazine.
         </p>
-        <p className="text-darkGreen mt-6 md:block">
+        <p className="text-darkGreen mt-6 hidden lg:block">
           Til højre finder du seneste indslag fra Grøn Blok Magazine.
         </p>
       </BorderLines>

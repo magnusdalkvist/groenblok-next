@@ -4,7 +4,7 @@ import BorderLines from "../BorderLines";
 
 export default function Hero({ module }) {
   return (
-    <BorderLines side="hero" top="top-[7rem]" color="bg-lightBeige">
+    <BorderLines side="hero" top="top-[1rem]" color="bg-lightBeige">
       <div className="w-full h-screen relative" datatype="hero">
         <Image
           src={module.backgroundImage?.url}
@@ -21,8 +21,8 @@ export default function Hero({ module }) {
         <div className="absolute inset-0">
           <div className="absolute bottom-0 h-[100px] w-full bg-gradient-to-b from-transparent to-lightBeige" />
         </div>
-        <div className="flex justify-between gap-10 w-full h-full relative top-[100px] ps-20 pe-10 py-20">
-          <div className="hidden md:flex md:relative md:inset-0 md:w-[100%]">
+        <div className="flex justify-between gap-10 w-full h-full relative top-0 ps-20 pe-10 pt-[16rem] pb-20">
+          <div className="hidden lg:flex lg:relative lg:inset-0 lg:w-[100%]">
             {module?.grundprincipper?.map((grundprincip, i) => {
               console.log(grundprincip.content);
               let marginTop = 0;
@@ -50,7 +50,7 @@ export default function Hero({ module }) {
                     >
                       <RenderBlocks
                         classNameButton="p-4 uppercase font-[15px] w-full text-center"
-                        classNameTitle={`font-bold text-lightBeige mb-2 ${marginTop}`}
+                        classNameTitle={`font-bold text-lightBeige mb-2 ${marginTop} `}
                         classNameCopy="text-lightBeige mb-6"
                         titleSize="h5"
                         blocks={grundprincip.content}
@@ -101,7 +101,7 @@ export default function Hero({ module }) {
           <div className="relative max-w-[930px] inset-y-0 right-0 flex flex-col items-end text-right gap-4 p-4">
             <RenderBlocks
               buttonWrapper="items-end"
-              classNameButton="px-28 py-4"
+              classNameButton="px-14 py-4"
               classNameTitle="font-black text-lightBeige mb-10 leading-[6rem] tracking-wider"
               titleSize="h1"
               blocks={module.blocks}

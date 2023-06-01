@@ -63,16 +63,10 @@ export default function BorderLines({
         <div className={className}>
           <div className={`relative h-full`}>
             <div className={`absolute left-0 right-0 ${posTop} h-[2px] ${lineColor} z-10`} />
-            <div
-              className={`absolute right-[40px] bottom-[70%] top-[50px] w-[2px] ${lineColor} z-10`}
-            />
-            <div
-              className={`absolute top-[109px] right-[37px] h-[7px] w-[7px] ${lineColor} z-10`}
-            />
-            <div
-              className={`absolute left-[40px] bottom-[20%] top-[50px] w-[2px] ${lineColor} z-10`}
-            />
-            <div className={`absolute top-[109px] left-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
+            <div className={`absolute right-[40px] bottom-[70%] top-0 w-[2px] ${lineColor} z-10`} />
+            <div className={`absolute top-[14px] right-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
+            <div className={`absolute left-[40px] bottom-[20%] top-0 w-[2px] ${lineColor} z-10`} />
+            <div className={`absolute top-[14px] left-[37px] h-[7px] w-[7px] ${lineColor} z-10`} />
             <div className={innerStyle}>{children}</div>
           </div>
         </div>
