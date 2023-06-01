@@ -3,21 +3,27 @@ import RenderBlocks from "../RenderBlocks";
 import Image from "next/image";
 
 export default function SkewedImagesWithText({ module }) {
+  console.log(module);
   return (
-    <div className="grid grid-cols-2 w-full p-20 pb-0 gap-[40px]">
-      <BorderLines side="left" innerStyle="py-6 px-10" bottom="bottom-[50%]">
-        <div className="">
-          <RenderBlocks
-            classNameButton="px-14 py-3 mt-8 text-[20px] font-chivo uppercase"
-            classNameTitle="mb-8 text-darkGreen font-black tracking-wide"
-            classNameCopy="max-w-[700px] text-black"
-            buttonType="trans"
-            blocks={module?.blocks}
-            titleSize="h2"
-          />
-        </div>
+    <div className="grid grid-cols-2 w-full p-20 pb-0 gap-[40px] sm: flex flex-col">
+      <BorderLines side="left" innerStyle="py-10 px-10" bottom="bottom-[50%]">
+        <RenderBlocks
+          classNameButton="px-14 py-3 mt-8 text-[20px] font-chivo uppercase"
+          classNameTitle="mb-8 text-darkGreen font-black tracking-wide"
+          classNameCopy="max-w-[700px]"
+          buttonType="trans"
+          blocks={module?.blocks}
+          titleSize="h2"
+        />
+        <p className="text-darkGreen mt-6 hidden md:hidden">
+          Nedenfor finder du seneste indslag fra Grøn Blok Magazine.
+        </p>
+        <p className="text-darkGreen mt-6 md:block">
+          Til højre finder du seneste indslag fra Grøn Blok Magazine.
+        </p>
       </BorderLines>
-      <div className="grid grid-cols-2 grid-rows-3 gap-10">
+
+      <div className="grid grid-cols-2 grid-rows-3 gap-x-20 gap-y-10">
         {module?.images?.map((image, i) => (
           <div
             key={i}
@@ -32,7 +38,7 @@ export default function SkewedImagesWithText({ module }) {
             <Image
               src={image?.url}
               alt={image?.alt}
-              className="object-cover rounded-sm aspect-[3/4]"
+              className="object-cover rounded aspect-[3/4]"
               width={image?.width}
               height={image?.height}
               placeholder={image?.blurDataURL && "blur"}

@@ -11,8 +11,10 @@ export default async function Projects({ module }) {
   projects.sort((a, b) => (a.date > b.date ? 1 : -1));
 
   return (
-    <div className="flex flex-col items-center gap-8 p-4" datatype="projects">
-      <h3 className="text-center">{module.title}</h3>
+    <div className="flex flex-col items-center gap-8 p-4 py-32" datatype="projects">
+      <h2 className="text-center text-darkGreen font-chivo tracking-wide font-black">
+        {module.title}
+      </h2>
       <div className="grid grid-cols-3 gap-y-4 max-w-[1000px]">
         {module.show == "custom" &&
           module?.projects.map((event, i) => (

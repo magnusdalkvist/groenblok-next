@@ -10,29 +10,31 @@ export default function SlidingInfoCards({ module }) {
     <>
       <div className="p-24 pb-40 green-gradient" datatype="slidingInfoCard">
         <h2 className="text-orangeAccent font-black tracking-wide pt-28">{module?.title}</h2>
-        <div className="infoCardsWrapper pt-14 pb-40 px-0 relative">
+        <div className="infoCardsWrapper pt-28 pb-40 px-0 relative">
           {module?.cards.map((card, i) => {
             const isActiveCard = i === activeCard;
             const cardClass = clsx("infoCard", isActiveCard && "active");
 
             return (
               <>
-                <div class="flip-card rounded-sm ">
+                <div class="flip-card rounded">
                   <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <h3 className="absolute z-10 bottom-0 px-4">{card.title}</h3>
+                    <div class="flip-card-front rounded">
+                      <h3 className="absolute z-10 bottom-[-50px] text-orangeAccent">
+                        {card.title}
+                      </h3>
                       <Image
                         src={card.image?.url}
                         alt={card.image?.alt}
                         width={card.image?.width}
                         height={card.image?.height}
-                        className="relative aspect-square object-cover"
+                        className="relative rounded aspect-square object-cover"
                         placeholder={card.image?.blurDataURL && "blur"}
                         blurDataURL={card.image?.blurDataURL}
                       />
                     </div>
-                    <div class="flip-card-back">
-                      <h4 className="text-orangeAccent p-2">{card.subtitle}</h4>
+                    <div class="flip-card-back p-8 rounded">
+                      <h4 className="text-orangeAccent pb-2">{card.subtitle}</h4>
                       <p className="text-darkGreen p-6 pt-0">{card.description}</p>
                     </div>
                   </div>
