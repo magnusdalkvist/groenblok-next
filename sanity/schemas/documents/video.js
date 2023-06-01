@@ -12,13 +12,6 @@ export default defineType({
       title: "Title",
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: "description",
-      type: "text",
-      title: "Description",
-      validation: (Rule) => Rule.required(),
-      rows: 3,
-    }),
     //tags
     defineField({
       name: "tags",
@@ -29,11 +22,11 @@ export default defineType({
         layout: "tags",
       },
     }),
-    //add article banner image
     defineField({
-      name: "bannerImage",
-      type: "image",
-      title: "Banner Image",
+      name: "url",
+      type: "url",
+      title: "Youtube URL",
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

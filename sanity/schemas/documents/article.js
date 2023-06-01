@@ -19,16 +19,6 @@ export default defineType({
       validation: (Rule) => Rule.required(),
       rows: 3,
     }),
-    defineField({
-      name: "slug",
-      type: "slug",
-      title: "Slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-      validation: (Rule) => Rule.required(),
-    }),
     //tags
     defineField({
       name: "tags",
@@ -46,49 +36,16 @@ export default defineType({
       title: "Banner Image",
     }),
     //add article content
-    defineField({
-      name: "content",
-      type: "array",
-      title: "Content",
-      of: [
-        {
-          type: "block",
-          styles: [
-            { title: "H1", value: "h1" },
-            { title: "H2", value: "h2" },
-            { title: "H3", value: "h3" },
-            { title: "H4", value: "h4" },
-            { title: "Quote", value: "blockquote" },
-          ],
-        },
-        {
-          type: "image",
-          fields: [
-            {
-              name: "alt",
-              type: "string",
-              title: "Alternative text",
-            },
-          ],
-          options: {
-            hotspot: true,
-          },
-        },
-      ],
-      validation: (Rule) => Rule.required(),
-    }),
   ],
   preview: {
     select: {
       title: "title",
-      subtitle: "slug.current",
       image: "bannerImage",
     },
     prepare(selection) {
       const { title, subtitle, image } = selection;
       return {
         title,
-        subtitle: "/articles/" + subtitle,
         media: image || DocumentIcon,
       };
     },

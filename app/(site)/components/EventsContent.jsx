@@ -56,12 +56,12 @@ export default function EventsContent({ events }) {
   }, [selectedTags, events]);
 
   return (
-    <div className="mt-[140px]">
+    <div>
       <div className="p-8 text-darkGreen max-w-[1600px] mx-auto">
         <h1>Events</h1>
         <BorderLines side="left" innerStyle="p-4">
           <Accordion title="Find by latest tags">
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
               {uniqueTags.map((tag, i) => (
                 <div
                   key={i}
@@ -77,14 +77,17 @@ export default function EventsContent({ events }) {
       </div>
       <div className="bg-darkGreen">
         {filteredItems.filter((_) => _.date >= date).length > 0 && (
-          <div className="flex flex-col text-orangeAccent px-8 pt-8 max-w-[1600px] mx-auto">
+          <div
+            id="kommende-events"
+            className="scroll-mt-20 flex flex-col text-orangeAccent px-8 pt-8 max-w-[1600px] mx-auto"
+          >
             <h2>Kommende events</h2>
             <PaginatedItems
               itemsPerPage={6}
               items={filteredItems.filter((_) => _.date >= date)}
               selectedTags={selectedTags}
               gridLayout="events-inverted"
-              scrollToTop={false}
+              scrollTo="#kommende-events"
             />
           </div>
         )}
@@ -92,14 +95,17 @@ export default function EventsContent({ events }) {
       <div className="h-[200px] bg-gradient-to-b from-darkGreen to-lightGreen"></div>
       <div className="bg-lightGreen">
         {filteredItems.filter((_) => _.date < date).length > 0 && (
-          <div className="flex flex-col text-darkGreen px-8 pb-8 max-w-[1600px] mx-auto">
+          <div
+            id="forrige-events"
+            className="scroll-mt-20 flex flex-col text-darkGreen px-8 pb-8 max-w-[1600px] mx-auto"
+          >
             <h2>Forrige events</h2>
             <PaginatedItems
               itemsPerPage={6}
               items={filteredItems.filter((_) => _.date < date)}
               selectedTags={selectedTags}
               gridLayout="events"
-              scrollToTop={false}
+              scrollTo="#forrige-events"
             />
           </div>
         )}
