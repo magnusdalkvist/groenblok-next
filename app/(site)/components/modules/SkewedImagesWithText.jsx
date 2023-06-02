@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SkewedImagesWithText({ module }) {
   return (
-    <div className="lg:grid lg:grid-cols-2 lg:w-full lg:p-20 lg:pb-0 lg:gap-[40px] flex flex-col">
+    <div className="p-4 lg:grid lg:grid-cols-2 lg:w-full lg:p-20 lg:pb-0 lg:gap-[40px] flex flex-col">
       <BorderLines side="left" innerStyle="py-10 px-10" bottom="bottom-[50%]">
         <RenderBlocks
           classNameButton="px-14 py-3 mt-8 text-[20px] font-chivo uppercase"
