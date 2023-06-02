@@ -13,14 +13,33 @@ export default defineField({
       type: "string",
     }),
     defineField({
-      name: "images",
-      title: "Images",
+      name: "sliders",
+      title: "sliders",
       type: "array",
       of: [
         defineField({
-          name: "image",
-          title: "Image",
-          type: "image",
+          name: "slider",
+          title: "Slider",
+          type: "object",
+          fields: [
+            defineField({
+              name: "sliderTitle",
+              title: "Slider Title",
+              type: "string",
+            }),
+            defineField({
+              name: "images",
+              title: "Images",
+              type: "array",
+              of: [
+                defineField({
+                  name: "image",
+                  title: "Image",
+                  type: "image",
+                }),
+              ],
+            }),
+          ],
         }),
       ],
     }),
