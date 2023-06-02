@@ -83,7 +83,7 @@ export default function Header({ module }) {
           {module?.menu?.map((menuItem, index) => (
             <Link
               onClick={() => setNavOpen(false)}
-              className="w-full px-4 relative"
+              className="w-full text-h2 px-4 relative"
               href={menuItem.link}
               key={index}
             >

@@ -41,12 +41,12 @@ export default function page() {
           <div>
             <label htmlFor="message" className="flex flex-col flex-1">
               Hvad er dine mærkesager?
-              <div className="flex gap-4 items-center">
+              <div className="flex flex-col sm:flex-row gap-4 items-center">
                 <textarea
                   name="message"
                   id="message"
                   rows={5}
-                  className="bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen flex-1"
+                  className="w-full sm:w-auto bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen flex-1"
                   placeholder="Dyremishandling, vegetariske retter,"
                 />
                 <input

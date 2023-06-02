@@ -15,10 +15,10 @@ export default async function Projects({ module }) {
       <h2 className="text-center text-darkGreen font-chivo tracking-wide font-black">
         {module.title}
       </h2>
-      <div className="grid grid-cols-3 gap-y-4 max-w-[1000px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 max-w-[1000px]">
         {module.show == "custom" &&
           module?.projects.map((event, i) => (
-            <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+            <BorderLines key={i} side="right" innerStyle="p-0">
               <EventListItem event={event} />
             </BorderLines>
           ))}
@@ -27,7 +27,7 @@ export default async function Projects({ module }) {
           projects
             .filter((_) => _.date >= date)
             .map((event, i) => (
-              <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+              <BorderLines key={i} side="right" innerStyle="p-0">
                 <EventListItem event={event} />
               </BorderLines>
             ))}
@@ -36,7 +36,7 @@ export default async function Projects({ module }) {
           projects
             .filter((_) => _.date < date)
             .map((event, i) => (
-              <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+              <BorderLines key={i} side="right" innerStyle="p-0">
                 <EventListItem event={event} />
               </BorderLines>
             ))}
