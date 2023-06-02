@@ -16,10 +16,10 @@ export default function SlidingInfoCards({ module }) {
             const cardClass = clsx("infoCard", isActiveCard && "active");
 
             return (
-              <>
-                <div class="flip-card rounded">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front rounded">
+              <div key={i}>
+                <div className="flip-card rounded">
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front rounded">
                       <h3 className="absolute z-10 bottom-[-50px] text-orangeAccent">
                         {card.title}
                       </h3>
@@ -33,7 +33,7 @@ export default function SlidingInfoCards({ module }) {
                         blurDataURL={card.image?.blurDataURL}
                       />
                     </div>
-                    <div class="flip-card-back p-8 rounded">
+                    <div className="flip-card-back p-8 rounded">
                       <h4 className="text-orangeAccent pb-2">{card.subtitle}</h4>
                       <p className="text-darkGreen p-6 pt-0">{card.description}</p>
                     </div>
@@ -42,10 +42,10 @@ export default function SlidingInfoCards({ module }) {
 
                 {/* <div key={i} className={cardClass}>
                   <div className="flex flex-col">
-                    <div class="infoCardContainer">
-                      <div class="card">
-                        <div class="slide slide1">
-                          <div class="content" className="absolute">
+                    <div className="infoCardContainer">
+                      <div className="card">
+                        <div className="slide slide1">
+                          <div className="content" className="absolute">
                             <h3 className="">{card.title}</h3>
                             <Image
                               src={card.image?.url}
@@ -58,8 +58,8 @@ export default function SlidingInfoCards({ module }) {
                             />
                           </div>
                         </div>
-                        <div class="slide slide2">
-                          <div class="content">
+                        <div className="slide slide2">
+                          <div className="content">
                             <h4 className="text-orangeAccent">{card.subtitle}</h4>
                             <p className="text-lightBeige">{card.description}</p>
                           </div>
@@ -68,7 +68,7 @@ export default function SlidingInfoCards({ module }) {
                     </div>
                   </div>
                 </div> */}
-              </>
+              </div>
             );
           })}
         </div>

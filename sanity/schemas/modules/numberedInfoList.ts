@@ -1,40 +1,64 @@
-import {BulbOutlineIcon} from '@sanity/icons'
-import {defineField} from 'sanity'
+import { BulbOutlineIcon } from "@sanity/icons";
+import { defineField } from "sanity";
 
 export default defineField({
-  name: 'module.numberedInfoList',
-  title: 'Numbered Info List',
-  type: 'object',
+  name: "module.numberedInfoList",
+  title: "Numbered Info List",
+  type: "object",
   icon: BulbOutlineIcon,
   fields: [
     defineField({
-      name: 'infoList',
-      title: 'Info List',
-      type: 'array',
+      name: "infoList",
+      title: "Info List",
+      type: "array",
       of: [
         defineField({
-          name: 'infoListItem',
-          title: 'Info List Item',
-          type: 'object',
+          name: "infoListItem",
+          title: "Info List Item",
+          type: "object",
           fields: [
             defineField({
-              name: 'blocks',
-              title: 'Blocks',
-              type: 'array',
-              of: [{type: 'block.title'}, {type: 'block.copy'}, {type: 'block.buttonGroup'}],
+              name: "content",
+              type: "array",
+              title: "Content",
+              of: [
+                {
+                  type: "block",
+                  styles: [
+                    { title: "H1", value: "h1" },
+                    { title: "H2", value: "h2" },
+                    { title: "H3", value: "h3" },
+                    { title: "H4", value: "h4" },
+                    { title: "Quote", value: "blockquote" },
+                  ],
+                },
+                {
+                  type: "image",
+                  fields: [
+                    {
+                      name: "alt",
+                      type: "string",
+                      title: "Alternative text",
+                    },
+                  ],
+                  options: {
+                    hotspot: true,
+                  },
+                },
+              ],
               validation: (Rule) => Rule.required(),
             }),
           ],
           preview: {
             select: {
-              title: 'blocks.0.text',
+              title: "content.0.children.0.text",
             },
-            prepare({title}) {
+            prepare({ title }) {
               return {
                 title,
-                subtitle: 'Info List Item',
+                subtitle: "Info List Item",
                 media: BulbOutlineIcon,
-              }
+              };
             },
           },
         }),
@@ -44,15 +68,15 @@ export default defineField({
   ],
   preview: {
     select: {
-      list: 'infoList',
+      list: "infoList",
     },
-    prepare({list}) {
-      const length = Object.keys(list).length
+    prepare({ list }) {
+      const length = Object.keys(list).length;
       return {
-        title: 'Numbered Info List',
-        subtitle: `${length} item${length === 1 ? '' : 's'}`,
+        title: "Numbered Info List",
+        subtitle: `${length} item${length === 1 ? "" : "s"}`,
         media: BulbOutlineIcon,
-      }
+      };
     },
   },
-})
+});

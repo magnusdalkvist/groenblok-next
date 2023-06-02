@@ -49,6 +49,9 @@ export const PAGE_QUERY_SANITY = groq`
 *[_type == 'page' && slug.current == $slug ][0] {
   title,
   ${MODULES},
+  blocks[] {
+    ...,
+  },
 }
 `;
 

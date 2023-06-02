@@ -57,7 +57,7 @@ export default function EventsContent({ events }) {
 
   return (
     <div>
-      <div className="p-8 text-darkGreen max-w-[1600px] mx-auto">
+      <div className="p-8 text-darkGreen max-w-[1200px] mx-auto">
         <h1>Events</h1>
         <BorderLines side="left" innerStyle="p-4">
           <Accordion title="Find by latest tags">
@@ -79,7 +79,7 @@ export default function EventsContent({ events }) {
         {filteredItems.filter((_) => _.date >= date).length > 0 && (
           <div
             id="kommende-events"
-            className="scroll-mt-20 flex flex-col text-orangeAccent px-8 pt-8 max-w-[1600px] mx-auto"
+            className="scroll-mt-20 flex flex-col text-orangeAccent p-4 max-w-[1200px] mx-auto"
           >
             <h2>Kommende events</h2>
             <PaginatedItems
@@ -92,12 +92,14 @@ export default function EventsContent({ events }) {
           </div>
         )}
       </div>
-      <div className="h-[200px] bg-gradient-to-b from-darkGreen to-lightGreen"></div>
+      {filteredItems.filter((_) => _.date >= date).length > 0 && (
+        <div className="h-[200px] bg-gradient-to-b from-darkGreen to-lightGreen" />
+      )}
       <div className="bg-lightGreen">
         {filteredItems.filter((_) => _.date < date).length > 0 && (
           <div
             id="forrige-events"
-            className="scroll-mt-20 flex flex-col text-darkGreen px-8 pb-8 max-w-[1600px] mx-auto"
+            className="scroll-mt-20 flex flex-col text-darkGreen p-4 max-w-[1200px] mx-auto"
           >
             <h2>Forrige events</h2>
             <PaginatedItems
