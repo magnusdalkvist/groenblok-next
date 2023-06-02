@@ -15,6 +15,7 @@ export default function Hero({ module }) {
         placeholder={module.backgroundImage?.blurDataURL && "blur"}
         blurDataURL={module.backgroundImage?.blurDataURL}
         //prevents image from stretching in weird ways
+        priority={true}
       />
       <div className="absolute inset-0 bg-black opacity-30" />
       <div className="absolute inset-0">

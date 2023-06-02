@@ -37,7 +37,7 @@ export default function SkewedImagesWithText({ module }) {
             <Image
               src={image?.url}
               alt={image?.alt}
-              className="object-cover rounded aspect-[3/4]"
+              className="object-cover rounded w-full aspect-[3/4]"
               width={image?.width}
               height={image?.height}
               placeholder={image?.blurDataURL && "blur"}
