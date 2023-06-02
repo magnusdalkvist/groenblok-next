@@ -48,11 +48,11 @@ export default defineField({
   ],
   preview: {
     select: {
-      title: "Hero",
+      title: "blocks",
     },
     prepare({ title }) {
       return {
-        title,
+        title: title[0].title || title[0].content[0].children[0].text,
         subtitle: "Hero",
         media: BulbOutlineIcon,
       };

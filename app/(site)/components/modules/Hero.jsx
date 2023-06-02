@@ -105,13 +105,17 @@ export default function Hero({ module }) {
               <h3>Grøn Bloks arbejdsområder</h3>
               <p>Læs mere om hvordan du kan bidrage til Grøn Blok og rede verden</p>
               <div className="flex flex-col gap-4">
-                <Button type="trans-light" className="px-6 py-2 text-center">
+                <Button href="/events" type="trans-light" className="px-6 py-2 text-center">
                   EVENTS
                 </Button>
-                <Button type="trans-light" className="px-6 py-2 text-center">
+                <Button href="/projekter" type="trans-light" className="px-6 py-2 text-center">
                   PROJEKTER
                 </Button>
-                <Button type="trans-light" className="px-6 py-2 text-center">
+                <Button
+                  href="/gron-blok-magazine"
+                  type="trans-light"
+                  className="px-6 py-2 text-center"
+                >
                   NYHEDER
                 </Button>
               </div>
