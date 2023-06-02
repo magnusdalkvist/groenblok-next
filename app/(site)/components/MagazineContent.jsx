@@ -50,7 +50,7 @@ export default function MagazineContent({ magazine }) {
   }, [selectedTags, currentItems]);
 
   return (
-    <div className="max-w-[1600px] mx-auto">
+    <div className="max-w-[1200px] mx-auto">
       <div
         className={clsx(
           currentItems !== articles &&
@@ -59,10 +59,10 @@ export default function MagazineContent({ magazine }) {
             currentItems !== reports &&
             currentItems !== advice &&
             "bg-[url('/tree.webp')] flex flex-col text-lightBeige bg-cover bg-center aspect-[3/4] mb-8 p-4",
-          "p-8 text-darkGreen"
+          "p-4 text-darkGreen"
         )}
       >
-        <h1 className="w-full text-center italic mb-4">Grøn Blok Magazine</h1>
+        <h1 className="w-full text-center italic mb-4 font-bold">Grøn Blok Magazine</h1>
         <div className="flex flex-wrap justify-evenly gap-4">
           <div
             onClick={() => {

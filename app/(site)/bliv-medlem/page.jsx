@@ -41,12 +41,12 @@ export default function page() {
           <div>
             <label htmlFor="message" className="flex flex-col flex-1">
               Hvad er dine mærkesager?
-              <div className="flex gap-4 items-center">
+              <div className="flex flex-col sm:flex-row gap-4 items-center">
                 <textarea
                   name="message"
                   id="message"
                   rows={5}
-                  className="bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen flex-1"
+                  className="w-full sm:w-auto bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen flex-1"
                   placeholder="Dyremishandling, vegetariske retter,"
                 />
                 <input
@@ -97,12 +97,12 @@ export default function page() {
           <div className={"flex border-b border-darkGreen"}>
             <div
               className={
-                "text-[80px] w-1/4 flex justify-center items-center font-bold py-8 px-4 items-start relative"
+                "text-[80px] w-1/4 flex justify-center items-center font-bold py-8 pr-4 items-start relative"
               }
             >
               <div className="sticky top-8 text-orangeAccent text-h2-web">01</div>
             </div>
-            <div className="flex flex-col w-3/4 py-8 px-4 border-l border-darkGreen">
+            <div className="flex flex-col w-3/4 py-8 pl-4 border-l border-darkGreen">
               <div>
                 <h3>Giv din mening til kende</h3>
                 <p>
@@ -117,12 +117,12 @@ export default function page() {
           <div className={"flex border-b border-darkGreen flex-row-reverse"}>
             <div
               className={
-                "text-[80px] w-1/4 flex justify-center items-center font-bold py-8 px-4 items-start relative"
+                "text-[80px] w-1/4 flex justify-center items-center font-bold py-8 pl-4 items-start relative"
               }
             >
               <div className="sticky top-8 text-orangeAccent text-h2-web">02</div>
             </div>
-            <div className="flex flex-col w-3/4 py-8 px-4 border-r border-darkGreen">
+            <div className="flex flex-col w-3/4 py-8 pr-4 border-r border-darkGreen">
               <div>
                 <h3>Giv din mening til kende</h3>
                 <p>
@@ -137,12 +137,12 @@ export default function page() {
           <div className={"flex"}>
             <div
               className={
-                "text-[80px] w-1/4 flex justify-center items-center font-bold py-8 px-4 items-start relative"
+                "text-[80px] min-w-[5rem] w-1/4 flex justify-center items-center font-bold py-8 pr-4 items-start relative"
               }
             >
               <div className="sticky top-8 text-orangeAccent text-h2-web">03</div>
             </div>
-            <div className="flex flex-col w-3/4 py-8 px-4 border-l border-darkGreen">
+            <div className="flex flex-col w-3/4 py-8 pl-4 border-l border-darkGreen">
               <div>
                 <h3>Giv din mening til kende</h3>
                 <p>

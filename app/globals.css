@@ -97,30 +97,42 @@ body {
 
 h1 {
   font-size: var(--font-size-mobile-H1);
+  font-weight: var(--font-weight-black);
   font-family: "Chivo", sans-serif;
+  margin-bottom: 1rem;
 }
 h2 {
   font-size: var(--font-size-mobile-H2);
+  font-weight: var(--font-weight-black);
   font-family: "Chivo", sans-serif;
 }
 h3 {
   font-size: var(--font-size-mobile-H3);
+  font-weight: var(--font-weight-black);
   font-family: "Chivo", sans-serif;
 }
 h4 {
   font-size: var(--font-size-mobile-H4);
+  font-weight: var(--font-weight-bold);
   font-family: "Chivo", sans-serif;
 }
 h5 {
   font-size: var(--font-size-mobile-H5);
+  font-weight: var(--font-weight-bold);
   font-family: "Chivo", sans-serif;
 }
 h6 {
   font-size: var(--font-size-mobile-H6);
+  font-weight: var(--font-weight-black);
   font-family: "Chivo", sans-serif;
 }
 h7 {
   font-size: var(--font-size-mobile-H7);
+  font-weight: var(--font-weight-bold);
+}
+
+a {
+  font-size: var(--font-size-mobile-button);
   font-family: "Chivo", sans-serif;
 }
 
@@ -159,6 +171,9 @@ h7 {
   }
   body {
     font-size: var(--font-size-web-body);
+  }
+  a {
+    font-size: var(--font-size-web-button);
   }
 }
 

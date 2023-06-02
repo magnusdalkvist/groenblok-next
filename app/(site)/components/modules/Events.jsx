@@ -12,10 +12,10 @@ export default async function Events({ module }) {
   return (
     <div className="flex flex-col items-center gap-8 p-8" datatype="events">
       <h3 className="text-center">{module.title}</h3>
-      <div className="grid grid-cols-3 gap-y-4 max-w-[1000px]">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-y-4 max-w-[1000px]">
         {module.show == "custom" &&
           module?.events.map((event, i) => (
-            <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+            <BorderLines key={i} side="right" innerStyle="p-0">
               <EventListItem event={event} />
             </BorderLines>
           ))}
@@ -24,7 +24,7 @@ export default async function Events({ module }) {
           events
             .filter((_) => _.date >= date)
             .map((event, i) => (
-              <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+              <BorderLines key={i} side="right" innerStyle="p-0">
                 <EventListItem event={event} />
               </BorderLines>
             ))}
@@ -33,7 +33,7 @@ export default async function Events({ module }) {
           events
             .filter((_) => _.date < date)
             .map((event, i) => (
-              <BorderLines key={i} side={i % 3 === 2 ? "top" : "right"} innerStyle="p-0">
+              <BorderLines key={i} side="right" innerStyle="p-0">
                 <EventListItem event={event} />
               </BorderLines>
             ))}

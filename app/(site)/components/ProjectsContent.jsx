@@ -57,7 +57,7 @@ export default function ProjectsContent({ projects }) {
 
   return (
     <div>
-      <div className="p-8 text-darkGreen max-w-[1600px] mx-auto">
+      <div className="p-4 text-darkGreen max-w-[1200px] mx-auto">
         <h1>Projekter</h1>
         <BorderLines side="left" innerStyle="p-4">
           <Accordion title="Find by latest tags">
@@ -79,7 +79,7 @@ export default function ProjectsContent({ projects }) {
         {filteredItems.filter((_) => _.date >= date).length > 0 && (
           <div
             id="kommende-projekter"
-            className="scroll-mt-20 flex flex-col text-darkGreen p-8 max-w-[1600px] mx-auto"
+            className="max-w-[1200px] mx-auto gap-8 scroll-mt-20 flex flex-col text-darkGreen p-4"
           >
             <h2>Kommende Projekter</h2>
             <PaginatedItems
@@ -97,7 +97,7 @@ export default function ProjectsContent({ projects }) {
         {filteredItems.filter((_) => _.date < date).length > 0 && (
           <div
             id="forrige-projekter"
-            className="scroll-mt-20 flex flex-col gap-8 text-orangeAccent p-8 max-w-[1600px] mx-auto"
+            className="max-w-[1200px] mx-auto scroll-mt-20 flex flex-col gap-8 text-orangeAccent p-4 "
           >
             <h2>Forrige Projekter</h2>
             <PaginatedItems

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import RenderBlocks from "../RenderBlocks";
+import RenderPortableText from "../RenderPortableText";
 
 export default function NumberedInfoList({ module }) {
   return (
@@ -7,18 +7,22 @@ export default function NumberedInfoList({ module }) {
       {module?.infoList.map((info, i) => (
         <div
           key={i}
-          className={clsx("flex border-b border-black", (i + 1) % 2 == 0 && "flex-row-reverse")}
+          className={clsx(
+            "flex text-darkGreen",
+            i != module.infoList.length - 1 && "border-b border-darkGreen",
+            (i + 1) % 2 == 0 && "flex-row-reverse"
+          )}
         >
           <div
             className={clsx(
-              "text-[80px] w-1/4 flex justify-center font-bold py-8 items-start relative",
-              (i + 1) % 2 == 0 ? "border-l border-black" : "border-r border-black"
+              "w-1/4 flex justify-center font-bold items-start relative",
+              (i + 1) % 2 == 0 ? "border-l border-darkGreen" : "border-r border-darkGreen"
             )}
           >
-            <div className="sticky top-8">{i < 10 ? "0" + (i + 1) : i + 1}</div>
+            <h1 className="sticky py-8 top-20">{i < 10 ? "0" + (i + 1) : i + 1}</h1>
           </div>
-          <div className="flex flex-col w-1/2 px-4 py-8">
-            <RenderBlocks blocks={info.blocks} />
+          <div className="flex flex-col gap-4 w-3/4 md:w-1/2 px-4 py-8">
+            <RenderPortableText content={info.content} />
           </div>
         </div>
       ))}
