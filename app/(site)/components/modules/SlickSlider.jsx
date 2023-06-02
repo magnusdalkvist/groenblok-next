@@ -8,13 +8,13 @@ export default function SlickSlider({ module }) {
       {module?.sliders?.map((slider, i) => (
         <div className="py-24">
           <h3 className="font-chivo font-black text-orangeAccent py-10">{slider?.sliderTitle}</h3>
-          <div className="flex gap-10 justify-around items-center flex-wrap">
+          <div className="flex gap-20 items-center flex-wrap">
             {slider?.images?.map((image, i) => (
               <div key={i} className="">
                 <Image
                   src={image?.url}
-                  width={200}
-                  height={200}
+                  width={150}
+                  height={150}
                   alt={image?.alt}
                   className="rounded"
                   placeholder={image?.blurDataURL && "blur"}

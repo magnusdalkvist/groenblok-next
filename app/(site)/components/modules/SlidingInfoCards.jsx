@@ -11,30 +11,32 @@ export default function SlidingInfoCards({ module }) {
         <div className="infoCardsWrapper pt-28 pb-40 px-0 relative">
           {module?.cards.map((card, i) => {
             return (
-              <div key={i}>
-                <div className="flip-card rounded">
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front rounded">
-                      <h3 className="absolute z-10 bottom-[-50px] text-orangeAccent">
-                        {card.title}
-                      </h3>
-                      <Image
-                        src={card.image?.url}
-                        alt={card.image?.alt}
-                        width={card.image?.width}
-                        height={card.image?.height}
-                        className="relative rounded aspect-square object-cover"
-                        placeholder={card.image?.blurDataURL && "blur"}
-                        blurDataURL={card.image?.blurDataURL}
-                      />
-                    </div>
-                    <div className="flip-card-back p-8 rounded">
-                      <h4 className="text-orangeAccent pb-2">{card.subtitle}</h4>
-                      <p className="text-darkGreen p-6 pt-0">{card.description}</p>
+              <>
+                <div className="h-full">
+                  <div key={i} class="flip-card rounded">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front rounded">
+                        <h3 className="absolute z-10 bottom-0 p-4 text-orangeAccent">
+                          {card.title}
+                        </h3>
+                        <Image
+                          src={card.image?.url}
+                          alt={card.image?.alt}
+                          width={card.image?.width}
+                          height={card.image?.height}
+                          className="relative rounded object-cover"
+                          placeholder={card.image?.blurDataURL && "blur"}
+                          blurDataURL={card.image?.blurDataURL}
+                        />
+                      </div>
+                      <div class="flip-card-back p-8 rounded">
+                        <h4 className="text-orangeAccent pb-2">{card.subtitle}</h4>
+                        <p className="text-darkGreen p-6 pt-0">{card.description}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </>
             );
           })}
         </div>

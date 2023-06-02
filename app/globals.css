@@ -293,6 +293,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+  row-gap: 80px;
   justify-content: center;
 }
 
@@ -371,7 +372,7 @@ ul {
 .flip-card {
   background-color: transparent;
   width: 300px;
-  height: 300px;
+  height: 450px;
   perspective: 1000px;
 }
 
