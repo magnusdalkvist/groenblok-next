@@ -16,9 +16,9 @@ export default function SlidingInfoCards({ module }) {
                   <div key={i} class="flip-card rounded">
                     <div class="flip-card-inner">
                       <div class="flip-card-front rounded">
-                        <h3 className="absolute z-10 bottom-0 p-4 text-orangeAccent">
+                        <h4 className="absolute z-10 bottom-0 p-4 text-orangeAccent">
                           {card.title}
-                        </h3>
+                        </h4>
                         <Image
                           src={card.image?.url}
                           alt={card.image?.alt}
@@ -29,9 +29,9 @@ export default function SlidingInfoCards({ module }) {
                           blurDataURL={card.image?.blurDataURL}
                         />
                       </div>
-                      <div class="flip-card-back p-8 rounded">
-                        <h4 className="text-orangeAccent pb-2">{card.subtitle}</h4>
-                        <p className="text-darkGreen p-6 pt-0">{card.description}</p>
+                      <div class="flip-card-back p-2 rounded">
+                        <h5 className="text-orangeAccent pb-2">{card.subtitle}</h5>
+                        <p className="text-darkGreen p-2 pt-0">{card.description}</p>
                       </div>
                     </div>
                   </div>
