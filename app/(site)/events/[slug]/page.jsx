@@ -1,13 +1,31 @@
+"use client";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getEvent } from "../../../../sanity/fragments/sanity-utils";
 import RenderPortableText from "../../components/RenderPortableText";
+import { useRef } from "react";
 
 export default async function Event({ params, searchParams }) {
   const event = await getEvent(params.slug);
+  const theForm = useRef(null);
+
+  console.log(event);
 
   if (!event) {
     notFound();
+  }
+
+  function submit(e) {
+    // forhindre DOM'en i at genindlæses når der er klikket på submit
+    e.preventDefault();
+
+    // klader funktionen insertOrder() med køber-information som parameter
+    insertSignUp({
+      firstname: theForm.current.elements.firstName.value,
+      lastname: theForm.current.elements.lastName.value,
+      email: theForm.current.elements.email.value,
+      event: params.slug.value,
+    });
   }
 
   const { results } = await fetch(
@@ -38,20 +56,20 @@ export default async function Event({ params, searchParams }) {
           {event?.content && <RenderPortableText content={event?.content} />}
         </div>
         <div className="flex flex-col gap-4 md:gap-[50px]">
-          <form action="" className="bg-darkGreen rounded p-8">
+          <form action="" ref={theForm} className="bg-darkGreen rounded p-8" onSubmit={submit}>
             <h3 className="w-full text-center text-orangeAccent font-bold">Tilmeld</h3>
             <div className="max-w-[300px] flex flex-col mx-auto gap-4 items-end">
               <label className="text-yellowAccent w-full flex flex-col">
                 Fornavn
-                <input className="bg-lightBeige" name="firstName" type="text" />
+                <input className="bg-lightBeige" name="firstName" id="firstName" type="text" />
               </label>
               <label className="text-yellowAccent w-full flex flex-col">
                 Efternavn
-                <input className="bg-lightBeige" name="lastName" type="text" />
+                <input className="bg-lightBeige" name="lastName" id="lastName" type="text" />
               </label>
               <label className="text-yellowAccent w-full flex flex-col">
                 Email
-                <input className="bg-lightBeige" name="email" type="text" />
+                <input className="bg-lightBeige" name="email" id="email" type="text" />
               </label>
               <input
                 className="bg-orangeAccent cursor-pointer px-8 py-2"
