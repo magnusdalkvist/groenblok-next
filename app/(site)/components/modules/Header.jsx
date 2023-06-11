@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import BorderLines from "../BorderLines";
 
 function SubMenu(props) {
   return (
@@ -33,10 +32,12 @@ function SubMenu(props) {
   );
 }
 
-export default function Header({ module }) {
+export default function Header({ module, session }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [navOpen, setNavOpen] = useState(false);
   const [isMouseAtTop, setIsMouseAtTop] = useState(true);
+
+  console.log("session", session);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -71,6 +72,8 @@ export default function Header({ module }) {
 
   const opacity = isMouseAtTop ? 1 : 0;
 
+  const [hoverRef, isHovered] = useHover();
+
   return (
     <>
       <div
@@ -94,6 +97,17 @@ export default function Header({ module }) {
               </div>
             </Link>
           ))}
+          <Link
+            className="w-full text-h2 px-4 relative"
+            href="/login"
+            onClick={() => setNavOpen(false)}
+          >
+            {session ? session.user.email : "Log ind"}
+            <div className="absolute left-0 right-0 w-full">
+              <div className="h-[1px] w-full bg-lightBeige" />
+              <div className="h-[7px] w-[7px] bg-lightBeige translate-y-[-4px]" />
+            </div>
+          </Link>
         </div>
       </div>
       <div
@@ -152,6 +166,25 @@ export default function Header({ module }) {
                 </div>
               );
             })}
+            <div ref={hoverRef} className="h-full relative">
+              <Link
+                className={clsx(
+                  "flex flex-col h-full justify-center p-4 text-lightBeige",
+                  isHovered ? "text-orangeAccent" : "text-lightBeige"
+                )}
+                href={session ? "/konto" : "/login"}
+              >
+                <div className="relative">
+                  {session ? session.user.email : "Log ind"}
+                  {isHovered && (
+                    <>
+                      <div className="absolute -bottom-2 -left-2 -right-2 bg-orangeAccent h-[1px]" />
+                      <div className="absolute bottom-[-11px] -left-2 right-0 bg-orangeAccent h-[7px] w-[7px]" />
+                    </>
+                  )}
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
