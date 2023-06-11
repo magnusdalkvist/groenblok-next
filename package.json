@@ -14,10 +14,13 @@
     "@react-google-maps/api": "^2.18.1",
     "@sanity/google-maps-input": "^3.0.1",
     "@sanity/vision": "^3.10.3",
+    "@supabase/supabase-js": "^1.2.1",
+    "@supabase/ui": "^0.36.2",
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
     "dotenv": "^16.0.3",
     "embla-carousel-react": "^8.0.0-rc04",
+    "encoding": "^0.1.13",
     "instafeed.js": "^2.0.0",
     "next": "13.4.2",
     "next-sanity": "^4.3.2",
@@ -29,6 +32,7 @@
     "react-paginate": "^8.2.0",
     "sanity": "^3.10.3",
     "sanity-plugin-media": "^2.0.5",
+    "swr": "^2.0.0",
     "tailwindcss": "3.3.2"
   },
   "devDependencies": {
