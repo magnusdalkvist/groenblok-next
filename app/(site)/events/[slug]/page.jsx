@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getEvent } from "../../../../sanity/fragments/sanity-utils";
 import RenderPortableText from "../../components/RenderPortableText";
-import SignUpForm from "../../components/SignUpForm";
+import TilmeldingsForm from "../../components/TilmeldingsForm";
 
 export default async function Event({ params, searchParams }) {
   const event = await getEvent(params.slug);
@@ -39,7 +39,7 @@ export default async function Event({ params, searchParams }) {
           {event?.content && <RenderPortableText content={event?.content} />}
         </div>
         <div className="flex flex-col gap-4 md:gap-[50px]">
-          <SignUpForm type="event" slugName={slugName}></SignUpForm>
+          <TilmeldingsForm type="event" slugName={slugName}></TilmeldingsForm>
           <iframe
             width="auto"
             height="auto"

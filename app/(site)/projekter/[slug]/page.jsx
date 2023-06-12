@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import { getProject } from "../../../../sanity/fragments/sanity-utils";
 import RenderPortableText from "../../components/RenderPortableText";
-import { insertProjectSignUp } from "../../../db.jsx";
-import SignUpForm from "../../components/SignUpForm";
+import TilmeldingsForm from "../../components/TilmeldingsForm";
 
 export default async function Project({ params, searchParams }) {
   const project = await getProject(params.slug);
@@ -10,19 +9,6 @@ export default async function Project({ params, searchParams }) {
 
   if (!project) {
     notFound();
-  }
-
-  function submit(e) {
-    // forhindre DOM'en i at genindlæses når der er klikket på submit
-    e.preventDefault();
-
-    // kalder funktionen insertEventSignUp() med information som parameter
-    insertProjectSignUp({
-      firstname: theForm.current.elements.firstName.value,
-      lastname: theForm.current.elements.lastName.value,
-      email: theForm.current.elements.email.value,
-      projekt: project.slug.current,
-    });
   }
 
   const { results } = await fetch(
@@ -53,7 +39,7 @@ export default async function Project({ params, searchParams }) {
           {project?.content && <RenderPortableText content={project?.content} />}
         </div>
         <div className="flex flex-col gap-4 md:gap-[50px]">
-          <SignUpForm type="projekt" slugName={slugName}></SignUpForm>
+          <TilmeldingsForm type="projekt" slugName={slugName}></TilmeldingsForm>
           <iframe
             width="auto"
             height="auto"
