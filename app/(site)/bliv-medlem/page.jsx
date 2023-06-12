@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SignupForm from "../components/SignupForm";
+import SignUpForm from "../components/SignUpForm";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
@@ -14,7 +14,7 @@ export default async function page() {
     <div className="text-darkGreen p-4 flex flex-col gap-8 max-w-[1200px] mx-auto">
       <h1 className="text-orangeAccent">Gør en forskel. Bliv medlem.</h1>
       <div className="grid grid-cols-1 md:grid-cols-[1.5fr_minmax(auto,600px)] gap-8">
-        <SignupForm session={session} />
+        <SignUpForm session={session} />
         <div className="flex flex-col gap-4">
           <div className="w-3/4 max-w-[500px]">
             <h3>Det er gratis at være medlem</h3>
