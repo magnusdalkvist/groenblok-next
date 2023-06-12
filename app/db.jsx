@@ -1,7 +1,13 @@
 // sender tilmelding til vores database
-export function insertEventSignUp(payload) {
+export function insertSignUp(payload) {
   const accessKey = process.env.SUPABASE_ACCESS_KEY;
   console.log(payload);
+
+  let fetchUrl = "https://xdomqqucpwgndmwosmid.supabase.co/rest/v1/Events";
+
+  if ("projekt" in payload) {
+    fetchUrl = "https://xdomqqucpwgndmwosmid.supabase.co/rest/v1/Projekter";
+  }
 
   const options = {
     method: "POST",
@@ -14,29 +20,7 @@ export function insertEventSignUp(payload) {
     body: JSON.stringify(payload),
   };
 
-  fetch("https://xdomqqucpwgndmwosmid.supabase.co/rest/v1/Events", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-}
-
-// sender tilmelding til vores database
-export function insertProjectSignUp(payload) {
-  const accessKey = process.env.SUPABASE_ACCESS_KEY;
-  console.log(payload);
-
-  const options = {
-    method: "POST",
-    headers: {
-      apikey: accessKey,
-      Authorization: `Bearer ${accessKey}`,
-      "Content-Type": "application/json",
-      Prefer: "return=representation",
-    },
-    body: JSON.stringify(payload),
-  };
-
-  fetch("https://xdomqqucpwgndmwosmid.supabase.co/rest/v1/Projekter", options)
+  fetch(fetchUrl, options)
     .then((response) => response.json())
     .then((response) => console.log(response))
     .catch((err) => console.error(err));
