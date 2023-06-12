@@ -29,7 +29,7 @@ export default function LoginForm({ session }) {
   // fetched in a Server Component and passed down as a prop
   return (
     !session && (
-      <div className="flex items-center justify-center flex-1">
+      <div className="flex items-center justify-center flex-1 p-8">
         <div className="p-8 flex flex-col items-start gap-4 bg-darkGreen text-lightBeige rounded">
           <h3 className="text-orangeAccent">Log ind</h3>
           <label htmlFor="email" className="flex flex-col text-yellowAccent">
@@ -55,7 +55,7 @@ export default function LoginForm({ session }) {
             className="bg-orangeAccent text-darkGreen cursor-pointer px-8 py-2"
             onClick={handleSignIn}
           >
-            Sign in
+            Log ind
           </button>
           <a href="/bliv-medlem" className="hover:text-orangeAccent hover:underline">
             Ikke medlem?
