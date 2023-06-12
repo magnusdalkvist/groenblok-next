@@ -31,7 +31,7 @@ export default async function RootLayout({ children }) {
     <html lang="da">
       <body className={inter.className}>
         <Header module={sanitySettings.headerTemplate.modules[0]} session={session} />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 flex flex-col">{children}</main>
         <Footer module={sanitySettings.footerTemplate.modules[0]} />
       </body>
     </html>

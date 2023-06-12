@@ -37,7 +37,7 @@ export default function Header({ module, session }) {
   const [navOpen, setNavOpen] = useState(false);
   const [isMouseAtTop, setIsMouseAtTop] = useState(true);
 
-  console.log("session", session);
+  // console.log("session", session);
 
   const handleScroll = () => {
     const position = window.pageYOffset;

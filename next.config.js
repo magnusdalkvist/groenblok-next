@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ["localhost", "cdn.sanity.io", "i.ytimg.com"],
   },
   env: {
-    SUPABASE_ACCESS_KEY: process.env.SUPABASE_ACCESS_KEY,
+    SUPABASE_ACCESS_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   },
 };
 
