@@ -2,7 +2,7 @@ import InstagramFeed from "../InstagramFeed";
 
 export default function InstagramFeedComponent({ module }) {
   const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
-  console.log(accessToken);
+  // console.log(accessToken);
 
   const instafeedConfig = {
     get: "user",
