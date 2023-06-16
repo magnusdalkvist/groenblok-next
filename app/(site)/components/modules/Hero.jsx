@@ -97,14 +97,14 @@ export default function Hero({ module }) {
             );
           })}
           <div className="xl:hidden">
-            <BorderLines
+            {/* <BorderLines
               color="bg-lightBeige"
               side="left"
               innerStyle="p-4 flex flex-col gap-4 items-center justify-center"
             >
               <h3>Grøn Bloks arbejdsområder</h3>
               <p>Læs mere om hvordan du kan bidrage til Grøn Blok og rede verden</p>
-              {/* <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
                  <Button href="/events" type="trans-light" className="px-6 py-2 text-center">
                   EVENTS
                 </Button> 
@@ -118,8 +118,8 @@ export default function Hero({ module }) {
                 >
                   NYHEDER
                 </Button>
-              </div> */}
-            </BorderLines>
+              </div>
+            </BorderLines> */}
           </div>
         </div>
         <div className="relative max-w-[880px] inset-y-0 right-0 flex flex-col items-end text-right gap-4">
