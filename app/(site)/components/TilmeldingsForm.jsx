@@ -77,9 +77,7 @@ function TilmeldingsForm(props) {
             <h3 className="text-orangeAccent w-full text-center font-bold">
               {props.type === "event" ? "Tak for din tilmelding" : "Tak for din ansøgning"}
             </h3>
-            <p className="text-lightBeige p-4">
-              Du vil få en bekræftelse på mail. Her kan du også se flere oplysninger.
-            </p>
+
             <p className="text-lightBeige p-4">Vi glæder os til at se dig</p>
           </>
         ) : (
