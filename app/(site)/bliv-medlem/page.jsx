@@ -1,63 +1,20 @@
 import Image from "next/image";
+import SignUpForm from "../components/SignUpForm";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-export default function page() {
+export default async function page() {
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   return (
     <div className="text-darkGreen p-4 flex flex-col gap-8 max-w-[1200px] mx-auto">
       <h1 className="text-orangeAccent">Gør en forskel. Bliv medlem.</h1>
       <div className="grid grid-cols-1 md:grid-cols-[1.5fr_minmax(auto,600px)] gap-8">
-        <form action="" className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-4">
-            <label htmlFor="firstname" className="flex flex-col ">
-              Fornavn
-              <input
-                className="bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen"
-                type="text"
-                name="firstname"
-                id="firstname"
-                placeholder="John"
-              />
-            </label>
-            <label htmlFor="lastname" className="flex flex-col ">
-              Efternavn
-              <input
-                className="bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen"
-                type="text"
-                name="lastname"
-                id="lastname"
-                placeholder="Doe"
-              />
-            </label>
-          </div>
-          <label htmlFor="email" className="flex flex-col">
-            Email
-            <input
-              className="bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="john@doe.dk"
-            />
-          </label>
-          <div>
-            <label htmlFor="message" className="flex flex-col flex-1">
-              Hvad er dine mærkesager?
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <textarea
-                  name="message"
-                  id="message"
-                  rows={5}
-                  className="w-full sm:w-auto bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen flex-1"
-                  placeholder="Dyremishandling, vegetariske retter,"
-                />
-                <input
-                  type="submit"
-                  value={"BLIV MEDLEM"}
-                  className="bg-darkGreen text-lightBeige rounded py-2 px-6"
-                />
-              </div>
-            </label>
-          </div>
-        </form>
+        <SignUpForm session={session} />
         <div className="flex flex-col gap-4">
           <div className="w-3/4 max-w-[500px]">
             <h3>Det er gratis at være medlem</h3>

@@ -2,6 +2,7 @@
 import Image from "next/image";
 
 export default function SlickSlider({ module }) {
+
   return (
     <div className="py-40 px-24 green-gradient" datatype="slickSlider">
       {module?.sliders?.map((slider, i) => (

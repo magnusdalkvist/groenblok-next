@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getProject } from "../../../../sanity/fragments/sanity-utils";
 import RenderPortableText from "../../components/RenderPortableText";
+import TilmeldingsForm from "../../components/TilmeldingsForm";
 
 export default async function Project({ params, searchParams }) {
   const project = await getProject(params.slug);
+  const slugName = project.slug.current;
 
   if (!project) {
     notFound();
@@ -38,28 +39,7 @@ export default async function Project({ params, searchParams }) {
           {project?.content && <RenderPortableText content={project?.content} />}
         </div>
         <div className="flex flex-col gap-4 md:gap-[50px]">
-          <form action="" className="bg-darkGreen rounded p-8">
-            <h3 className="w-full text-center text-orangeAccent font-bold">Ansøg</h3>
-            <div className="max-w-[300px] flex flex-col mx-auto gap-4 items-end">
-              <label className="text-yellowAccent w-full flex flex-col">
-                Fornavn
-                <input className="bg-lightBeige" name="firstName" type="text" />
-              </label>
-              <label className="text-yellowAccent w-full flex flex-col">
-                Efternavn
-                <input className="bg-lightBeige" name="lastName" type="text" />
-              </label>
-              <label className="text-yellowAccent w-full flex flex-col">
-                Email
-                <input className="bg-lightBeige" name="email" type="text" />
-              </label>
-              <input
-                className="bg-orangeAccent cursor-pointer px-8 py-2"
-                type="submit"
-                value="ANSØG NU"
-              />
-            </div>
-          </form>
+          <TilmeldingsForm type="projekt" slugName={slugName}></TilmeldingsForm>
           <iframe
             width="auto"
             height="auto"
