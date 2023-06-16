@@ -10,13 +10,13 @@ export default defineType({
       name: "title",
       type: "string",
       title: "Title",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "description",
       type: "text",
       title: "Description",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
       rows: 3,
     }),
     //tags

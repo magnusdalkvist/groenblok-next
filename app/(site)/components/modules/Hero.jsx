@@ -15,6 +15,7 @@ export default function Hero({ module }) {
         placeholder={module.backgroundImage?.blurDataURL && "blur"}
         blurDataURL={module.backgroundImage?.blurDataURL}
         //prevents image from stretching in weird ways
+        priority={true}
       />
       <div className="absolute inset-0 bg-black opacity-30" />
       <div className="absolute inset-0">
@@ -24,7 +25,6 @@ export default function Hero({ module }) {
       <div className="max-w-[1200px] mx-auto z-10 flex flex-col-reverse justify-center xl:grid xl:grid-cols-[1.5fr_1fr] gap-8 p-4 pb-20 items-center flex-1 text-lightBeige">
         <div className="grid grid-cols-1 xl:grid-cols-3">
           {module?.grundprincipper?.map((grundprincip, i) => {
-            // console.log(grundprincip.content);
             let marginTop = 0;
 
             // Determine marginTop based on the index

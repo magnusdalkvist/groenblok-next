@@ -84,7 +84,7 @@ function AdviceItem(props) {
 }
 
 function VideoItem(props) {
-  const videoID = props.item?.url?.split("/").pop().split("=").pop();
+  const videoID = props.item?.url?.split("/").pop().split("=").pop().split("&")[0];
   return (
     <div className="flex flex-col gap-4 ">
       <Image

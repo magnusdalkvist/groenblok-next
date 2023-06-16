@@ -62,13 +62,15 @@ export default function Footer({ module }) {
           <div className="order-1 sm:order-none">
             <h5 className="font-bold">Tilmeld dig her</h5>
             <form className="flex flex-col">
-              <label htmlFor="email">Email</label>
-              <div className="flex gap-2 flex-col sm:flex-row">
-                <input
-                  type="email"
-                  name="email"
-                  className="border-2 border-darkGreen rounded bg-transparent p-1"
-                />
+              <div className="flex gap-2 flex-col sm:items-end sm:flex-row">
+                <label htmlFor="email" className="flex flex-col">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    className="border-2 border-darkGreen rounded bg-transparent p-1"
+                  />
+                </label>
                 <input
                   type="submit"
                   value="BLIV MEDLEM"
