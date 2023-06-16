@@ -28,7 +28,7 @@ export default function LoginForm({ session }) {
       <div className="flex items-center justify-center flex-1 p-8">
         <div className="p-8 flex flex-col items-start gap-4 bg-darkGreen text-lightBeige rounded">
           <h3>Hej {session.user.email},</h3>
-          <p>Her ser lidt tomt ud</p>
+          <p>Velkommen til</p>
           <button className="hover:text-orangeAccent hover:underline" onClick={handleSignOut}>
             Log ud
           </button>
