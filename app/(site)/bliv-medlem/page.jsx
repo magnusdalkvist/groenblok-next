@@ -63,10 +63,12 @@ export default async function page() {
               <div>
                 <h3>Giv din mening til kende</h3>
                 <p>
-                  Når du melder dig ind i GRØN BLOK, svarer du på hvilke grønne mærkesager du kæmper
-                  for at udvikle. <br /> <br />
-                  ■ Det gør du, så vi kan tematisere hvilke grønne tiltag danskerne ønsker at
-                  udvikle. <br /> <br /> ■ Meld dig ind nederst på siden
+                  Når du melder dig ind i GRØN BLOK, angiver du dine grønne mærkesager for at
+                  identificere de væsentligste fokusområder hos danskerne. <br /> <br />
+                  ■ Identifikation af mærkesager: Medlemmer angiver deres specifikke
+                  interesseområder inden for grøn omstilling. <br /> <br /> ■ Tematisering af
+                  tiltag: GRØN BLOK analyserer og prioriterer de grønne tiltag baseret på
+                  medlemmernes valg.
                 </p>
               </div>
             </div>
@@ -81,12 +83,14 @@ export default async function page() {
             </div>
             <div className="flex flex-col w-3/4 py-8 pr-4 border-r border-darkGreen">
               <div>
-                <h3>Giv din mening til kende</h3>
+                <h3>Vær en del af løsningen</h3>
                 <p>
-                  Når du melder dig ind i GRØN BLOK, svarer du på hvilke grønne mærkesager du kæmper
-                  for at udvikle. <br /> <br />
-                  ■ Det gør du, så vi kan tematisere hvilke grønne tiltag danskerne ønsker at
-                  udvikle. <br /> <br /> ■ Meld dig ind nederst på siden
+                  Du kan ansøge om at deltage i arbejdsgrupper bestående af frivillige og fagfolk
+                  for at udvikle konkrete løsningsforslag. <br /> <br />
+                  ■ Ansøgning om deltagelse: Interesserede kan ansøge og dele deres ekspertise og
+                  engagement. <br /> <br /> ■ Tværfagligt samarbejde: Arbejdsgrupperne udvikler
+                  løsningsforslag i samarbejde med relevante aktører på tværs af alder, ideologi og
+                  faglighed.
                 </p>
               </div>
             </div>
@@ -101,12 +105,15 @@ export default async function page() {
             </div>
             <div className="flex flex-col w-3/4 py-8 pl-4 border-l border-darkGreen">
               <div>
-                <h3>Giv din mening til kende</h3>
+                <h3>Skub konkrete tiltag igennem</h3>
                 <p>
-                  Når du melder dig ind i GRØN BLOK, svarer du på hvilke grønne mærkesager du kæmper
-                  for at udvikle. <br /> <br />
-                  ■ Det gør du, så vi kan tematisere hvilke grønne tiltag danskerne ønsker at
-                  udvikle. <br /> <br /> ■ Meld dig ind nederst på siden
+                  Efter udarbejdelsen af løsningsforslag fokuseres der på intensiv kommunikation og
+                  markedsføring for at opnå støtte og implementering at udarbejdede løsningsforslag{" "}
+                  <br /> <br />■ Intensiv kommunikation: Grøn Blok arbejder igennem event, SoMe og
+                  paid markedføring for at løsningsforslagene når ud til flest mulige mennesker
+                  udvikle. <br /> <br /> ■ Præsentation for beslutningstagere: Siden præsenteres
+                  forslagene for virksomheder, politikere og andre relevante aktører der kan hjælpe
+                  med implementering.
                 </p>
               </div>
             </div>
