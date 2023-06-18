@@ -103,7 +103,7 @@ export default function SignupForm({ session }) {
               id="message"
               rows={5}
               className="w-full sm:w-auto bg-transparent border border-darkGreen rounded px-2 placeholder-darkGreen flex-1"
-              placeholder="Dyremishandling, vegetariske retter,"
+              placeholder="Valgfrit"
             />
             <input
               type="submit"
